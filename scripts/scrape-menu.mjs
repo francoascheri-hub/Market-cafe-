@@ -60,7 +60,8 @@ const out = dayparts.map((dp) => ({
             if (!price) return [] // unpriced side/component (e.g. garnish) — skip
             priceSource = 'example'
           }
-          priceSource === 'listed' ? listed++ : example++
+          if (priceSource === 'listed') listed++
+          else example++
           return [
             {
               id: it.id,

@@ -28,6 +28,6 @@ export function pickupSlots(count = 6, from = new Date()): Date[] {
 }
 
 export const formatTime = (d: Date | string) =>
-  new Date(d).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+  new Date(d).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
 
 export const formatPrice = (n: number) => `$${n.toFixed(2)}`
