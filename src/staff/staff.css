@@ -1,0 +1,19 @@
+.staff-links { display: flex; gap: 16px; }
+.staff-page { max-width: 1200px; margin: 0 auto; padding: 16px; }
+.staff-group + .staff-group { margin-top: 24px; }
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+  align-items: start;
+}
+.staff-order-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.staff-order-number { font-size: 34px; line-height: 1; }
+.staff-order-name { font-size: 18px; font-weight: 600; }
+.staff-lines { margin: 0; padding: 0; list-style: none; font-size: 16px; }
+.staff-lines li + li { margin-top: 4px; }
+.staff-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.staff-meta select { font: inherit; font-weight: 600; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+.staff-footer { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--line); }
+.text-btn { background: none; border: 0; padding: 0; color: var(--green); text-decoration: underline; font-size: 14px; }
