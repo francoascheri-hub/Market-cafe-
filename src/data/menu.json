@@ -1,0 +1,1713 @@
+{
+  "cafe": "The Market Café (University Center, USF)",
+  "source": {
+    "url": "https://usf.cafebonappetit.com/cafe/the-market-cafe/2026-11-09/",
+    "vendor": "Bon Appétit Management Co. — usf.cafebonappetit.com",
+    "menuDate": "2026-11-09",
+    "scrapedAt": "2026-11-09T20:15:22.869Z",
+    "notes": "Items and listed prices are real, scraped from the source URL. Items with priceSource \"example\" had no price on the site and use a placeholder example price. Individual toppings/ingredients (tier 3) and unpriced sides are omitted."
+  },
+  "dayparts": [
+    {
+      "label": "Breakfast",
+      "start": "07:00",
+      "end": "10:30",
+      "stations": [
+        {
+          "name": "sunrise kettle",
+          "items": [
+            {
+              "id": "34831310",
+              "name": "steel cut oats",
+              "description": "",
+              "price": 4.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "34831315",
+              "name": "Arroz Con Leche (Rice with Milk)",
+              "description": "rice, cinnamon, salt, condensed milk, evaporated milk, whole milk, vanilla extract, raisins",
+              "price": 4.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            }
+          ]
+        },
+        {
+          "name": "griddle scramble special",
+          "items": [
+            {
+              "id": "36516165",
+              "name": "Market Grand Slam",
+              "description": "scrambled eggs tater tots two bacon Butter milk pancakes",
+              "price": 9.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "960"
+            }
+          ]
+        },
+        {
+          "name": "griddle",
+          "items": [
+            {
+              "id": "36516168",
+              "name": "buttermilk pancakes",
+              "description": "",
+              "price": 4.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk",
+                "Soy"
+              ],
+              "calories": "130"
+            },
+            {
+              "id": "6959725",
+              "name": "plain scrambled eggs",
+              "description": "",
+              "price": 3.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "180"
+            },
+            {
+              "id": "6959727",
+              "name": "hard-boiled eggs",
+              "description": "",
+              "price": 1.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Egg"
+              ],
+              "calories": "60"
+            },
+            {
+              "id": "6959715",
+              "name": "French toast",
+              "description": "",
+              "price": 2.25,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "130"
+            },
+            {
+              "id": "9336441",
+              "name": "tofu curry scramble",
+              "description": "",
+              "price": 3.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan",
+                "Soy"
+              ],
+              "calories": "70"
+            },
+            {
+              "id": "34805555",
+              "name": "steamed broccoli",
+              "description": "",
+              "price": 2.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "60"
+            },
+            {
+              "id": "19966971",
+              "name": "chicken apple sausage",
+              "description": "",
+              "price": 2,
+              "priceSource": "listed",
+              "dietary": [],
+              "calories": "120"
+            },
+            {
+              "id": "6959714",
+              "name": "pancakes",
+              "description": "",
+              "price": 2,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "210"
+            },
+            {
+              "id": "7017973",
+              "name": "cheesy eggs",
+              "description": "",
+              "price": 4.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Milk",
+                "Egg"
+              ],
+              "calories": "550"
+            },
+            {
+              "id": "6959716",
+              "name": "fried tater tots",
+              "description": "",
+              "price": 3.25,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "280"
+            },
+            {
+              "id": "6959723",
+              "name": "bacon",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "listed",
+              "dietary": [],
+              "calories": "45"
+            },
+            {
+              "id": "19748852",
+              "name": "Vegetarian Breakfast Sausage",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "90"
+            },
+            {
+              "id": "19966120",
+              "name": "steamed rice",
+              "description": "",
+              "price": 2.25,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "70"
+            }
+          ]
+        },
+        {
+          "name": "kettles",
+          "items": [
+            {
+              "id": "13289066",
+              "name": "Old Fashion Oats",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "320"
+            }
+          ]
+        },
+        {
+          "name": "pastries",
+          "items": [
+            {
+              "id": "36518335",
+              "name": "san francisco fine bakery gluten free danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518340",
+              "name": "san francisco fine bakery vegan danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518345",
+              "name": "bakery 350 banana walnut bread",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Tree Nut",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg"
+              ],
+              "calories": "240"
+            },
+            {
+              "id": "36518350",
+              "name": "bakery 350 chocolate chunk cookie",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "220"
+            },
+            {
+              "id": "36518355",
+              "name": "international pastry bear claw",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518360",
+              "name": "international pastry cranberry orange scone with nuts",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518365",
+              "name": "international pastry cheese croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518370",
+              "name": "international pastry chocolate raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518375",
+              "name": "international pastry glazed raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518380",
+              "name": "international pastry maple raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518385",
+              "name": "international pastry sugar raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518390",
+              "name": "international pastry poppy muffin",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518395",
+              "name": "international pastry cranberry muffin",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518400",
+              "name": "international pastry blueberry muffin",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518405",
+              "name": "international pastry raspberry peach scone",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518410",
+              "name": "international pastry blackberry scone",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518420",
+              "name": "international pastry ham & cheese croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518425",
+              "name": "international pastry spinach mushroom croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518430",
+              "name": "international pastry turkey & cheese croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518435",
+              "name": "international pastry almond croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518440",
+              "name": "international pastry raspberry danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518445",
+              "name": "international pastry cheese danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Lunch",
+      "start": "11:00",
+      "end": "16:00",
+      "stations": [
+        {
+          "name": "kettles",
+          "items": [
+            {
+              "id": "36539552",
+              "name": "African-inspired lentil & chicken soup",
+              "description": "house-made chicken stock (water, carrots, celery, chicken, garlic, leeks, onion, bouquet garni (parsley, leeks, bay leaf, thyme)), potato, mirepoix (onion, celery, carrots), butter, spinach, chicken, garlic, lentils (water, lentils yellow dry), thyme, salt, rice bran oil, oregano, parsley, black pepper",
+              "price": 4.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Milk"
+              ],
+              "calories": "130"
+            },
+            {
+              "id": "36528726",
+              "name": "Tomato kale and lentil soup",
+              "description": "water, tomatoes, kale, lentils, potato, onion, carrot, celery, tomato paste, oregano, olive oil, garlic, salt, black pepper",
+              "price": 4.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "110"
+            }
+          ]
+        },
+        {
+          "name": "grill specials",
+          "items": [
+            {
+              "id": "36107668",
+              "name": "grilled chicken cuban sandwich",
+              "description": "multi-grain bread, chicken (chicken breast, cooking spray), smoked ham, dill pickles, onion, mustard, light mayonnaise",
+              "price": 14.8,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Egg",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "290"
+            },
+            {
+              "id": "11646532",
+              "name": "avocado",
+              "description": "",
+              "price": 2.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "45"
+            },
+            {
+              "id": "11646506",
+              "name": "roasted vegetables",
+              "description": "",
+              "price": 4.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "70"
+            },
+            {
+              "id": "7017963",
+              "name": "Halal chicken breast sandwich",
+              "description": "",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Halal",
+                "Wheat/Gluten",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "340"
+            },
+            {
+              "id": "13478958",
+              "name": "grilled cheese",
+              "description": "",
+              "price": 5.25,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Farm to Fork",
+                "Wheat/Gluten",
+                "Milk",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "370"
+            },
+            {
+              "id": "11851293",
+              "name": "Impossible burger",
+              "description": "",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan",
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "480"
+            },
+            {
+              "id": "6959671",
+              "name": "chicken tenders",
+              "description": "",
+              "price": 7.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "240"
+            },
+            {
+              "id": "11646501",
+              "name": "French/Curly fries",
+              "description": "",
+              "price": 4.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "220"
+            },
+            {
+              "id": "7061466",
+              "name": "side of bacon",
+              "description": "",
+              "price": 2.5,
+              "priceSource": "listed",
+              "dietary": [],
+              "calories": "80"
+            },
+            {
+              "id": "7027340",
+              "name": "all-beef hot dog",
+              "description": "1 each",
+              "price": 6,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten"
+              ],
+              "calories": "500"
+            },
+            {
+              "id": "7028619",
+              "name": "Tuna melt",
+              "description": "",
+              "price": 8.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Seafood Watch",
+                "Fish",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "730"
+            },
+            {
+              "id": "7017798",
+              "name": "Mindful Meats Beef Burger*",
+              "description": "marin sun farms",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Farm to Fork",
+                "Raw/Undercooked",
+                "Wheat/Gluten",
+                "Egg",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "470"
+            },
+            {
+              "id": "7017948",
+              "name": "Turkey Burger",
+              "description": "diestel family turkey ranch",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "510"
+            }
+          ]
+        },
+        {
+          "name": "picante",
+          "items": [
+            {
+              "id": "36515870",
+              "name": "build your own burrito or bowl",
+              "description": "",
+              "price": 12,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            }
+          ]
+        },
+        {
+          "name": "Pizza",
+          "items": [
+            {
+              "id": "36445762",
+              "name": "chicken bacon ranch pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, chicken (chicken breast, oil), ranch dressing (low fat buttermilk, mayonnaise, sour cream, thyme, salt, black pepper, oregano, onion powder, garlic, parsley), onion, bacon, spinach, oil",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk",
+                "Egg"
+              ],
+              "calories": "880"
+            },
+            {
+              "id": "36512254",
+              "name": "southwestern chorizo pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), chorizo sausage, mozzarella cheese, salsa (tomatoes, onion, lime juice, cilantro, black pepper, salt, chili peppers), pepper jack cheese, pizza sauce (tomato, olive oil, salt, sugar), caramelized onions (onion, oil)",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "510"
+            },
+            {
+              "id": "36512287",
+              "name": "roast mushroom & truffle ricotta pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, ricotta cheese, mushroom (mushrooms button, oil), olive oil, truffle oil, rosemary",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "580"
+            },
+            {
+              "id": "36512184",
+              "name": "italian napa valley rustic sandwich",
+              "description": "hoagie roll, balsamic vinegar, pepperoncini, pastrami, salami, capicola, pepperoni, tomatoes, leaf lettuce",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten"
+              ],
+              "calories": "550"
+            },
+            {
+              "id": "36512189",
+              "name": "cheese focaccia pizza",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "340"
+            },
+            {
+              "id": "36512194",
+              "name": "pepperoni pizza on foccacia",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "480"
+            }
+          ]
+        },
+        {
+          "name": "sambal",
+          "items": [
+            {
+              "id": "36528604",
+              "name": "vietnamese style pho gai - chicken and rice noodle soup",
+              "description": "rice noodle with oil (water, rice noodles, oil), chicken, water, onion, sugar, salt, cilantro, basil, cinnamon, fish sauce, ginger root, cardamom, coriander, black pepper, star anise",
+              "price": 16.85,
+              "priceSource": "listed",
+              "dietary": [
+                "Farm to Fork",
+                "Halal",
+                "Fish"
+              ],
+              "calories": "760"
+            },
+            {
+              "id": "36528607",
+              "name": "vegan style pho with tofu",
+              "description": "house-made vegetable stock (water, onion, carrots, mushrooms button, celery, garlic, bay leaf), rice noodle with oil (water, rice noodles, oil), mushrooms, onion, tofu, green onion, chili peppers, low-sodium made without gluten soy sauce, garlic, cilantro, ginger root, basil, mint, brown sugar, oil, lime juice, salt, coriander, black pepper, cloves",
+              "price": 15.85,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan",
+                "Soy"
+              ],
+              "calories": "270"
+            }
+          ]
+        },
+        {
+          "name": "don's deli sandwiches",
+          "items": [
+            {
+              "id": "36438753",
+              "name": "cranberry chicken salad crunch sandwich",
+              "description": "whole wheat bread, chicken salad (chicken, celery, mayonnaise, oil, black pepper, salt), lettuce, pumpkin seeds, dried cranberries",
+              "price": 12.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Farm to Fork",
+                "Halal",
+                "Wheat/Gluten",
+                "Egg",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "460"
+            },
+            {
+              "id": "36512148",
+              "name": "don's sandbox salad",
+              "description": "have your favorite sandwich toppings chopped, mixed with shredded lettuce and placed inside a box",
+              "price": 10,
+              "priceSource": "example",
+              "dietary": [],
+              "calories": ""
+            },
+            {
+              "id": "36512161",
+              "name": "caesar salad",
+              "description": "lettuce, parmesan cheese, panko breadcrumbs, black pepper",
+              "price": 6,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg"
+              ],
+              "calories": "290"
+            }
+          ]
+        },
+        {
+          "name": "hand fruit",
+          "items": [
+            {
+              "id": "7062551",
+              "name": "apple",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "35"
+            },
+            {
+              "id": "7062552",
+              "name": "banana",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "130"
+            },
+            {
+              "id": "7062559",
+              "name": "mandarin oranges",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "10"
+            },
+            {
+              "id": "7062560",
+              "name": "oranges",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "30"
+            },
+            {
+              "id": "7062561",
+              "name": "peaches",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "25"
+            },
+            {
+              "id": "7062563",
+              "name": "pears",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "40"
+            },
+            {
+              "id": "7062566",
+              "name": "plums",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "30"
+            }
+          ]
+        },
+        {
+          "name": "beverage",
+          "items": [
+            {
+              "id": "8204915",
+              "name": "fruit | vegetable | herb spa water",
+              "description": "",
+              "price": 3,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "0"
+            }
+          ]
+        },
+        {
+          "name": "pastries",
+          "items": [
+            {
+              "id": "36518335",
+              "name": "san francisco fine bakery gluten free danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518340",
+              "name": "san francisco fine bakery vegan danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518345",
+              "name": "bakery 350 banana walnut bread",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Tree Nut",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg"
+              ],
+              "calories": "240"
+            },
+            {
+              "id": "36518350",
+              "name": "bakery 350 chocolate chunk cookie",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "220"
+            },
+            {
+              "id": "36518355",
+              "name": "international pastry bear claw",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518360",
+              "name": "international pastry cranberry orange scone with nuts",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518365",
+              "name": "international pastry cheese croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518370",
+              "name": "international pastry chocolate raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518375",
+              "name": "international pastry glazed raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518380",
+              "name": "international pastry maple raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518385",
+              "name": "international pastry sugar raised donut",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518390",
+              "name": "international pastry poppy muffin",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518395",
+              "name": "international pastry cranberry muffin",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518400",
+              "name": "international pastry blueberry muffin",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518405",
+              "name": "international pastry raspberry peach scone",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518410",
+              "name": "international pastry blackberry scone",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518420",
+              "name": "international pastry ham & cheese croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518425",
+              "name": "international pastry spinach mushroom croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518430",
+              "name": "international pastry turkey & cheese croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518435",
+              "name": "international pastry almond croissant",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518440",
+              "name": "international pastry raspberry danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            },
+            {
+              "id": "36518445",
+              "name": "international pastry cheese danish",
+              "description": "",
+              "price": 3.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegetarian",
+                "Information Unavailable"
+              ],
+              "calories": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Dinner",
+      "start": "16:30",
+      "end": "21:00",
+      "stations": [
+        {
+          "name": "kettles",
+          "items": [
+            {
+              "id": "36539552",
+              "name": "African-inspired lentil & chicken soup",
+              "description": "house-made chicken stock (water, carrots, celery, chicken, garlic, leeks, onion, bouquet garni (parsley, leeks, bay leaf, thyme)), potato, mirepoix (onion, celery, carrots), butter, spinach, chicken, garlic, lentils (water, lentils yellow dry), thyme, salt, rice bran oil, oregano, parsley, black pepper",
+              "price": 4.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Milk"
+              ],
+              "calories": "130"
+            }
+          ]
+        },
+        {
+          "name": "grill specials",
+          "items": [
+            {
+              "id": "36107668",
+              "name": "grilled chicken cuban sandwich",
+              "description": "multi-grain bread, chicken (chicken breast, cooking spray), smoked ham, dill pickles, onion, mustard, light mayonnaise",
+              "price": 14.8,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Egg",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "290"
+            },
+            {
+              "id": "11646532",
+              "name": "avocado",
+              "description": "",
+              "price": 2.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "45"
+            },
+            {
+              "id": "11646506",
+              "name": "roasted vegetables",
+              "description": "",
+              "price": 4.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "70"
+            },
+            {
+              "id": "7017963",
+              "name": "Halal chicken breast sandwich",
+              "description": "",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Halal",
+                "Wheat/Gluten",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "340"
+            },
+            {
+              "id": "13478958",
+              "name": "grilled cheese",
+              "description": "",
+              "price": 5.25,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Farm to Fork",
+                "Wheat/Gluten",
+                "Milk",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "370"
+            },
+            {
+              "id": "11851293",
+              "name": "Impossible burger",
+              "description": "",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan",
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "480"
+            },
+            {
+              "id": "6959671",
+              "name": "chicken tenders",
+              "description": "",
+              "price": 7.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "240"
+            },
+            {
+              "id": "11646501",
+              "name": "French/Curly fries",
+              "description": "",
+              "price": 4.75,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "220"
+            },
+            {
+              "id": "7061466",
+              "name": "side of bacon",
+              "description": "",
+              "price": 2.5,
+              "priceSource": "listed",
+              "dietary": [],
+              "calories": "80"
+            },
+            {
+              "id": "7027340",
+              "name": "all-beef hot dog",
+              "description": "1 each",
+              "price": 6,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten"
+              ],
+              "calories": "500"
+            },
+            {
+              "id": "7028619",
+              "name": "Tuna melt",
+              "description": "",
+              "price": 8.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Seafood Watch",
+                "Fish",
+                "Wheat/Gluten",
+                "Milk",
+                "Egg",
+                "Soy"
+              ],
+              "calories": "730"
+            },
+            {
+              "id": "7017798",
+              "name": "Mindful Meats Beef Burger*",
+              "description": "marin sun farms",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Farm to Fork",
+                "Raw/Undercooked",
+                "Wheat/Gluten",
+                "Egg",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "470"
+            },
+            {
+              "id": "7017948",
+              "name": "Turkey Burger",
+              "description": "diestel family turkey ranch",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "510"
+            }
+          ]
+        },
+        {
+          "name": "picante",
+          "items": [
+            {
+              "id": "36515870",
+              "name": "build your own burrito or bowl",
+              "description": "",
+              "price": 12,
+              "priceSource": "example",
+              "dietary": [
+                "Information Unavailable"
+              ],
+              "calories": ""
+            }
+          ]
+        },
+        {
+          "name": "Pizza",
+          "items": [
+            {
+              "id": "36445762",
+              "name": "chicken bacon ranch pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, chicken (chicken breast, oil), ranch dressing (low fat buttermilk, mayonnaise, sour cream, thyme, salt, black pepper, oregano, onion powder, garlic, parsley), onion, bacon, spinach, oil",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk",
+                "Egg"
+              ],
+              "calories": "880"
+            },
+            {
+              "id": "36512254",
+              "name": "southwestern chorizo pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), chorizo sausage, mozzarella cheese, salsa (tomatoes, onion, lime juice, cilantro, black pepper, salt, chili peppers), pepper jack cheese, pizza sauce (tomato, olive oil, salt, sugar), caramelized onions (onion, oil)",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "510"
+            },
+            {
+              "id": "36512287",
+              "name": "roast mushroom & truffle ricotta pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, ricotta cheese, mushroom (mushrooms button, oil), olive oil, truffle oil, rosemary",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "580"
+            },
+            {
+              "id": "36512184",
+              "name": "italian napa valley rustic sandwich",
+              "description": "hoagie roll, balsamic vinegar, pepperoncini, pastrami, salami, capicola, pepperoni, tomatoes, leaf lettuce",
+              "price": 10.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten"
+              ],
+              "calories": "550"
+            },
+            {
+              "id": "36512189",
+              "name": "cheese focaccia pizza",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "340"
+            },
+            {
+              "id": "36512194",
+              "name": "pepperoni pizza on foccacia",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "480"
+            }
+          ]
+        },
+        {
+          "name": "classics dinner",
+          "items": [
+            {
+              "id": "36438825",
+              "name": "filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",
+              "description": "chicken (chicken, oil, black pepper, salt), house-made chicken stock (water, carrots, celery, chicken, garlic, leeks, onion, bouquet garni (parsley, leeks, bay leaf, thyme)), rice noodles, carrot, cabbage, celery, onion, low-sodium made without gluten soy sauce, snow peas, mushroom soy sauce, oil, garlic",
+              "price": 16.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Soy"
+              ],
+              "calories": "380"
+            },
+            {
+              "id": "36438828",
+              "name": "tofu stir fry pancit bihon",
+              "description": "tofu, rice noodles, cabbage, onion, vegan oyster flavored sauce, carrot, low-sodium made without gluten tamari, vegan fish sauce, soy sauce, green onion, garlic, cornstarch, ginger root, sugar, sesame oil, pepper",
+              "price": 15.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan",
+                "Wheat/Gluten",
+                "Soy",
+                "Sesame"
+              ],
+              "calories": "260"
+            }
+          ]
+        },
+        {
+          "name": "sambal after dark",
+          "items": [
+            {
+              "id": "36515958",
+              "name": "thai-inspired yellow curry chicken",
+              "description": "chicken, coconut milk, water, yellow curry paste, lime juice, cornstarch, oil, sugar, shallots, turmeric, garlic, lime leaves, salt, garam masala, ginger root, curry powder",
+              "price": 16.85,
+              "priceSource": "listed",
+              "dietary": [
+                "Soy"
+              ],
+              "calories": "280"
+            },
+            {
+              "id": "36515959",
+              "name": "thai style yellow coconut tofu curry",
+              "description": "potato, onion, carrot, tofu, coconut milk, yellow curry paste, oil, vegan fish sauce, lime juice, salt, ginger",
+              "price": 16.85,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegan",
+                "Soy"
+              ],
+              "calories": "300"
+            }
+          ]
+        },
+        {
+          "name": "hand fruit",
+          "items": [
+            {
+              "id": "7062551",
+              "name": "apple",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "35"
+            },
+            {
+              "id": "7062552",
+              "name": "banana",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "130"
+            },
+            {
+              "id": "7062559",
+              "name": "mandarin oranges",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "10"
+            },
+            {
+              "id": "7062560",
+              "name": "oranges",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "30"
+            },
+            {
+              "id": "7062561",
+              "name": "peaches",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "25"
+            },
+            {
+              "id": "7062563",
+              "name": "pears",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "40"
+            },
+            {
+              "id": "7062566",
+              "name": "plums",
+              "description": "",
+              "price": 1.5,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "30"
+            }
+          ]
+        },
+        {
+          "name": "beverage",
+          "items": [
+            {
+              "id": "8204915",
+              "name": "fruit | vegetable | herb spa water",
+              "description": "",
+              "price": 3,
+              "priceSource": "example",
+              "dietary": [
+                "Vegan"
+              ],
+              "calories": "0"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
