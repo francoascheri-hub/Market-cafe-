@@ -1,4 +1,5 @@
-export type PriceSource = 'listed' | 'example'
+// listed = on the Bon Appétit site · example = placeholder (not on the site) · team = given by the team (e.g. guacamole +$1.35)
+export type PriceSource = 'listed' | 'example' | 'team'
 
 export interface MenuItem {
   id: string
@@ -8,6 +9,8 @@ export interface MenuItem {
   priceSource: PriceSource // 'example' = not on the Bon Appétit site, placeholder price
   dietary: string[]
   calories: string
+  builder?: boolean // true = opens the burrito/bowl builder instead of adding directly
+  seenOn?: string[] // dates (YYYY-MM-DD) the item was on the site, for items gathered across days (pizzas)
 }
 
 export interface Station {
@@ -22,10 +25,29 @@ export interface Daypart {
   stations: Station[]
 }
 
+export interface BuilderOption {
+  id: string
+  name: string
+  price: number // added to the base price
+  priceSource: PriceSource
+  kind: 'everyday' | 'special' | 'vegetarian' // special = a rotating daily special seen on one of the scanned days
+}
+
+export interface BurritoBuilder {
+  basePrice: number
+  basePriceSource: PriceSource
+  baseSourceItem: string // site item the base price comes from ("burrito bowl")
+  types: string[] // ["Burrito", "Bowl"]
+  proteins: BuilderOption[]
+  guacamole: { price: number; priceSource: PriceSource }
+  toppings: string[] // free
+}
+
 export interface Menu {
   cafe: string
-  source: { url: string; vendor: string; menuDate: string; scrapedAt: string; notes: string }
+  source: { url: string; vendor: string; menuDate: string; scrapedAt: string; scannedDates: string[]; notes: string }
   dayparts: Daypart[]
+  burritoBuilder: BurritoBuilder
 }
 
 export interface OrderLine {
@@ -34,11 +56,12 @@ export interface OrderLine {
   price: number
   priceSource: PriceSource
   qty: number
+  details?: string // chosen build, e.g. "Bowl · Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese"
 }
 
 export type OrderStatus = 'received' | 'preparing' | 'ready' | 'picked-up'
 
-export type PaymentMethod = 'dons-dollars' | 'flexi' | 'meal-swipe'
+export type PaymentMethod = 'dons-dollars' | 'flexi'
 
 export interface Student {
   name: string

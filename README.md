@@ -29,16 +29,16 @@ Other commands: `npm run e2e` (drives the whole demo in headless Chrome, checks 
 
 ## Demo script
 
-1. **Student** (`/#/`): sign in with the demo USF ID, add items, tap **Checkout**, pick a pickup slot (e.g. 12:45), pay with Dons Dollars / Flexi / Meal swipe. You get an order number (e.g. **#201**) and a **cubby number**.
+1. **Student** (`/#/`): sign in with the demo USF ID, add items (or **build a burrito or bowl**), tap **Checkout**, pick a pickup slot (e.g. 12:45), pay with Dons Dollars or Flexi. You get an order number (e.g. **#201**) and a **cubby number**.
 2. **Staff** (`/#/staff`): the order shows up instantly under its pickup slot. Tap **Start preparing**, then **Mark ready**. Cubbies can be reassigned.
 3. **Ready board** (`/#/board`): the number appears under **READY FOR PICKUP** with its cubby. The student's screen switches to **READY** too.
 4. Staff taps **Picked up** and the cubby frees up. Use **Add sample order** and **Reset demo** at the bottom of the staff view to set up a demo quickly.
 
 ## Screenshots
 
-| Sign in | Menu | Checkout | Confirmation |
-|---|---|---|---|
-| ![](docs/screenshots/1-sign-in.png) | ![](docs/screenshots/2-menu.png) | ![](docs/screenshots/3-checkout.png) | ![](docs/screenshots/4-confirmation.png) |
+| Sign in | Menu | Burrito / bowl builder | Checkout | Confirmation |
+|---|---|---|---|---|
+| ![](docs/screenshots/1-sign-in.png) | ![](docs/screenshots/2-menu.png) | ![](docs/screenshots/2b-builder.png) | ![](docs/screenshots/3-checkout.png) | ![](docs/screenshots/4-confirmation.png) |
 
 | Staff view | Ready board |
 |---|---|
@@ -47,11 +47,26 @@ Other commands: `npm run e2e` (drives the whole demo in headless Chrome, checks 
 ## Menu data (real, scraped)
 
 - **Source:** Bon Appétit's public USF menu for The Market Café, `https://usf.cafebonappetit.com/cafe/the-market-cafe/<date>/`
-- **Saved to:** [`src/data/menu.json`](src/data/menu.json). It includes `source.url`, `source.menuDate` and `source.scrapedAt`.
-- **Scraper:** [`scripts/scrape-menu.mjs`](scripts/scrape-menu.mjs). It reads the menu JSON that the page embeds (`Bamco.menu_items`, `Bamco.dayparts`). Run `npm run scrape` for today's menu or `npm run scrape -- 2026-11-12` for a specific date.
-- **Real:** every item name, station, daypart (Breakfast 7:00–10:30, Lunch 11:00–4:00, Dinner 4:30–9:00), dietary tags, and every price marked as listed.
-- **Placeholder:** some items have no price on the site (pastries, hand fruit, spa water, build-your-own burrito/bowl, buttermilk pancakes, Don's sandbox salad). They are kept with `"priceSource": "example"` and shown in the app as **"example price"**. Individual toppings/ingredients and unpriced sides/garnishes are left out.
-- The menu changes daily, so re-run the scraper before a demo if you want that day's menu.
+- **Saved to:** [`src/data/menu.json`](src/data/menu.json). It includes `source.url`, `source.menuDate`, `source.scannedDates` and `source.scrapedAt`.
+- **Scraper:** [`scripts/scrape-menu.mjs`](scripts/scrape-menu.mjs). It reads the menu JSON that each page embeds (`Bamco.menu_items`, `Bamco.dayparts`). Run `npm run scrape` for today or `npm run scrape -- 2026-11-12` for a specific date. The daily menu comes from that date. Pizza types and burrito/bowl proteins are collected from the 7 days before and 4 days after it.
+- **Current data:** daily menu from 2026-11-09. Dates scanned: 2026-11-02 to 2026-11-13.
+
+### What is real and what is not
+
+| Part | Source | Price |
+|---|---|---|
+| Item names, stations, meal periods (Breakfast 7:00–10:30, Lunch 11:00–4:00, Dinner 4:30–9:00), dietary tags | Site | — |
+| Items with a price on the site | Site | **listed** |
+| Pastries, hand fruit, spa water, buttermilk pancakes, Don's sandbox salad | Site (no price) | **example price** |
+| **Pizza:** the 8 pizza types from the scanned dates, all **$6.50** | Site | **listed** |
+| **Burrito / bowl base:** **$6.25**, from the site's "burrito bowl" item. The same base is used for a burrito. | Site | **listed** |
+| **Everyday proteins:** Carne asada, Chicken tinga, Mushroom tofu mojo, Pork carnitas, each **+$3.00** | Site | **listed** |
+| **Daily-special proteins** seen on the scanned dates (Beef birria, Chicken a la diabla and Mushroom birria from 2026-11-02 to 11-06; Cactus asado and Pork chili colorado from 2026-11-09 to 11-13), +$3.00 | Site (no price) | **example price** |
+| Vegetarian (no meat) option, +$0.00 | Team | **example price** |
+| Guacamole **+$1.35** | Team | team-provided |
+| Beans yes/no, rice yes/no, free toppings: lettuce, cheese, sour cream, hot salsa (salsa picante), pico de gallo, salsa verde | Team | free |
+
+Items whose price is marked `"priceSource": "example"` are labelled **"example price"** in the app. Individual toppings/ingredients and unpriced sides/garnishes are left off the item list. The daily menu changes, so re-run the scraper before a demo.
 
 ## Tech
 

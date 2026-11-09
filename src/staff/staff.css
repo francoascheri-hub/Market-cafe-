@@ -17,3 +17,4 @@
 .staff-meta select { font: inherit; font-weight: 600; padding: 4px 6px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
 .staff-footer { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; margin-top: 32px; padding-top: 12px; border-top: 1px solid var(--line); }
 .text-btn { background: none; border: 0; padding: 0; color: var(--green); text-decoration: underline; font-size: 14px; }
+.staff-details { font-size: 13px; color: var(--muted); margin-left: 1.4em; }

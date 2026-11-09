@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { formatPrice } from '../menu'
-import type { Daypart, MenuItem, Order, Station } from '../types'
+import type { Daypart, MenuItem, Order, OrderLine, Station } from '../types'
 import { type Cart, STATUS_LABEL, cartLines, totalLabel } from './cart'
 
 // Positive labels only; allergens would clutter the rows.
@@ -20,13 +20,25 @@ interface Props {
   activeOrder?: Order
   onOpenOrder: (id: string) => void
   onCheckout: () => void
+  onBuild: () => void
 }
 
-export default function MenuScreen({ daypart, cart, setCart, activeOrder, onOpenOrder, onCheckout }: Props) {
+interface RowActions {
+  change: (id: string, d: number) => void
+  onBuild: () => void
+  removeBuild: (b: OrderLine) => void
+}
+
+export default function MenuScreen({ daypart, cart, setCart, activeOrder, onOpenOrder, onCheckout, onBuild }: Props) {
   const lines = cartLines(cart)
   const count = lines.reduce((n, l) => n + l.qty, 0)
   const change = (id: string, d: number) =>
-    setCart((c) => ({ ...c, [id]: Math.max(0, (c[id] ?? 0) + d) }))
+    setCart((c) => ({ ...c, items: { ...c.items, [id]: Math.max(0, (c.items[id] ?? 0) + d) } }))
+  const actions: RowActions = {
+    change,
+    onBuild,
+    removeBuild: (b) => setCart((c) => ({ ...c, builds: c.builds.filter((x) => x !== b) })),
+  }
 
   return (
     <>
@@ -43,7 +55,7 @@ export default function MenuScreen({ daypart, cart, setCart, activeOrder, onOpen
           <div className="accent-bar" />
         </div>
         {daypart.stations.map((s) => (
-          <StationCard key={s.name} station={s} cart={cart} change={change} />
+          <StationCard key={s.name} station={s} cart={cart} actions={actions} />
         ))}
       </main>
       <div className="bottom-bar">
@@ -55,13 +67,20 @@ export default function MenuScreen({ daypart, cart, setCart, activeOrder, onOpen
   )
 }
 
-function StationCard({ station, cart, change }: { station: Station; cart: Cart; change: (id: string, d: number) => void }) {
+function StationCard({ station, cart, actions }: { station: Station; cart: Cart; actions: RowActions }) {
   const collapsible = isPastries(station)
   const [open, setOpen] = useState(!collapsible)
   return (
     <section className="card">
       <span className="label">{station.name}</span>
-      {open && station.items.map((i) => <ItemRow key={i.id} item={i} qty={cart[i.id] ?? 0} change={change} />)}
+      {open &&
+        station.items.map((i) =>
+          i.builder ? (
+            <BuilderRow key={i.id} item={i} builds={cart.builds.filter((b) => b.itemId === i.id)} actions={actions} />
+          ) : (
+            <ItemRow key={i.id} item={i} qty={cart.items[i.id] ?? 0} change={actions.change} />
+          ),
+        )}
       {collapsible && (
         <button className="st-toggle" onClick={() => setOpen(!open)}>
           {open ? 'Hide' : `Show ${station.items.length}`} {station.name}
@@ -95,5 +114,35 @@ function ItemRow({ item, qty, change }: { item: MenuItem; qty: number; change: (
         )}
       </div>
     </div>
+  )
+}
+
+// Opens the builder; builds already in the cart are listed below with a remove button.
+function BuilderRow({ item, builds, actions }: { item: MenuItem; builds: OrderLine[]; actions: RowActions }) {
+  return (
+    <>
+      <div className="st-row">
+        <div className="st-row-main">
+          <div className="st-name">{item.name}</div>
+          <div>from {formatPrice(item.price)}</div>
+        </div>
+        <div className="st-qty">
+          <button className="st-add" aria-label={item.name} onClick={actions.onBuild}>+</button>
+        </div>
+      </div>
+      {builds.map((b, i) => (
+        <div key={i} className="st-build">
+          <div className="st-row-main">
+            <div className="st-name">
+              {b.name} · {formatPrice(b.price)}
+            </div>
+            <div className="st-small">{b.details}</div>
+          </div>
+          <div className="st-qty">
+            <button aria-label={`Remove ${b.name}: ${b.details}`} onClick={() => actions.removeBuild(b)}>–</button>
+          </div>
+        </div>
+      ))}
+    </>
   )
 }

@@ -4,8 +4,22 @@
     "url": "https://usf.cafebonappetit.com/cafe/the-market-cafe/2026-11-09/",
     "vendor": "Bon Appétit Management Co. — usf.cafebonappetit.com",
     "menuDate": "2026-11-09",
-    "scrapedAt": "2026-11-09T20:26:15.239Z",
-    "notes": "Items and listed prices are real, scraped from the source URL. Items with priceSource \"example\" had no price on the site and use a placeholder example price. Individual toppings/ingredients (tier 3) and unpriced sides are omitted."
+    "scrapedAt": "2026-11-09T20:55:06.010Z",
+    "scannedDates": [
+      "2026-11-02",
+      "2026-11-03",
+      "2026-11-04",
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13"
+    ],
+    "notes": "Daily menu = source URL. Pizza types and burrito/bowl proteins are collected from every scanned date (same URL pattern). priceSource \"listed\" = price on the site; \"example\" = no price on the site, placeholder; \"team\" = provided by the team (guacamole). Burrito/bowl free toppings and the Vegetarian option were provided by the team. Individual toppings/ingredients and unpriced sides are omitted from the item list."
   },
   "dayparts": [
     {
@@ -724,15 +738,14 @@
           "name": "picante",
           "items": [
             {
-              "id": "36515870",
+              "id": "build-your-own",
               "name": "Build your own burrito or bowl",
-              "description": "",
-              "price": 12,
-              "priceSource": "example",
-              "dietary": [
-                "Information Unavailable"
-              ],
-              "calories": ""
+              "description": "Burrito or bowl · protein · beans · rice · toppings",
+              "price": 6.25,
+              "priceSource": "listed",
+              "dietary": [],
+              "calories": "",
+              "builder": true
             }
           ]
         },
@@ -740,7 +753,115 @@
           "name": "Pizza",
           "items": [
             {
-              "id": "36445762",
+              "id": "pizza-36417143",
+              "name": "Caramelized onion, spinach, mushroom and cheese pizza",
+              "description": "spinach, pizza dough (flour, water, salt, sugar, olive oil, yeast), mushrooms, cheese, caramelized onions (onion, oil), pizza sauce (tomato, olive oil, sugar, salt), olive oil, rosemary",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "260",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06"
+              ]
+            },
+            {
+              "id": "pizza-36417148",
+              "name": "Feta cheese, basil pesto, and spinach pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), mozzarella cheese, spinach, pesto (basil, olive oil, parmesan cheese, garlic, salt), feta cheese, garlic",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "610",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06"
+              ]
+            },
+            {
+              "id": "pizza-36417153",
+              "name": "Meatball and garlic herb ricotta pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), ricotta cheese, ground beef, ground pork, onion, roasted garlic cloves (garlic, canola-olive oil blend), panko breadcrumbs, oregano, basil, garlic, salt, black pepper",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "540",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06"
+              ]
+            },
+            {
+              "id": "pizza-36451354",
+              "name": "Cheese focaccia pizza",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "340",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06",
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
+            },
+            {
+              "id": "pizza-36451358",
+              "name": "Pepperoni pizza on foccacia",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "480",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06",
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
+            },
+            {
+              "id": "pizza-36445762",
               "name": "Chicken bacon ranch pizza",
               "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, chicken (chicken breast, oil), ranch dressing (low fat buttermilk, mayonnaise, sour cream, thyme, salt, black pepper, oregano, onion powder, garlic, parsley), onion, bacon, spinach, oil",
               "price": 6.5,
@@ -750,10 +871,17 @@
                 "Milk",
                 "Egg"
               ],
-              "calories": "880"
+              "calories": "880",
+              "seenOn": [
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
             },
             {
-              "id": "36512254",
+              "id": "pizza-36512254",
               "name": "Southwestern chorizo pizza",
               "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), chorizo sausage, mozzarella cheese, salsa (tomatoes, onion, lime juice, cilantro, black pepper, salt, chili peppers), pepper jack cheese, pizza sauce (tomato, olive oil, salt, sugar), caramelized onions (onion, oil)",
               "price": 6.5,
@@ -762,10 +890,17 @@
                 "Wheat/Gluten",
                 "Milk"
               ],
-              "calories": "510"
+              "calories": "510",
+              "seenOn": [
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
             },
             {
-              "id": "36512287",
+              "id": "pizza-36512287",
               "name": "Roast mushroom & truffle ricotta pizza",
               "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, ricotta cheese, mushroom (mushrooms button, oil), olive oil, truffle oil, rosemary",
               "price": 6.5,
@@ -775,7 +910,14 @@
                 "Wheat/Gluten",
                 "Milk"
               ],
-              "calories": "580"
+              "calories": "580",
+              "seenOn": [
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
             },
             {
               "id": "36512184",
@@ -787,31 +929,6 @@
                 "Wheat/Gluten"
               ],
               "calories": "550"
-            },
-            {
-              "id": "36512189",
-              "name": "Cheese focaccia pizza",
-              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
-              "price": 6.5,
-              "priceSource": "listed",
-              "dietary": [
-                "Vegetarian",
-                "Wheat/Gluten",
-                "Milk"
-              ],
-              "calories": "340"
-            },
-            {
-              "id": "36512194",
-              "name": "Pepperoni pizza on foccacia",
-              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
-              "price": 6.5,
-              "priceSource": "listed",
-              "dietary": [
-                "Wheat/Gluten",
-                "Milk"
-              ],
-              "calories": "480"
             }
           ]
         },
@@ -1459,15 +1576,14 @@
           "name": "picante",
           "items": [
             {
-              "id": "36515870",
+              "id": "build-your-own",
               "name": "Build your own burrito or bowl",
-              "description": "",
-              "price": 12,
-              "priceSource": "example",
-              "dietary": [
-                "Information Unavailable"
-              ],
-              "calories": ""
+              "description": "Burrito or bowl · protein · beans · rice · toppings",
+              "price": 6.25,
+              "priceSource": "listed",
+              "dietary": [],
+              "calories": "",
+              "builder": true
             }
           ]
         },
@@ -1475,7 +1591,115 @@
           "name": "Pizza",
           "items": [
             {
-              "id": "36445762",
+              "id": "pizza-36417143",
+              "name": "Caramelized onion, spinach, mushroom and cheese pizza",
+              "description": "spinach, pizza dough (flour, water, salt, sugar, olive oil, yeast), mushrooms, cheese, caramelized onions (onion, oil), pizza sauce (tomato, olive oil, sugar, salt), olive oil, rosemary",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "260",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06"
+              ]
+            },
+            {
+              "id": "pizza-36417148",
+              "name": "Feta cheese, basil pesto, and spinach pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), mozzarella cheese, spinach, pesto (basil, olive oil, parmesan cheese, garlic, salt), feta cheese, garlic",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "610",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06"
+              ]
+            },
+            {
+              "id": "pizza-36417153",
+              "name": "Meatball and garlic herb ricotta pizza",
+              "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), ricotta cheese, ground beef, ground pork, onion, roasted garlic cloves (garlic, canola-olive oil blend), panko breadcrumbs, oregano, basil, garlic, salt, black pepper",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "540",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06"
+              ]
+            },
+            {
+              "id": "pizza-36451354",
+              "name": "Cheese focaccia pizza",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Vegetarian",
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "340",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06",
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
+            },
+            {
+              "id": "pizza-36451358",
+              "name": "Pepperoni pizza on foccacia",
+              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
+              "price": 6.5,
+              "priceSource": "listed",
+              "dietary": [
+                "Wheat/Gluten",
+                "Milk"
+              ],
+              "calories": "480",
+              "seenOn": [
+                "2026-11-02",
+                "2026-11-03",
+                "2026-11-04",
+                "2026-11-05",
+                "2026-11-06",
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
+            },
+            {
+              "id": "pizza-36445762",
               "name": "Chicken bacon ranch pizza",
               "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, chicken (chicken breast, oil), ranch dressing (low fat buttermilk, mayonnaise, sour cream, thyme, salt, black pepper, oregano, onion powder, garlic, parsley), onion, bacon, spinach, oil",
               "price": 6.5,
@@ -1485,10 +1709,17 @@
                 "Milk",
                 "Egg"
               ],
-              "calories": "880"
+              "calories": "880",
+              "seenOn": [
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
             },
             {
-              "id": "36512254",
+              "id": "pizza-36512254",
               "name": "Southwestern chorizo pizza",
               "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), chorizo sausage, mozzarella cheese, salsa (tomatoes, onion, lime juice, cilantro, black pepper, salt, chili peppers), pepper jack cheese, pizza sauce (tomato, olive oil, salt, sugar), caramelized onions (onion, oil)",
               "price": 6.5,
@@ -1497,10 +1728,17 @@
                 "Wheat/Gluten",
                 "Milk"
               ],
-              "calories": "510"
+              "calories": "510",
+              "seenOn": [
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
             },
             {
-              "id": "36512287",
+              "id": "pizza-36512287",
               "name": "Roast mushroom & truffle ricotta pizza",
               "description": "pizza dough (flour, water, salt, sugar, olive oil, yeast), cheese, ricotta cheese, mushroom (mushrooms button, oil), olive oil, truffle oil, rosemary",
               "price": 6.5,
@@ -1510,7 +1748,14 @@
                 "Wheat/Gluten",
                 "Milk"
               ],
-              "calories": "580"
+              "calories": "580",
+              "seenOn": [
+                "2026-11-09",
+                "2026-11-10",
+                "2026-11-11",
+                "2026-11-12",
+                "2026-11-13"
+              ]
             },
             {
               "id": "36512184",
@@ -1522,31 +1767,6 @@
                 "Wheat/Gluten"
               ],
               "calories": "550"
-            },
-            {
-              "id": "36512189",
-              "name": "Cheese focaccia pizza",
-              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
-              "price": 6.5,
-              "priceSource": "listed",
-              "dietary": [
-                "Vegetarian",
-                "Wheat/Gluten",
-                "Milk"
-              ],
-              "calories": "340"
-            },
-            {
-              "id": "36512194",
-              "name": "Pepperoni pizza on foccacia",
-              "description": "focaccia, pizza sauce bauccio brothers (tomato, olive oil, salt, sugar), mozzarella cheese",
-              "price": 6.5,
-              "priceSource": "listed",
-              "dietary": [
-                "Wheat/Gluten",
-                "Milk"
-              ],
-              "calories": "480"
             }
           ]
         },
@@ -1709,5 +1929,98 @@
         }
       ]
     }
-  ]
+  ],
+  "burritoBuilder": {
+    "basePrice": 6.25,
+    "basePriceSource": "listed",
+    "baseSourceItem": "Burrito bowl",
+    "types": [
+      "Burrito",
+      "Bowl"
+    ],
+    "proteins": [
+      {
+        "id": "protein-6958678",
+        "name": "Carne asada",
+        "price": 3,
+        "priceSource": "listed",
+        "kind": "everyday"
+      },
+      {
+        "id": "protein-6958676",
+        "name": "Chicken tinga",
+        "price": 3,
+        "priceSource": "listed",
+        "kind": "everyday"
+      },
+      {
+        "id": "protein-13241486",
+        "name": "Mushroom tofu mojo",
+        "price": 3,
+        "priceSource": "listed",
+        "kind": "everyday"
+      },
+      {
+        "id": "protein-6958677",
+        "name": "Pork carnitas",
+        "price": 3,
+        "priceSource": "listed",
+        "kind": "everyday"
+      },
+      {
+        "id": "protein-36430912",
+        "name": "Beef birria",
+        "price": 3,
+        "priceSource": "example",
+        "kind": "special"
+      },
+      {
+        "id": "protein-36528703",
+        "name": "Cactus asado",
+        "price": 3,
+        "priceSource": "example",
+        "kind": "special"
+      },
+      {
+        "id": "protein-36430878",
+        "name": "Chicken a la diabla",
+        "price": 3,
+        "priceSource": "example",
+        "kind": "special"
+      },
+      {
+        "id": "protein-36430991",
+        "name": "Mushroom birria",
+        "price": 3,
+        "priceSource": "example",
+        "kind": "special"
+      },
+      {
+        "id": "protein-36528698",
+        "name": "Pork chili colorado",
+        "price": 3,
+        "priceSource": "example",
+        "kind": "special"
+      },
+      {
+        "id": "vegetarian",
+        "name": "Vegetarian (no meat)",
+        "price": 0,
+        "priceSource": "example",
+        "kind": "vegetarian"
+      }
+    ],
+    "guacamole": {
+      "price": 1.35,
+      "priceSource": "team"
+    },
+    "toppings": [
+      "Lettuce",
+      "Cheese",
+      "Sour cream",
+      "Hot salsa (salsa picante)",
+      "Pico de gallo",
+      "Salsa verde"
+    ]
+  }
 }

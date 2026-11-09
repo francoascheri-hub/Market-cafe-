@@ -7,7 +7,6 @@ import { totalLabel } from './cart'
 const PAYMENTS: { id: PaymentMethod; label: string; balance: string }[] = [
   { id: 'dons-dollars', label: 'Dons Dollars', balance: 'Balance $214.50 (demo)' },
   { id: 'flexi', label: 'Flexi', balance: 'Balance $86.25 (demo)' },
-  { id: 'meal-swipe', label: 'Meal swipe', balance: '7 swipes left this week (demo)' },
 ]
 
 interface Props {
@@ -33,10 +32,11 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
 
         <section className="card stack">
           <span className="label">Your order</span>
-          {lines.map((l) => (
-            <div key={l.itemId} className="st-line">
+          {lines.map((l, i) => (
+            <div key={i} className="st-line">
               <span className="st-name">
                 {l.qty} × {l.name}
+                {l.details && <span className="muted st-line-details">{l.details}</span>}
               </span>
               <span>
                 {formatPrice(l.price * l.qty)}
@@ -65,7 +65,7 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
 
         <section className="stack">
           <span className="label">Pay with</span>
-          <div className="st-grid">
+          <div className="st-grid two">
             {PAYMENTS.map((p) => (
               <button key={p.id} className={`choice${p.id === payment ? ' selected' : ''}`} onClick={() => setPayment(p.id)}>
                 {p.label}

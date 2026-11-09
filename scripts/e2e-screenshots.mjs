@@ -34,8 +34,18 @@ try {
   await shot(student, '1-sign-in')
 
   await student.getByRole('button', { name: 'Sign in with USF ID' }).click()
-  await student.getByRole('button', { name: 'Add Halal chicken breast sandwich', exact: true }).click()
-  await student.getByRole('button', { name: 'Add French/Curly fries', exact: true }).click()
+  // Build a bowl: starts empty, button says what's missing
+  await student.getByRole('button', { name: 'Build your own burrito or bowl', exact: true }).click()
+  const addBuild = student.locator('.bottom-bar button')
+  check((await addBuild.textContent()) === 'Choose burrito or bowl' && (await addBuild.isDisabled()), 'builder starts empty')
+  for (const name of ['Bowl', /^Carne asada/, 'Beans: Yes', 'Rice: Yes', /^Guacamole/, 'Lettuce', 'Cheese']) {
+    await student.getByRole('button', { name, exact: typeof name === 'string' }).click()
+  }
+  check((await addBuild.textContent()) === 'Add to order · $10.60', 'bowl price = $6.25 base + $3.00 carne asada + $1.35 guac')
+  await shot(student, '2b-builder')
+  await addBuild.click()
+  // Pizza from the real multi-day catalogue
+  await student.getByRole('button', { name: 'Add Chicken bacon ranch pizza', exact: true }).click()
   const checkout = student.getByRole('button', { name: /^Checkout · 2 items/ })
   check(await checkout.isEnabled(), 'cart shows 2 items')
   await student.evaluate(() => window.scrollTo(0, 0))
@@ -44,7 +54,7 @@ try {
   await checkout.click()
   await student.getByRole('button', { name: /^12:45/ }).click()
   await shot(student, '3-checkout')
-  await student.getByRole('button', { name: /^Pay \$15\.25 with USF ID/ }).click()
+  await student.getByRole('button', { name: /^Pay \$17\.10 with USF ID/ }).click()
   await student.getByText('#201').waitFor()
   check(true, 'order #201 placed and confirmation shown')
 
@@ -54,6 +64,10 @@ try {
   await staff.goto(base + '#/staff')
   await staff.locator('.card', { hasText: '#201' }).waitFor()
   check(true, 'staff sees #201 live')
+  check(
+    (await staff.locator('.card', { hasText: '#201' }).textContent()).includes('Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese'),
+    'staff sees the chosen build',
+  )
   for (let i = 0; i < 3; i++) await staff.getByRole('button', { name: 'Add sample order' }).click()
   const card = (n) => staff.locator('.card', { hasText: `#${n}` })
   for (const n of [202, 203]) {
@@ -77,6 +91,7 @@ try {
   await board.locator('.board-number', { hasText: '201' }).waitFor()
   const ready = await board.locator('.board-number').allTextContents()
   check(['201', '202', '203'].every((n) => ready.includes(n)), `board shows READY: ${ready.join(', ')}`)
+  check((await board.locator('.board-tile', { hasText: '201' }).textContent()).includes('Bowl: Carne asada'), 'board shows the build')
   await shot(board, '6-ready-board')
 
   // --- Pickup frees the cubby ---

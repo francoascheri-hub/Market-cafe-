@@ -1,4 +1,4 @@
-import { formatTime } from '../menu'
+import { formatPrice, formatTime } from '../menu'
 import type { Order, OrderStatus } from '../types'
 import { STATUS_LABEL } from './cart'
 
@@ -33,6 +33,19 @@ export default function Confirmation({ order, onBack }: { order: Order; onBack: 
           {order.status === 'ready' && <div className="st-banner">READY — grab it from cubby {order.cubby}</div>}
         </>
       )}
+
+      <section className="card stack">
+        <span className="label">Your order</span>
+        {order.lines.map((l, i) => (
+          <div key={i} className="st-line">
+            <span className="st-name">
+              {l.qty} × {l.name}
+              {l.details && <span className="muted st-line-details">{l.details}</span>}
+            </span>
+            <span>{formatPrice(l.price * l.qty)}</span>
+          </div>
+        ))}
+      </section>
 
       <p>Walk in → grab from cubby {order.cubby} → go to class.</p>
       <button className="btn outline" onClick={onBack}>

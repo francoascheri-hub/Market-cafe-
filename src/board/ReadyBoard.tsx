@@ -1,7 +1,7 @@
 import { useOrders } from '../store'
 import './board.css'
 
-const MAX_TILES = 8 // two rows on a 1280×720 TV; the rest show as "+N more"
+const MAX_TILES = 8 // two rows on a 1280×720 TV; the rest are listed in the "Also ready" line
 
 export default function ReadyBoard() {
   const orders = [...useOrders()].sort((a, b) => a.number - b.number)
@@ -22,13 +22,24 @@ export default function ReadyBoard() {
               <div key={o.id} className="board-tile">
                 <div className="board-number heading">{o.number}</div>
                 <div className="board-cubby">Cubby {o.cubby}</div>
+                {o.lines.some((l) => l.details) && (
+                  <div className="board-build">
+                    {o.lines
+                      .filter((l) => l.details)
+                      .map((l) => `${l.name}: ${l.details}`)
+                      .join(' / ')}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         )}
-        {ready.length > MAX_TILES && <p className="board-preparing">+{ready.length - MAX_TILES} more ready</p>}
-        {preparing.length > 0 && (
-          <p className="board-preparing">Preparing: {preparing.map((o) => o.number).join(', ')}</p>
+        {(ready.length > MAX_TILES || preparing.length > 0) && (
+          <p className="board-preparing">
+            {ready.length > MAX_TILES && `Also ready: ${ready.slice(MAX_TILES).map((o) => o.number).join(', ')}`}
+            {ready.length > MAX_TILES && preparing.length > 0 && ' · '}
+            {preparing.length > 0 && `Preparing: ${preparing.map((o) => o.number).join(', ')}`}
+          </p>
         )}
       </main>
       <footer className="board-footer">

@@ -44,6 +44,14 @@
 .st-line { display: flex; justify-content: space-between; gap: 12px; }
 .st-total { font-family: 'Oswald', sans-serif; font-size: 20px; border-top: 1px solid var(--line); padding-top: 10px; }
 .st-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.st-grid.two { grid-template-columns: repeat(2, 1fr); }
+.st-line-details { display: block; font-weight: 400; }
+
+/* Builder */
+.st-option { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 14px; text-align: left; }
+.st-option > :last-child { flex-shrink: 0; text-align: right; }
+.st-option .st-small, .st-option .example-price { display: block; font-weight: 400; }
+.st-build { display: flex; align-items: center; gap: 12px; padding: 8px 0 8px 12px; border-left: 4px solid var(--gold); }
 
 /* Confirmation */
 .st-number { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 72px; line-height: 1; color: var(--green); }

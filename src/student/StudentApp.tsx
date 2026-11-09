@@ -1,20 +1,21 @@
 import { useState } from 'react'
 import { daypartFor } from '../menu'
 import { signOut, useOrders, useStudent } from '../store'
-import { type Cart, cartLines } from './cart'
+import { type Cart, EMPTY_CART, cartLines } from './cart'
 import SignIn from './SignIn'
 import MenuScreen from './MenuScreen'
 import Checkout from './Checkout'
 import Confirmation from './Confirmation'
+import Builder from './Builder'
 import './student.css'
 
-type Step = 'menu' | 'checkout' | 'confirm'
+type Step = 'menu' | 'build' | 'checkout' | 'confirm'
 
 export default function StudentApp() {
   const student = useStudent()
   const orders = useOrders()
   const [step, setStep] = useState<Step>('menu')
-  const [cart, setCart] = useState<Cart>({})
+  const [cart, setCart] = useState<Cart>(EMPTY_CART)
   const [orderId, setOrderId] = useState<string | null>(null)
 
   const go = (s: Step) => {
@@ -33,6 +34,16 @@ export default function StudentApp() {
 
   let screen
   if (!student) screen = <SignIn />
+  else if (step === 'build')
+    screen = (
+      <Builder
+        onBack={() => go('menu')}
+        onAdd={(line) => {
+          setCart((c) => ({ ...c, builds: [...c.builds, line] }))
+          go('menu')
+        }}
+      />
+    )
   else if (step === 'checkout')
     screen = (
       <Checkout
@@ -41,7 +52,7 @@ export default function StudentApp() {
         onBack={() => go('menu')}
         onPlaced={(id) => {
           setOrderId(id)
-          setCart({})
+          setCart(EMPTY_CART)
           go('confirm')
         }}
       />
@@ -60,6 +71,7 @@ export default function StudentApp() {
           go('confirm')
         }}
         onCheckout={() => go('checkout')}
+        onBuild={() => go('build')}
       />
     )
 
@@ -72,7 +84,7 @@ export default function StudentApp() {
             className="link"
             onClick={() => {
               signOut()
-              setCart({})
+              setCart(EMPTY_CART)
               setOrderId(null)
               go('menu')
             }}
