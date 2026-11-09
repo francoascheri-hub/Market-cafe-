@@ -27,6 +27,10 @@ export default function StudentApp() {
     : undefined
   const shownOrder = orders.find((o) => o.id === orderId) ?? activeOrder
 
+  // Order vanished (e.g. staff reset the demo): really go back to the menu step,
+  // so a later order doesn't make the menu jump to a confirmation on its own.
+  if (step === 'confirm' && !shownOrder) setStep('menu')
+
   let screen
   if (!student) screen = <SignIn />
   else if (step === 'checkout')

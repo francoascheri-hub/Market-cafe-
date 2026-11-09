@@ -50,7 +50,7 @@ const out = dayparts.map((dp) => ({
         .filter((it) => it && String(it.tier) !== '3') // tier 3 = individual toppings/ingredients
         .filter((it, i, arr) => arr.findIndex((o) => clean(o.label) === clean(it.label)) === i) // site lists some items twice
         .flatMap((it) => {
-          const name = clean(it.label)
+          const name = clean(it.label).replace(/^./, (c) => c.toUpperCase())
           const realPrice = parseFloat(it.price || it.sizes?.[0]?.price || '')
           let price = realPrice
           let priceSource = 'listed'

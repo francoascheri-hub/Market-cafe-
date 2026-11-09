@@ -19,7 +19,7 @@ const NEXT: Partial<Record<OrderStatus, { status: OrderStatus; label: string; cl
 
 const SAMPLE_STUDENTS = [
   { name: 'Diego', usfId: '20339876' },
-  { name: 'Maya', usfId: '20412253' },
+  { name: 'Ana', usfId: '20412253' },
   { name: 'Sam', usfId: '20387741' },
 ]
 
@@ -35,7 +35,7 @@ function addSampleOrder() {
   })
 }
 
-function OrderCard({ order }: { order: Order }) {
+function OrderCard({ order, usedCubbies }: { order: Order; usedCubbies: Set<number> }) {
   const next = NEXT[order.status]
   return (
     <div className="card stack">
@@ -56,7 +56,7 @@ function OrderCard({ order }: { order: Order }) {
           Cubby{' '}
           <select value={order.cubby} onChange={(e) => updateOrder(order.id, { cubby: Number(e.target.value) })}>
             {Array.from({ length: CUBBY_COUNT }, (_, i) => (
-              <option key={i + 1} value={i + 1}>
+              <option key={i + 1} value={i + 1} disabled={usedCubbies.has(i + 1) && order.cubby !== i + 1}>
                 {i + 1}
               </option>
             ))}
@@ -85,6 +85,7 @@ export default function StaffView() {
     else groups.push({ slot, orders: [o] })
   }
   const pickedUp = orders.length - open.length
+  const usedCubbies = new Set(open.map((o) => o.cubby))
 
   return (
     <>
@@ -104,7 +105,7 @@ export default function StaffView() {
             </span>
             <div className="staff-grid">
               {g.orders.map((o) => (
-                <OrderCard key={o.id} order={o} />
+                <OrderCard key={o.id} order={o} usedCubbies={usedCubbies} />
               ))}
             </div>
           </section>

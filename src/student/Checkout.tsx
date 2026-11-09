@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { formatPrice, formatTime, pickupSlots } from '../menu'
+import { formatPrice, formatTime, isTomorrow, pickupSlots } from '../menu'
 import { placeOrder } from '../store'
 import type { OrderLine, PaymentMethod, Student } from '../types'
 import { totalLabel } from './cart'
@@ -53,6 +53,7 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
 
         <section className="stack">
           <span className="label">Pickup time</span>
+          {slots[0] && isTomorrow(slots[0]) && <p className="muted">Café is closed now: this is a pre-order for tomorrow.</p>}
           <div className="st-grid">
             {slots.map((d, i) => (
               <button key={d.toISOString()} className={`choice${i === slot ? ' selected' : ''}`} onClick={() => setSlot(i)}>

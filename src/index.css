@@ -24,14 +24,15 @@ input { font: inherit; }
 .header {
   background: var(--green);
   color: #fff;
-  padding: 14px 16px;
+  padding: 8px 16px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 .header h1 { font-size: 22px; letter-spacing: 0.3px; }
-.header a, .header button.link { color: #fff; font-size: 14px; background: none; border: 0; padding: 0; }
+.header a, .header button.link { color: #fff; font-size: 14px; background: none; border: 0; padding: 0 8px; min-height: 44px; display: inline-flex; align-items: center; }
 
 /* Page container: mobile-first, centered on desktop */
 .page { max-width: 560px; margin: 0 auto; padding: 16px 16px 120px; }

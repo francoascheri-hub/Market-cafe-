@@ -25,7 +25,7 @@ Open the URL Vite prints (usually http://localhost:5173). For the demo, open thr
 | Staff view | `/#/staff` | Market Café staff behind the counter |
 | Ready board | `/#/board` | TV next to the cubby shelf |
 
-Other commands: `npm run build` (production build in `dist/`, deployable to any static host such as Vercel, Netlify or GitHub Pages), `npm run scrape` (refresh the menu, see below).
+Other commands: `npm run e2e` (drives the whole demo in headless Chrome, checks every step and refreshes the screenshots below; needs Google Chrome installed), `npm run build` (production build in `dist/`, deployable to any static host such as Vercel, Netlify or GitHub Pages), `npm run scrape` (refresh the menu, see below).
 
 ## Demo script
 
@@ -71,4 +71,6 @@ src/board/                ready board
 
 - Shared state only works between tabs of **one browser on one device**. A real pilot would need a small backend (e.g. Supabase or Firebase) so phones, the staff tablet and the TV share orders.
 - Mock sign-in and payment. A real version would integrate USF SSO and the campus card system (Dons Dollars / Flexi).
-- Pickup slots are the next six 5-minute slots, starting 15 minutes from now.
+- Pickup slots are the next six 5-minute slots, at least 15 minutes from now and inside the current meal period's hours. After dinner closes, orders are for tomorrow's lunch.
+- The mock sign-in is shared by all tabs, so only one student can be simulated at a time. Use **Add sample order** on the staff view to add other students' orders.
+- There are 24 cubbies. If all 24 are taken by open orders, new orders reuse cubby 1. Staff can't pick a cubby that another open order is using.

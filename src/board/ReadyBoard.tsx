@@ -1,6 +1,8 @@
 import { useOrders } from '../store'
 import './board.css'
 
+const MAX_TILES = 8 // two rows on a 1280×720 TV; the rest show as "+N more"
+
 export default function ReadyBoard() {
   const orders = [...useOrders()].sort((a, b) => a.number - b.number)
   const ready = orders.filter((o) => o.status === 'ready')
@@ -16,7 +18,7 @@ export default function ReadyBoard() {
           <p className="board-empty">No orders ready yet.</p>
         ) : (
           <div className="board-grid">
-            {ready.map((o) => (
+            {ready.slice(0, MAX_TILES).map((o) => (
               <div key={o.id} className="board-tile">
                 <div className="board-number heading">{o.number}</div>
                 <div className="board-cubby">Cubby {o.cubby}</div>
@@ -24,6 +26,7 @@ export default function ReadyBoard() {
             ))}
           </div>
         )}
+        {ready.length > MAX_TILES && <p className="board-preparing">+{ready.length - MAX_TILES} more ready</p>}
         {preparing.length > 0 && (
           <p className="board-preparing">Preparing: {preparing.map((o) => o.number).join(', ')}</p>
         )}
