@@ -20,6 +20,8 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
   const [slots] = useState(() => pickupSlots(6))
   const [slot, setSlot] = useState(0)
   const [payment, setPayment] = useState<PaymentMethod>('dons-dollars')
+  const [paying, setPaying] = useState(false)
+  const [error, setError] = useState('')
   const hasExample = lines.some((l) => l.priceSource === 'example')
   const total = totalLabel(lines)
 
@@ -78,14 +80,22 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
       <div className="bottom-bar">
         <button
           className="btn"
-          disabled={lines.length === 0}
-          onClick={() => {
-            const order = placeOrder({ student, lines, pickupAt: slots[slot].toISOString(), payment })
-            onPlaced(order.id)
+          disabled={lines.length === 0 || paying}
+          onClick={async () => {
+            setPaying(true)
+            setError('')
+            try {
+              const order = await placeOrder({ student, lines, pickupAt: slots[slot].toISOString(), payment })
+              onPlaced(order.id)
+            } catch {
+              setError('Could not send your order. Check your connection and try again.')
+              setPaying(false)
+            }
           }}
         >
-          Pay {total} with USF ID
+          {paying ? 'Sending order…' : `Pay ${total} with USF ID`}
         </button>
+        {error && <p className="st-error">{error}</p>}
       </div>
     </>
   )

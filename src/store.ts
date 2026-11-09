@@ -1,41 +1,36 @@
-// Tiny shared store in localStorage. Student, staff and ready-board tabs in the
-// same browser stay in sync via the `storage` event (fires in other tabs).
+// App-wide store. Orders come from a swappable backend (src/backend): Supabase when
+// VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY are set, else localStorage (one browser only).
+// The signed-in student is always per device (localStorage).
 import { useSyncExternalStore } from 'react'
+import { backend } from './backend'
+import type { OrderPatch } from './backend/types'
 import type { Order, OrderLine, OrderStatus, PaymentMethod, Student } from './types'
 
-const ORDERS_KEY = 'mc-orders-v1'
 const STUDENT_KEY = 'mc-student-v1'
 export const CUBBY_COUNT = 24
-const FIRST_ORDER_NUMBER = 201
+export const backendKind = backend.kind
 
 const listeners = new Set<() => void>()
 const emit = () => listeners.forEach((l) => l())
-window.addEventListener('storage', (e) => {
-  if (e.key === ORDERS_KEY || e.key === STUDENT_KEY || e.key === null) emit()
-})
 const subscribe = (l: () => void) => {
   listeners.add(l)
   return () => listeners.delete(l)
 }
 
-// useSyncExternalStore needs a stable snapshot, so cache by raw string.
-let cachedRaw: string | null = null
-let cachedOrders: Order[] = []
-export function getOrders(): Order[] {
-  const raw = localStorage.getItem(ORDERS_KEY)
-  if (raw !== cachedRaw) {
-    cachedRaw = raw
-    cachedOrders = raw ? (JSON.parse(raw) as Order[]) : []
-  }
-  return cachedOrders
-}
-function saveOrders(orders: Order[]) {
-  localStorage.setItem(ORDERS_KEY, JSON.stringify(orders))
+// --- Orders (from the backend) ---
+let orders: Order[] = []
+let loaded = false
+backend.connect((next) => {
+  orders = next
+  loaded = true
   emit()
-}
-
+})
+export const getOrders = () => orders
 export const useOrders = () => useSyncExternalStore(subscribe, getOrders)
+/** False until the backend has delivered the first order list. */
+export const useOrdersLoaded = () => useSyncExternalStore(subscribe, () => loaded)
 
+// --- Signed-in student (this device only) ---
 let cachedStudentRaw: string | null = null
 let cachedStudent: Student | null = null
 function getStudent(): Student | null {
@@ -46,6 +41,9 @@ function getStudent(): Student | null {
   }
   return cachedStudent
 }
+window.addEventListener('storage', (e) => {
+  if (e.key === STUDENT_KEY || e.key === null) emit()
+})
 export const useStudent = () => useSyncExternalStore(subscribe, getStudent)
 export function signIn(student: Student) {
   localStorage.setItem(STUDENT_KEY, JSON.stringify(student))
@@ -57,8 +55,8 @@ export function signOut() {
 }
 
 /** Lowest cubby not held by an order that hasn't been picked up yet. */
-function freeCubby(orders: Order[]): number {
-  const used = new Set(orders.filter((o) => o.status !== 'picked-up').map((o) => o.cubby))
+function freeCubby(list: Order[]): number {
+  const used = new Set(list.filter((o) => o.status !== 'picked-up').map((o) => o.cubby))
   for (let c = 1; c <= CUBBY_COUNT; c++) if (!used.has(c)) return c
   return 1
 }
@@ -68,28 +66,32 @@ export function placeOrder(input: {
   lines: OrderLine[]
   pickupAt: string
   payment: PaymentMethod
-}): Order {
-  const orders = getOrders()
-  const order: Order = {
+  sample?: boolean
+}): Promise<Order> {
+  return backend.insert({
     ...input,
     id: crypto.randomUUID(),
-    number: orders.reduce((max, o) => Math.max(max, o.number), FIRST_ORDER_NUMBER - 1) + 1,
     total: Math.round(input.lines.reduce((s, l) => s + l.price * l.qty, 0) * 100) / 100,
     status: 'received',
     cubby: freeCubby(orders),
     createdAt: new Date().toISOString(),
-  }
-  saveOrders([...orders, order])
-  return order
+  })
 }
 
-export function updateOrder(id: string, patch: Partial<Pick<Order, 'status' | 'cubby'>>) {
-  saveOrders(getOrders().map((o) => (o.id === id ? { ...o, ...patch } : o)))
+const STATUS_TIMESTAMP: Partial<Record<OrderStatus, 'startedAt' | 'readyAt' | 'pickedUpAt'>> = {
+  preparing: 'startedAt',
+  ready: 'readyAt',
+  'picked-up': 'pickedUpAt',
+}
+
+/** Change status and/or cubby. A status change also records when it happened (for metrics). */
+export function updateOrder(id: string, patch: Pick<OrderPatch, 'status' | 'cubby'>): Promise<void> {
+  const full: OrderPatch = { ...patch }
+  const stamp = patch.status && STATUS_TIMESTAMP[patch.status]
+  if (stamp) full[stamp] = new Date().toISOString()
+  return backend.update(id, full)
 }
 
 export const setStatus = (id: string, status: OrderStatus) => updateOrder(id, { status })
 
-export function resetDemo() {
-  localStorage.removeItem(ORDERS_KEY)
-  emit()
-}
+export const resetDemo = () => backend.clear()

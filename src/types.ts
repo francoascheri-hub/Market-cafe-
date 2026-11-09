@@ -79,4 +79,12 @@ export interface Order {
   status: OrderStatus
   cubby: number // numbered pickup shelf, assigned at order time, staff can change
   createdAt: string
+  // Set automatically when staff change the status (used by staff metrics)
+  startedAt?: string // received -> preparing
+  readyAt?: string // preparing -> ready
+  pickedUpAt?: string // ready -> picked-up
+  sample?: boolean // created with the staff "Add sample order" demo button, not by a student
 }
+
+/** What a backend needs to store a new order; the backend assigns `number`. */
+export type NewOrder = Omit<Order, 'number'>

@@ -49,6 +49,7 @@ function addSampleOrder() {
     lines,
     pickupAt: pickupSlots(1)[0].toISOString(),
     payment: 'dons-dollars',
+    sample: true,
   })
 }
 
