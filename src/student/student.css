@@ -1,0 +1,66 @@
+/* Student flow — only what index.css doesn't already cover. */
+.st-title { font-size: 30px; }
+.st-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  font-size: 18px;
+}
+.st-input:focus { outline: none; border-color: var(--green); }
+.st-field { display: block; font-weight: 600; font-size: 14px; }
+.st-field .st-input { margin-top: 4px; }
+
+.st-link { background: none; border: 0; padding: 0; color: var(--green); font-weight: 600; text-decoration: underline; }
+.st-small { font-size: 12px; color: var(--muted); }
+
+/* Active order card at top of menu */
+.st-active { display: block; width: 100%; text-align: left; border-left: 6px solid var(--gold); font-weight: 600; }
+
+/* Menu rows */
+.st-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); }
+.st-row:first-of-type { border-top: 0; }
+.st-row-main { flex: 1; min-width: 0; }
+.st-name { font-weight: 600; }
+.st-name::first-letter { text-transform: uppercase; }
+.st-qty { display: flex; align-items: center; gap: 6px; }
+.st-qty button {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--green);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+.st-qty button.st-add { background: var(--green); color: #fff; }
+.st-qty span { min-width: 20px; text-align: center; font-weight: 700; }
+.st-toggle { width: 100%; min-height: 44px; margin-top: 6px; border: 2px solid var(--line); border-radius: var(--radius); background: #fff; font-weight: 600; }
+
+/* Checkout */
+.st-line { display: flex; justify-content: space-between; gap: 12px; }
+.st-total { font-family: 'Oswald', sans-serif; font-size: 20px; border-top: 1px solid var(--line); padding-top: 10px; }
+.st-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+/* Confirmation */
+.st-number { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 72px; line-height: 1; color: var(--green); }
+.st-cubby { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 40px; line-height: 1.1; }
+.st-steps { display: flex; gap: 6px; }
+.st-step {
+  flex: 1;
+  padding: 10px 4px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--muted);
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+.st-step.done { border-color: var(--green); color: var(--green); }
+.st-step.current { border-color: var(--green); background: var(--green); color: #fff; }
+.st-banner { background: var(--gold); border-radius: var(--radius); padding: 14px 16px; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 22px; }
