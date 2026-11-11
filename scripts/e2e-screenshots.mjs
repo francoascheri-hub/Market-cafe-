@@ -1,35 +1,45 @@
 // End-to-end check of the whole demo + README screenshots.
-// Drives student → staff → ready board in one browser (shared localStorage).
+// Student phone, staff tablet and ready-board TV are SEPARATE browser contexts (like separate
+// devices: no shared localStorage), talking to the real /api/orders handlers through the Vite dev
+// server with an in-memory Redis. Proves orders sync across devices via the shared backend + polling.
 // Usage: npm run e2e   (needs Google Chrome installed; uses playwright-core)
 import { createServer } from 'vite'
 import { chromium } from 'playwright-core'
 import { mkdirSync } from 'node:fs'
+import { memoryApiPlugin } from './memory-api-plugin.mjs'
 
 const OUT = 'docs/screenshots'
 mkdirSync(OUT, { recursive: true })
 
-const server = await createServer({ server: { port: 5199, strictPort: true }, logLevel: 'error' })
+const server = await createServer({
+  server: { port: 5199, strictPort: true },
+  logLevel: 'error',
+  plugins: [memoryApiPlugin()],
+})
 await server.listen()
 const base = 'http://localhost:5199/'
 
 const browser = await chromium.launch({ channel: 'chrome' })
-const context = await browser.newContext()
-// Freeze the clock at 12:24 on demo day so the pickup slots read 12:40, 12:45, ... (Maya's class ends 12:45).
-await context.clock.setFixedTime(new Date(2026, 10, 9, 12, 24))
+// One context per device. Clock frozen at 12:24 today (the server stamps orders with the real date,
+// metrics count "today") so pickup slots read 12:40, 12:45, ... (Maya's class ends 12:45).
+const at1224 = new Date()
+at1224.setHours(12, 24, 0, 0)
+const device = async (width, height) => {
+  const context = await browser.newContext({ viewport: { width, height } })
+  await context.clock.setFixedTime(at1224)
+  return context.newPage()
+}
 
 const check = (cond, msg) => {
   if (!cond) throw new Error(`FAILED: ${msg}`)
   console.log(`ok - ${msg}`)
 }
-const shot = (page, name, fullPage = false) => page.screenshot({ path: `${OUT}/${name}.png`, fullPage })
+const shot = (page, name) => page.screenshot({ path: `${OUT}/${name}.png` })
 
 try {
-  // --- Student (phone) ---
-  const student = await context.newPage()
-  await student.setViewportSize({ width: 390, height: 844 })
+  // --- Student phone ---
+  const student = await device(390, 844)
   await student.goto(base + '#/')
-  await student.evaluate(() => localStorage.clear())
-  await student.reload()
   await student.getByRole('button', { name: 'Sign in with USF ID' }).waitFor()
   await shot(student, '1-sign-in')
 
@@ -56,26 +66,29 @@ try {
   await shot(student, '3-checkout')
   await student.getByRole('button', { name: /^Pay \$17\.10 with USF ID/ }).click()
   await student.getByText('#201').waitFor()
-  check(true, 'order #201 placed and confirmation shown')
+  check(true, 'order #201 placed through /api and confirmation shown')
 
-  // --- Staff (counter tablet) ---
-  const staff = await context.newPage()
-  await staff.setViewportSize({ width: 1280, height: 800 })
+  // --- Staff tablet (another device) ---
+  const staff = await device(1280, 800)
   await staff.goto(base + '#/staff')
-  await staff.locator('.card', { hasText: '#201' }).waitFor()
-  check(true, 'staff sees #201 live')
+  const card = (n) => staff.locator('.card', { hasText: `#${n}` })
+  await card(201).waitFor()
+  check(true, 'staff device sees #201')
   check(
-    (await staff.locator('.card', { hasText: '#201' }).textContent()).includes('Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese'),
+    (await card(201).textContent()).includes('Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese'),
     'staff sees the chosen build',
   )
-  for (let i = 0; i < 3; i++) await staff.getByRole('button', { name: 'Add sample order' }).click()
-  const card = (n) => staff.locator('.card', { hasText: `#${n}` })
+  for (let i = 0; i < 3; i++) {
+    await staff.getByRole('button', { name: 'Add sample order' }).click()
+    await card(202 + i).waitFor()
+  }
   for (const n of [202, 203]) {
     await card(n).getByRole('button', { name: 'Start preparing' }).click()
     await card(n).getByRole('button', { name: 'Mark ready' }).click()
   }
   await card(201).getByRole('button', { name: 'Start preparing' }).click()
   await student.getByText('Preparing', { exact: false }).first().waitFor()
+  check(true, 'student phone sees "Preparing" via polling')
   await shot(staff, '5-staff')
   await card(201).getByRole('button', { name: 'Mark ready' }).click()
 
@@ -84,9 +97,8 @@ try {
   check(true, 'student confirmation flips to READY')
   await shot(student, '4-confirmation')
 
-  // --- Ready board (TV) ---
-  const board = await context.newPage()
-  await board.setViewportSize({ width: 1280, height: 720 })
+  // --- Ready board TV (a third device) ---
+  const board = await device(1280, 720)
   await board.goto(base + '#/board')
   await board.locator('.board-number', { hasText: '201' }).waitFor()
   const ready = await board.locator('.board-number').allTextContents()
@@ -98,6 +110,19 @@ try {
   await card(201).getByRole('button', { name: 'Picked up' }).click()
   await board.locator('.board-number', { hasText: '201' }).waitFor({ state: 'detached' })
   check(true, 'picked-up order leaves the board')
+
+  // --- Metrics + class-demo QR page ---
+  await staff.goto(base + '#/staff/metrics')
+  await staff.getByText('Orders today').waitFor()
+  check((await staff.locator('body').textContent()).includes('Estimate'), 'metrics page shows the line-time estimate label')
+  await shot(staff, '7-metrics')
+
+  const demo = await device(1280, 720)
+  await demo.goto(base + '#/demo')
+  await demo.locator('img[alt^="QR code"]').waitFor()
+  check(true, 'demo page shows the QR code')
+  await shot(demo, '8-demo-qr')
+
   console.log(`\nAll checks passed. Screenshots in ${OUT}/`)
 } finally {
   await browser.close()

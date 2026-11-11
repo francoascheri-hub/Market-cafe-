@@ -1,14 +1,13 @@
-// App-wide store. Orders come from a swappable backend (src/backend): Supabase when
-// VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY are set, else localStorage (one browser only).
+// App-wide store. Orders come from a swappable backend (src/backend): the shared /api
+// (Vercel Functions + Upstash Redis) when it's reachable, else localStorage (one browser only).
 // The signed-in student is always per device (localStorage).
 import { useSyncExternalStore } from 'react'
-import { backend } from './backend'
+import { backend, backendKind as kindPromise } from './backend'
 import type { OrderPatch } from './backend/types'
 import type { Order, OrderLine, OrderStatus, PaymentMethod, Student } from './types'
 
 const STUDENT_KEY = 'mc-student-v1'
 export const CUBBY_COUNT = 24
-export const backendKind = backend.kind
 
 const listeners = new Set<() => void>()
 const emit = () => listeners.forEach((l) => l())
@@ -25,6 +24,14 @@ backend.connect((next) => {
   loaded = true
   emit()
 })
+// Which backend is in use: 'api' (shared, live) or 'local' (this browser only); null while deciding.
+let kind: 'local' | 'api' | null = null
+kindPromise.then((k) => {
+  kind = k
+  emit()
+})
+export const useBackendKind = () => useSyncExternalStore(subscribe, () => kind)
+
 export const getOrders = () => orders
 export const useOrders = () => useSyncExternalStore(subscribe, getOrders)
 /** False until the backend has delivered the first order list. */

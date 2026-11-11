@@ -1,0 +1,23 @@
+.metrics-page { max-width: 960px; margin: 0 auto; padding: 16px 16px 48px; }
+.metrics-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; cursor: pointer; }
+.metrics-toggle input { width: 18px; height: 18px; accent-color: var(--green); }
+.metrics-note { margin: 0 0 12px; }
+.metrics-empty { margin-top: 12px; font-size: 16px; }
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.metrics-name { font-size: 14px; font-weight: 600; color: var(--muted); }
+.metrics-value { font-size: 36px; line-height: 1.2; color: var(--green); margin: 4px 0; }
+.metrics-estimate { font-size: 13px; color: var(--text); border-left: 3px solid var(--gold); padding-left: 8px; }
+.metrics-slots { margin-top: 16px; }
+.metrics-slots h2 { font-size: 18px; margin-bottom: 10px; }
+.metrics-slots ul { margin: 0; padding: 0; list-style: none; }
+.metrics-slots li { display: grid; grid-template-columns: 76px 1fr 32px; align-items: center; gap: 10px; }
+.metrics-slots li + li { margin-top: 8px; }
+.metrics-slot-time { font-size: 14px; }
+.metrics-bar { height: 18px; background: var(--bg); border-radius: 3px; overflow: hidden; }
+.metrics-bar > span { display: block; height: 100%; background: var(--green); border-right: 3px solid var(--gold); }
+.metrics-slot-count { text-align: right; }

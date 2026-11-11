@@ -8,31 +8,74 @@ Pilot web app for **USF BENI-349** (Franco Ascheri & Alejandro).
 
 > **Pilot only:** sign-in and payment are **mock**. No real USF login and no real charges.
 
+**Live app:** https://market-cafe-preorder.vercel.app (class demo page: https://market-cafe-preorder.vercel.app/#/demo)
+
+## Pages
+
+| Page | URL | Who |
+|---|---|---|
+| Student app | `/#/` | Maya / Diego on their phone |
+| Staff view | `/#/staff` | Market Café staff behind the counter |
+| Metrics | `/#/staff/metrics` | Staff / manager |
+| Ready board | `/#/board` | TV next to the cubby shelf |
+| Class demo | `/#/demo` | Projector: QR code for classmates to scan and order |
+
+## How orders are shared
+
+```
+phones / staff tablet / TV  --(poll every 2 s)-->  /api/orders (Vercel Function)  -->  Upstash Redis (free)
+```
+
+- **Shared mode (deployed):** [`api/orders.ts`](api/orders.ts) stores orders in Upstash Redis. It assigns order numbers (#201, #202, …) and cubbies on the server, so two phones ordering at the same moment never get the same number or cubby. Every screen polls about every 2 seconds, so an order placed on a phone shows up on the staff view and ready board on other devices within a couple of seconds, and the student's status updates live. Polling pauses while a phone is in the background.
+- **Fallback (local):** if `/api/orders` isn't reachable (plain `npm run dev`, or Redis not configured), the app automatically uses `localStorage`. Tabs of one browser stay in sync, other devices don't. The staff view footer shows which mode is active.
+- Both modes implement the same interface, [`src/backend/types.ts`](src/backend/types.ts), so the backend can be swapped.
+
 ## Run it
 
 Requires Node 20+.
 
 ```bash
 npm install
-npm run dev
+npm run dev          # local mode: localStorage, one browser only
 ```
 
-Open the URL Vite prints (usually http://localhost:5173). For the demo, open three tabs **in the same browser** (they share state through `localStorage`):
+**Full mode locally** (shared `/api` + Redis), using the [Vercel CLI](https://vercel.com/docs/cli):
 
-| Tab | URL | Who |
-|---|---|---|
-| Student app | `/#/` | Maya / Diego on their phone (use the browser's mobile view) |
-| Staff view | `/#/staff` | Market Café staff behind the counter |
-| Ready board | `/#/board` | TV next to the cubby shelf |
+```bash
+npm i -g vercel
+vercel link          # pick the market-cafe-preorder project
+vercel env pull      # downloads UPSTASH_REDIS_REST_URL / _TOKEN into .env.local (git-ignored)
+vercel dev
+```
 
-Other commands: `npm run e2e` (drives the whole demo in headless Chrome, checks every step and refreshes the screenshots below; needs Google Chrome installed), `npm run build` (production build in `dist/`, deployable to any static host such as Vercel, Netlify or GitHub Pages), `npm run scrape` (refresh the menu, see below).
+### Environment variables
 
-## Demo script
+See [`.env.example`](.env.example). They are only needed by the server function in `/api` and are never sent to the browser:
 
-1. **Student** (`/#/`): sign in with the demo USF ID, add items (or **build a burrito or bowl**), tap **Checkout**, pick a pickup slot (e.g. 12:45), pay with Dons Dollars or Flexi. You get an order number (e.g. **#201**) and a **cubby number**.
-2. **Staff** (`/#/staff`): the order shows up instantly under its pickup slot. Tap **Start preparing**, then **Mark ready**. Cubbies can be reassigned.
-3. **Ready board** (`/#/board`): the number appears under **READY FOR PICKUP** with its cubby. The student's screen switches to **READY** too.
-4. Staff taps **Picked up** and the cubby frees up. Use **Add sample order** and **Reset demo** at the bottom of the staff view to set up a demo quickly.
+| Name | Where |
+|---|---|
+| `UPSTASH_REDIS_REST_URL` | Vercel project (Production / Preview / Development), added by the Upstash Redis integration |
+| `UPSTASH_REDIS_REST_TOKEN` | same |
+| `VITE_BACKEND` (optional) | `local` or `api` forces the client's backend; the default auto-detects |
+
+### Deploy
+
+Vercel builds this as a Vite static site (`dist/`) plus Vercel Functions from `/api`, with no extra config. Pushing to `main` redeploys if the project is connected to GitHub; otherwise run `vercel --prod`.
+
+Other commands:
+- `npm run e2e` drives the full demo in headless Chrome (needs Google Chrome installed). The student phone, staff tablet and ready-board TV are separate browser contexts talking to the real `/api` handler, backed by an in-memory Redis stand-in. It checks every step and refreshes the screenshots below.
+- `npm run build` makes a production build.
+- `npm run scrape` refreshes the menu (see below).
+
+## Class demo script (Monday)
+
+1. **Before class:** open `/#/staff` and tap **Reset demo** so numbering starts at #201. Open `/#/board` on a second screen or tab and `/#/staff` on a laptop.
+2. **Projector:** open `/#/demo`. Classmates scan the QR code with their phones.
+3. **Students** (their own phones): sign in with any name and an 8-digit ID (mock), add food or **build a burrito or bowl**, tap **Checkout**, pick a pickup slot, and pay with **Dons Dollars** or **Flexi** (mock). Each gets an order number (e.g. **#204**) and a **cubby number**.
+4. **Staff view:** orders appear within about 2 seconds, grouped by pickup slot. Tap **Start preparing**, then **Mark ready**. Each student's phone switches to **READY — grab it from cubby N**, and the number appears on the **ready board**.
+5. Tap **Picked up** to free the cubby.
+6. **Metrics** (`/#/staff/metrics`): orders today, orders per pickup slot, average prep time, and the estimated line time saved. All of these are computed from the orders placed in class.
+7. Tip: **Add sample order** on the staff view adds labelled sample orders if you need more on screen.
 
 ## Screenshots
 
@@ -43,6 +86,10 @@ Other commands: `npm run e2e` (drives the whole demo in headless Chrome, checks 
 | Staff view | Ready board |
 |---|---|
 | ![](docs/screenshots/5-staff.png) | ![](docs/screenshots/6-ready-board.png) |
+
+| Metrics | Class demo QR |
+|---|---|
+| ![](docs/screenshots/7-metrics.png) | ![](docs/screenshots/8-demo-qr.png) |
 
 ## Menu data (real, scraped)
 
@@ -70,12 +117,15 @@ Items whose price is marked `"priceSource": "example"` are labelled **"example p
 
 ## Tech
 
-Vite + React + TypeScript with no other runtime dependencies. State lives in `localStorage` (`src/store.ts`), and tabs sync through the browser `storage` event. Routes are hash-based: `#/`, `#/staff`, `#/board`.
+Vite + React + TypeScript. Vercel Functions (`/api`) use `@upstash/redis`, and `qrcode` draws the demo QR code. Orders go through `src/store.ts` to a backend in `src/backend/`: `api.ts` (shared, polling) or `local.ts` (localStorage). Routes are hash-based: `#/`, `#/staff`, `#/staff/metrics`, `#/board`, `#/demo`.
 
 ```
 scripts/scrape-menu.mjs   menu scraper
 src/data/menu.json        scraped menu
-src/store.ts              orders + mock sign-in (localStorage)
+api/orders.ts             Vercel Function: orders in Upstash Redis
+src/store.ts              orders + mock sign-in
+src/backend/              api (shared, polling) and local (localStorage) backends
+src/demo/                 class-demo QR page
 src/menu.ts               daypart + pickup-slot helpers
 src/student/              student flow
 src/staff/                staff view
@@ -84,8 +134,9 @@ src/board/                ready board
 
 ### Pilot limitations
 
-- Shared state only works between tabs of **one browser on one device**. A real pilot would need a small backend (e.g. Supabase or Firebase) so phones, the staff tablet and the TV share orders.
+- Live updates use polling about every 2 seconds, not websockets. That's plenty for a class demo and fits the free Upstash tier, though each open screen makes one small request every 2 seconds.
+- The `/api` has no login: anyone with the URL can place or change orders. That's fine for a mock demo; a real pilot needs staff authentication.
 - Mock sign-in and payment. A real version would integrate USF SSO and the campus card system (Dons Dollars / Flexi).
 - Pickup slots are the next six 5-minute slots, at least 15 minutes from now and inside the current meal period's hours. After dinner closes, orders are for tomorrow's lunch.
-- The mock sign-in is shared by all tabs, so only one student can be simulated at a time. Use **Add sample order** on the staff view to add other students' orders.
+- The mock sign-in is per device (stored in that browser). To simulate several students on one computer, use different browsers or a private window, or use **Add sample order** on the staff view.
 - There are 24 cubbies. If all 24 are taken by open orders, new orders reuse cubby 1. Staff can't pick a cubby that another open order is using.

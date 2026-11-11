@@ -1,4 +1,4 @@
-import { CUBBY_COUNT, placeOrder, resetDemo, updateOrder, useOrders } from '../store'
+import { CUBBY_COUNT, placeOrder, resetDemo, updateOrder, useBackendKind, useOrders } from '../store'
 import { daypartFor, formatTime, menu, pickupSlots } from '../menu'
 import type { Order, OrderLine, OrderStatus } from '../types'
 import './staff.css'
@@ -92,6 +92,7 @@ function OrderCard({ order, usedCubbies }: { order: Order; usedCubbies: Set<numb
 }
 
 export default function StaffView() {
+  const kind = useBackendKind()
   const orders = useOrders()
   const open = orders
     .filter((o) => o.status !== 'picked-up')
@@ -112,6 +113,7 @@ export default function StaffView() {
         <h1>Market Café · Staff</h1>
         <nav className="staff-links">
           <a href="#/board">Ready board</a>
+          <a href="#/staff/metrics">Metrics</a>
           <a href="#/">Student app</a>
         </nav>
       </header>
@@ -131,6 +133,7 @@ export default function StaffView() {
         ))}
         <footer className="staff-footer muted">
           <span>Picked up: {pickedUp}</span>
+          <span>{kind === 'api' ? '● Live: shared across devices' : kind === 'local' ? 'Local mode: this browser only' : ''}</span>
           <button className="text-btn" onClick={addSampleOrder}>
             Add sample order
           </button>

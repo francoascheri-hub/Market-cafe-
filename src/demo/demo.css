@@ -1,0 +1,44 @@
+/* Presenter page (#/demo): fits 1280×720 projector without scrolling. */
+.demo { min-height: 100vh; display: flex; flex-direction: column; }
+.demo-tag { font-size: 15px; opacity: 0.9; }
+
+.demo-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 56px);
+  padding: clamp(16px, 3vh, 32px) clamp(16px, 3vw, 40px);
+}
+
+.demo-qr-card { display: flex; flex-direction: column; align-items: center; padding: 16px; }
+.demo-qr {
+  display: block;
+  width: clamp(280px, min(calc(100vh - 190px), 44vw), 640px);
+  aspect-ratio: 1;
+}
+.demo-url {
+  margin: 10px 0 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(18px, 2.4vh, 24px);
+  color: var(--green);
+  letter-spacing: 0.3px;
+}
+
+.demo-info { max-width: 520px; }
+.demo-title { font-size: clamp(40px, 7vh, 64px); line-height: 1.1; margin-top: 12px; color: var(--green); }
+
+.demo-steps { margin: 0 0 20px; padding-left: 28px; font-size: clamp(18px, 2.9vh, 22px); line-height: 1.4; }
+.demo-steps li + li { margin-top: 8px; }
+.demo-steps li::marker { font-family: 'Oswald', sans-serif; font-weight: 600; color: var(--green); }
+
+.demo-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.demo-links .btn { display: flex; align-items: center; justify-content: center; text-decoration: none; min-height: 52px; }
+
+.demo-note { margin: 16px 0 0; }
+
+/* Narrow laptop / portrait: stack and allow scrolling */
+@media (max-width: 800px) {
+  .demo-main { flex-direction: column; }
+  .demo-qr { width: min(80vw, 420px); }
+}
