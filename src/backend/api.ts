@@ -38,6 +38,10 @@ export function apiBackend(): OrdersBackend {
     listeners.forEach((l) => l(orders))
   }
 
+  // Dashboard history (GET ?scope=all), only fetched by loadAll().
+  let all: Order[] = []
+  let allVersion = -1
+
   let timer: ReturnType<typeof setTimeout> | undefined
   let polling = false
   async function poll() {
@@ -84,6 +88,21 @@ export function apiBackend(): OrdersBackend {
     async clear() {
       publish([])
       await call('DELETE')
+      poll()
+    },
+    async loadAll() {
+      const r = await call<ListResponse>('GET', `?scope=all&since=${allVersion}`)
+      if (!r.unchanged && r.orders) {
+        allVersion = r.version
+        all = r.orders
+      }
+      return all
+    },
+    async insertSamples(drafts: NewOrder[]) {
+      return (await call<{ count: number }>('POST', '?bulk=1', { orders: drafts })).count
+    },
+    async clearSamples() {
+      await call('DELETE', '?sample=1')
       poll()
     },
   }

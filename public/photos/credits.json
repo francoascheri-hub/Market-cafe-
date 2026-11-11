@@ -1,0 +1,50 @@
+{
+ "note": "Credits for the photographs in this folder: photos.mjs credits prints the footer block for the ones the pages use.",
+ "photos": [
+  {
+   "file": "photo-m61713028.webp",
+   "files": [
+    "photo-m61713028-500.webp",
+    "photo-m61713028-960.webp",
+    "photo-m61713028-1280.webp",
+    "photo-m61713028.webp",
+    "photo-m61713028-780x975.webp"
+   ],
+   "id": "m61713028",
+   "alt": "Espresso running from a bottomless portafilter at a chrome machine",
+   "by": "Blake Richard Verdoorn",
+   "licence": "CC0",
+   "licenceUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Latte_in_a_coffee_machine_(Unsplash).jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-m187311853-1200.webp",
+   "files": [
+    "photo-m187311853-1200.webp"
+   ],
+   "id": "m187311853",
+   "alt": "A barista's hands tamping ground coffee in a portafilter beside an espresso machine",
+   "by": "Shixart1985",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Barista_prepares_espresso_at_coffee_shop.jpg",
+   "source": "Wikimedia Commons"
+  },
+  {
+   "file": "photo-m201752739.webp",
+   "files": [
+    "photo-m201752739-500.webp",
+    "photo-m201752739-960.webp",
+    "photo-m201752739.webp"
+   ],
+   "id": "m201752739",
+   "alt": "Milk steamed into a red pitcher at the machine, hands only",
+   "by": "Shixart1985",
+   "licence": "CC BY 2.0",
+   "licenceUrl": "https://creativecommons.org/licenses/by/2.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:Barista_pours_steamed_milk_into_a_red_pitcher_during_coffee_preparation_in_a_cafe.jpg",
+   "source": "Wikimedia Commons"
+  }
+ ]
+}

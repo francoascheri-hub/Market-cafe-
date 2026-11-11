@@ -30,4 +30,7 @@ export const backend: Omit<OrdersBackend, 'kind'> = {
   insert: (order: NewOrder) => chosen.then((b) => b.insert(order)),
   update: (id: string, patch: OrderPatch) => chosen.then((b) => b.update(id, patch)),
   clear: () => chosen.then((b) => b.clear()),
+  loadAll: () => chosen.then((b) => b.loadAll()),
+  insertSamples: (orders: NewOrder[]) => chosen.then((b) => b.insertSamples(orders)),
+  clearSamples: () => chosen.then((b) => b.clearSamples()),
 }

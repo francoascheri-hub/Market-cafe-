@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { formatPrice } from '../menu'
 import type { Daypart, MenuItem, Order, OrderLine, Station } from '../types'
 import { type Cart, STATUS_LABEL, cartLines, totalLabel } from './cart'
+import { Icon } from './icons'
+import { MenuStrip, PhotoCredit } from './photos'
 
 // Positive labels only; allergens would clutter the rows.
 const SHOWN_TAGS = ['Vegan', 'Vegetarian', 'Halal']
@@ -45,18 +47,27 @@ export default function MenuScreen({ daypart, cart, setCart, activeOrder, onOpen
       <main className="page stack">
         {activeOrder && (
           <button className="card st-active" onClick={() => onOpenOrder(activeOrder.id)}>
-            Order #{activeOrder.number} · Cubby {activeOrder.cubby} · {STATUS_LABEL[activeOrder.status]}
+            <span className="st-row-main">
+              <span className="st-active-title heading">Order #{activeOrder.number}</span>
+              <span className="st-active-meta">
+                Cubby {activeOrder.cubby} · {STATUS_LABEL[activeOrder.status]}
+              </span>
+            </span>
+            <Icon name="next" />
           </button>
         )}
-        <div>
-          <h2>
-            {daypart.label} · {clock12(daypart.start)}–{clock12(daypart.end)}
-          </h2>
+        <div className="st-intro">
+          <h2 className="st-title">{daypart.label}</h2>
+          <p className="muted">
+            Served {clock12(daypart.start)}–{clock12(daypart.end)}
+          </p>
           <div className="accent-bar" />
         </div>
+        <MenuStrip />
         {daypart.stations.map((s) => (
           <StationCard key={s.name} station={s} cart={cart} actions={actions} />
         ))}
+        <PhotoCredit />
       </main>
       <div className="bottom-bar">
         <button className="btn" disabled={count === 0} onClick={onCheckout}>
@@ -71,8 +82,8 @@ function StationCard({ station, cart, actions }: { station: Station; cart: Cart;
   const collapsible = isPastries(station)
   const [open, setOpen] = useState(!collapsible)
   return (
-    <section className="card">
-      <span className="label">{station.name}</span>
+    <section className="card st-station">
+      <h3 className="label">{station.name}</h3>
       {open &&
         station.items.map((i) =>
           i.builder ? (
@@ -82,8 +93,9 @@ function StationCard({ station, cart, actions }: { station: Station; cart: Cart;
           ),
         )}
       {collapsible && (
-        <button className="st-toggle" onClick={() => setOpen(!open)}>
-          {open ? 'Hide' : `Show ${station.items.length}`} {station.name}
+        <button className="st-toggle" aria-expanded={open} onClick={() => setOpen(!open)}>
+          {open ? 'Hide items' : `Show all ${station.items.length} items`}
+          <Icon name={open ? 'up' : 'down'} />
         </button>
       )}
     </section>
@@ -96,21 +108,30 @@ function ItemRow({ item, qty, change }: { item: MenuItem; qty: number; change: (
     <div className="st-row">
       <div className="st-row-main">
         <div className="st-name">{item.name}</div>
-        <div>
-          {formatPrice(item.price)}
-          {item.priceSource === 'example' && <span className="example-price"> example price</span>}
-          {tags.length > 0 && <span className="st-small"> · {tags.join(' · ')}</span>}
-        </div>
+        {(item.priceSource === 'example' || tags.length > 0) && (
+          <span className="st-meta">
+            {item.priceSource === 'example' && 'Example price'}
+            {item.priceSource === 'example' && tags.length > 0 && ' · '}
+            {tags.join(' · ')}
+          </span>
+        )}
       </div>
+      <div className="st-price">{formatPrice(item.price)}</div>
       <div className="st-qty">
         {qty > 0 ? (
           <>
-            <button aria-label={`Remove one ${item.name}`} onClick={() => change(item.id, -1)}>–</button>
+            <button aria-label={`Remove one ${item.name}`} onClick={() => change(item.id, -1)}>
+              <Icon name="minus" />
+            </button>
             <span>{qty}</span>
-            <button aria-label={`Add one ${item.name}`} onClick={() => change(item.id, 1)}>+</button>
+            <button aria-label={`Add one ${item.name}`} onClick={() => change(item.id, 1)}>
+              <Icon name="plus" />
+            </button>
           </>
         ) : (
-          <button className="st-add" aria-label={`Add ${item.name}`} onClick={() => change(item.id, 1)}>+</button>
+          <button className="st-add" aria-label={`Add ${item.name}`} onClick={() => change(item.id, 1)}>
+            <Icon name="plus" />
+          </button>
         )}
       </div>
     </div>
@@ -124,11 +145,12 @@ function BuilderRow({ item, builds, actions }: { item: MenuItem; builds: OrderLi
       <div className="st-row">
         <div className="st-row-main">
           <div className="st-name">{item.name}</div>
-          <div>from {formatPrice(item.price)}</div>
         </div>
-        <div className="st-qty">
-          <button className="st-add" aria-label={item.name} onClick={actions.onBuild}>+</button>
-        </div>
+        <div className="st-price">from {formatPrice(item.price)}</div>
+        <button className="st-build-btn" aria-label={item.name} onClick={actions.onBuild}>
+          Build
+          <Icon name="next" />
+        </button>
       </div>
       {builds.map((b, i) => (
         <div key={i} className="st-build">
@@ -139,7 +161,9 @@ function BuilderRow({ item, builds, actions }: { item: MenuItem; builds: OrderLi
             <div className="st-small">{b.details}</div>
           </div>
           <div className="st-qty">
-            <button aria-label={`Remove ${b.name}: ${b.details}`} onClick={() => actions.removeBuild(b)}>–</button>
+            <button aria-label={`Remove ${b.name}: ${b.details}`} onClick={() => actions.removeBuild(b)}>
+              <Icon name="minus" />
+            </button>
           </div>
         </div>
       ))}

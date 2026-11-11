@@ -5,7 +5,7 @@
 // Usage: npm run e2e   (needs Google Chrome installed; uses playwright-core)
 import { createServer } from 'vite'
 import { chromium } from 'playwright-core'
-import { mkdirSync } from 'node:fs'
+import { mkdirSync, readFileSync } from 'node:fs'
 import { memoryApiPlugin } from './memory-api-plugin.mjs'
 
 const OUT = 'docs/screenshots'
@@ -34,7 +34,8 @@ const check = (cond, msg) => {
   if (!cond) throw new Error(`FAILED: ${msg}`)
   console.log(`ok - ${msg}`)
 }
-const shot = (page, name) => page.screenshot({ path: `${OUT}/${name}.png` })
+const shot = (page, name, fullPage = false) =>
+  page.screenshot({ path: `${OUT}/${name}.png`, animations: 'disabled', fullPage })
 
 try {
   // --- Student phone ---
@@ -89,11 +90,12 @@ try {
   await card(201).getByRole('button', { name: 'Start preparing' }).click()
   await student.getByText('Preparing', { exact: false }).first().waitFor()
   check(true, 'student phone sees "Preparing" via polling')
+  await staff.evaluate(() => window.scrollTo(0, 0))
   await shot(staff, '5-staff')
   await card(201).getByRole('button', { name: 'Mark ready' }).click()
 
   // --- Student sees READY ---
-  await student.getByText(/READY/).first().waitFor()
+  await student.getByText(/^Ready — grab it/).first().waitFor()
   check(true, 'student confirmation flips to READY')
   await shot(student, '4-confirmation')
 
@@ -116,6 +118,60 @@ try {
   await staff.getByText('Orders today').waitFor()
   check((await staff.locator('body').textContent()).includes('Estimate'), 'metrics page shows the line-time estimate label')
   await shot(staff, '7-metrics')
+
+  // --- Dashboard: seed a realistic demo day, switch ranges, export CSVs, clear samples ---
+  await staff.getByRole('button', { name: 'Seed realistic demo day' }).click()
+  const seeded = await staff.locator('.dash-message').filter({ hasText: /^Added \d+ sample orders/ }).textContent()
+  check(true, `dashboard seeded: "${seeded}"`)
+  await staff.getByText('Orders today').waitFor()
+  await shot(staff, '9-dashboard-today', true)
+  await staff.getByRole('button', { name: 'Last 7 days' }).click()
+  check((await staff.getByRole('button', { name: 'Last 7 days' }).getAttribute('aria-pressed')) === 'true', 'range filter: Last 7 days')
+  await shot(staff, '9b-dashboard-7-days', true)
+  check(!(await staff.locator('main').textContent()).includes('$'), 'dashboard shows no $ figures (operational view)')
+  const dash = await staff.locator('main').textContent()
+  check(
+    ['p90', 'Wait in cubby', 'No-show rate', 'Pickup punctuality', 'Payment mix', 'Prep time by station'].every((t) => dash.includes(t)),
+    'dashboard shows p90 prep, dwell, no-show rate, punctuality, payment mix, prep by station',
+  )
+  const noShow = await staff.locator('.dash-kpi', { hasText: 'No-show rate' }).locator('.dash-kpi-value').textContent()
+  check(Number.parseFloat(noShow) > 0, `seeded data includes some no-shows (${noShow})`)
+  await board.reload()
+  await board.locator('.board-footer, footer').first().waitFor()
+  const boardNumbers = (await board.locator('.board-number').allTextContents()).map(Number)
+  check(boardNumbers.every((n) => n < 1000), `seeded no-shows stay off the ready board (${boardNumbers.join(', ') || 'none ready'})`)
+  // Hover the 7-day chart: tooltip with the per-station split
+  const weekly = staff.locator('section', { hasText: 'Last 7 days' }).filter({ has: staff.locator('.recharts-wrapper') }).first()
+  await weekly.scrollIntoViewIfNeeded()
+  const box = await weekly.locator('.recharts-wrapper').boundingBox()
+  await staff.mouse.move(box.x + box.width * 0.79, box.y + box.height * 0.6)
+  await weekly.locator('.chart-tip').waitFor()
+  check(true, 'chart tooltip on hover')
+  await weekly.screenshot({ path: OUT + '/9e-dashboard-chart-tooltip.png' })
+  await staff.mouse.move(0, 0)
+  // Top items: switch to the per-station accordion and open the build-your-own station
+  await staff.getByRole('button', { name: 'By station' }).click()
+  await staff.locator('summary', { hasText: 'Picante' }).click()
+  await staff.getByRole('columnheader', { name: 'Protein' }).waitFor()
+  check(true, 'by-station view: Picante expands with protein / toppings / add-ons')
+  await staff.locator('summary', { hasText: 'Picante' }).scrollIntoViewIfNeeded()
+  await shot(staff, '9d-dashboard-by-station', true)
+  mkdirSync('docs/exports', { recursive: true })
+  for (const [button, file, header] of [
+    ['Orders CSV', 'orders-sample.csv', /qty/i],
+    ['Summary CSV', 'summary-sample.csv', /./],
+  ]) {
+    const [download] = await Promise.all([staff.waitForEvent('download'), staff.getByRole('button', { name: button }).click()])
+    await download.saveAs(`docs/exports/${file}`)
+    const lines = readFileSync(`docs/exports/${file}`, 'utf8').trim().split(/\r?\n/)
+    check(header.test(lines[0]) && lines.length > 10, `${button} export: ${download.suggestedFilename()} (${lines.length} lines)`)
+  }
+  await staff.getByRole('button', { name: 'Orders CSV' }).scrollIntoViewIfNeeded()
+  await shot(staff, '9c-dashboard-export')
+  await staff.getByRole('button', { name: 'Clear sample orders' }).click()
+  await staff.locator('.dash-message').filter({ hasText: 'Sample orders removed' }).waitFor()
+  check(true, 'clear sample orders keeps real orders')
+  await staff.getByRole('button', { name: 'Today' }).click()
 
   const demo = await device(1280, 720)
   await demo.goto(base + '#/demo')

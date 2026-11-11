@@ -78,7 +78,9 @@ export default function StudentApp() {
   return (
     <>
       <header className="header">
-        <h1>Market Café</h1>
+        <h1>
+          Market Café{' '}<span className="brand-sub">Pre-order</span>
+        </h1>
         {student && (
           <button
             className="link"

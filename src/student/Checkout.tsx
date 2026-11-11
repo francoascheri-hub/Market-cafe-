@@ -3,6 +3,7 @@ import { formatPrice, formatTime, isTomorrow, pickupSlots } from '../menu'
 import { placeOrder } from '../store'
 import type { OrderLine, PaymentMethod, Student } from '../types'
 import { totalLabel } from './cart'
+import { Icon } from './icons'
 
 const PAYMENTS: { id: PaymentMethod; label: string; balance: string }[] = [
   { id: 'dons-dollars', label: 'Dons Dollars', balance: 'Balance $214.50 (demo)' },
@@ -27,13 +28,18 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
 
   return (
     <>
-      <main className="page stack">
-        <button className="st-link" onClick={onBack}>
-          ← Back to menu
-        </button>
+      <main className="page stack-lg">
+        <div>
+          <button className="st-link" onClick={onBack}>
+            <Icon name="back" />
+            Back to menu
+          </button>
+          <h2 className="st-title">Checkout</h2>
+          <div className="accent-bar" />
+        </div>
 
         <section className="card stack">
-          <span className="label">Your order</span>
+          <h3 className="label">Your order</h3>
           {lines.map((l, i) => (
             <div key={i} className="st-line">
               <span className="st-name">
@@ -50,15 +56,20 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
             <span>Total</span>
             <span>{total}</span>
           </div>
-          {hasExample && <div className="example-price">* example price — not listed on the café site</div>}
+          {hasExample && <div className="example-price">* Example price, not listed on the café site</div>}
         </section>
 
         <section className="stack">
-          <span className="label">Pickup time</span>
-          {slots[0] && isTomorrow(slots[0]) && <p className="muted">Café is closed now: this is a pre-order for tomorrow.</p>}
+          <h3 className="label">Pickup time</h3>
+          {slots[0] && isTomorrow(slots[0]) && <p className="muted">The café is closed now, so this is a pre-order for tomorrow</p>}
           <div className="st-grid">
             {slots.map((d, i) => (
-              <button key={d.toISOString()} className={`choice${i === slot ? ' selected' : ''}`} onClick={() => setSlot(i)}>
+              <button
+                key={d.toISOString()}
+                className={`choice${i === slot ? ' selected' : ''}`}
+                aria-pressed={i === slot}
+                onClick={() => setSlot(i)}
+              >
                 {formatTime(d)}
               </button>
             ))}
@@ -66,10 +77,15 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
         </section>
 
         <section className="stack">
-          <span className="label">Pay with</span>
+          <h3 className="label">Pay with</h3>
           <div className="st-grid two">
             {PAYMENTS.map((p) => (
-              <button key={p.id} className={`choice${p.id === payment ? ' selected' : ''}`} onClick={() => setPayment(p.id)}>
+              <button
+                key={p.id}
+                className={`choice${p.id === payment ? ' selected' : ''}`}
+                aria-pressed={p.id === payment}
+                onClick={() => setPayment(p.id)}
+              >
                 {p.label}
               </button>
             ))}

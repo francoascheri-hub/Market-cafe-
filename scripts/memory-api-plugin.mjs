@@ -8,7 +8,8 @@ export function memoryKv() {
   const parse = (v) => (v == null ? null : JSON.parse(v))
   return {
     async get(k) { return parse(data.get(k)) },
-    async incr(k) { const n = (parse(data.get(k)) ?? 0) + 1; data.set(k, JSON.stringify(n)); return n },
+    async incr(k) { return this.incrby(k, 1) },
+    async incrby(k, by) { const n = (parse(data.get(k)) ?? 0) + by; data.set(k, JSON.stringify(n)); return n },
     async set(k, v, { nx, px }) {
       if (nx && data.has(k)) return null
       data.set(k, JSON.stringify(v))
@@ -27,6 +28,7 @@ export function memoryKv() {
       for (const [f, v] of Object.entries(values)) h.set(f, JSON.stringify(v))
       return Object.keys(values).length
     },
+    async hdel(k, ...fs) { return fs.filter((f) => data.get(k)?.delete(f)).length },
   }
 }
 

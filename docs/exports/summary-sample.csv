@@ -1,0 +1,438 @@
+﻿Market Café pre-order summary
+Range,Last 7 days
+Sample orders,included
+Exported,2026-11-10 12:24
+
+KPI,Value
+Orders,390
+Items,522
+"Avg prep time (start to ready, m:ss)",6:16
+P90 prep time (m:ss),11:23
+Ready on time % (ready by pickup time),83.3
+"Avg dwell, ready to picked up (m:ss)",6:44
+"P90 dwell, ready to picked up (m:ss)",18:02
+"No-show % (ready, not picked up within 30 min of slot)",4.6
+
+"Pickup punctuality (picked up vs slot, on time = within +/-5 min)"
+Group,Orders,Share
+Early,23,6%
+On time,282,76%
+Late,68,18%
+
+Payment mix (% of orders)
+Payment,Qty,Share
+Dons Dollars,262,67%
+Flexi,128,33%
+
+Prep time by station (multi-station orders count for each station)
+Station,Orders,Avg (m:ss),P90 (m:ss)
+Picante,113,6:03,8:21
+Pizza,73,4:32,6:09
+Pastries,59,3:56,8:46
+Grill specials,53,10:38,14:23
+Hand fruit,43,7:03,12:09
+Beverage,39,6:01,10:40
+Kettles,28,2:23,3:29
+Griddle,24,6:25,8:33
+Sambal after dark,20,9:14,11:16
+Classics dinner,14,9:43,12:57
+Sambal,12,9:26,11:56
+Griddle scramble special,11,7:16,9:18
+Don's deli sandwiches,10,6:57,9:43
+Sunrise kettle,5,2:53,6:54
+Picked up,373
+"Line time saved, min (estimate: picked up x 15-25 min)",5595-9325
+
+Top items by quantity (all stations)
+Item,Station,Qty,Share
+Bowl,Picante,60,11%
+Burrito,Picante,53,10%
+Fruit | vegetable | herb spa water,Beverage,39,7%
+Cheese focaccia pizza,Pizza,20,4%
+Thai style yellow coconut tofu curry,Sambal after dark,13,2%
+African-inspired lentil & chicken soup,Kettles,12,2%
+"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,12,2%
+Roast mushroom & truffle ricotta pizza,Pizza,12,2%
+Market Grand Slam,Griddle scramble special,11,2%
+Mandarin oranges,Hand fruit,10,2%
+Old Fashion Oats,Kettles,10,2%
+Chicken bacon ranch pizza,Pizza,9,2%
+"Feta cheese, basil pesto, and spinach pizza",Pizza,9,2%
+Apple,Hand fruit,8,2%
+Avocado,Grill specials,8,2%
+Banana,Hand fruit,8,2%
+Italian napa valley rustic sandwich,Pizza,8,2%
+"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,7,1%
+Grilled chicken cuban sandwich,Grill specials,7,1%
+International pastry blueberry muffin,Pastries,7,1%
+Meatball and garlic herb ricotta pizza,Pizza,7,1%
+Pepperoni pizza on foccacia,Pizza,7,1%
+Thai-inspired yellow curry chicken,Sambal after dark,7,1%
+Tofu stir fry pancit bihon,Classics dinner,7,1%
+Vegan style pho with tofu,Sambal,7,1%
+Chicken tenders,Grill specials,6,1%
+International pastry bear claw,Pastries,6,1%
+International pastry cheese croissant,Pastries,6,1%
+San francisco fine bakery gluten free danish,Pastries,6,1%
+Tomato kale and lentil soup,Kettles,6,1%
+Tuna melt,Grill specials,6,1%
+All-beef hot dog,Grill specials,5,1%
+Bakery 350 banana walnut bread,Pastries,5,1%
+Cranberry chicken salad crunch sandwich,Don's deli sandwiches,5,1%
+Oranges,Hand fruit,5,1%
+Peaches,Hand fruit,5,1%
+Vietnamese style pho gai - chicken and rice noodle soup,Sambal,5,1%
+Impossible burger,Grill specials,4,1%
+International pastry cranberry orange scone with nuts,Pastries,4,1%
+Pears,Hand fruit,4,1%
+Side of bacon,Grill specials,4,1%
+Southwestern chorizo pizza,Pizza,4,1%
+Tofu curry scramble,Griddle,4,1%
+Bakery 350 chocolate chunk cookie,Pastries,3,1%
+Caesar salad,Don's deli sandwiches,3,1%
+Chicken apple sausage,Griddle,3,1%
+French toast,Griddle,3,1%
+International pastry maple raised donut,Pastries,3,1%
+International pastry sugar raised donut,Pastries,3,1%
+Mindful Meats Beef Burger*,Grill specials,3,1%
+Plums,Hand fruit,3,1%
+Roasted vegetables,Grill specials,3,1%
+San francisco fine bakery vegan danish,Pastries,3,1%
+Steamed rice,Griddle,3,1%
+Steel cut oats,Sunrise kettle,3,1%
+Arroz Con Leche (Rice with Milk),Sunrise kettle,2,0%
+Buttermilk pancakes,Griddle,2,0%
+Don's sandbox salad,Don's deli sandwiches,2,0%
+French/Curly fries,Grill specials,2,0%
+Halal chicken breast sandwich,Grill specials,2,0%
+International pastry almond croissant,Pastries,2,0%
+International pastry blackberry scone,Pastries,2,0%
+International pastry chocolate raised donut,Pastries,2,0%
+International pastry cranberry muffin,Pastries,2,0%
+Plain scrambled eggs,Griddle,2,0%
+Turkey Burger,Grill specials,2,0%
+Vegetarian Breakfast Sausage,Griddle,2,0%
+Bacon,Griddle,1,0%
+Cheesy eggs,Griddle,1,0%
+Grilled cheese,Grill specials,1,0%
+Hard-boiled eggs,Griddle,1,0%
+International pastry cheese danish,Pastries,1,0%
+International pastry glazed raised donut,Pastries,1,0%
+International pastry ham & cheese croissant,Pastries,1,0%
+International pastry poppy muffin,Pastries,1,0%
+International pastry raspberry danish,Pastries,1,0%
+International pastry raspberry peach scone,Pastries,1,0%
+International pastry spinach mushroom croissant,Pastries,1,0%
+International pastry turkey & cheese croissant,Pastries,1,0%
+Pancakes,Griddle,1,0%
+Steamed broccoli,Griddle,1,0%
+
+Items by station
+Station,Qty,Share
+Picante,113,22%
+Pizza,88,17%
+Pastries,62,12%
+Grill specials,53,10%
+Hand fruit,43,8%
+Beverage,39,7%
+Kettles,28,5%
+Griddle,24,5%
+Sambal after dark,20,4%
+Classics dinner,14,3%
+Sambal,12,2%
+Griddle scramble special,11,2%
+Don's deli sandwiches,10,2%
+Sunrise kettle,5,1%
+
+Station: Picante
+Item,Qty,Share
+Bowl,60,53%
+Burrito,53,47%
+
+Station: Picante - build your own: protein
+Protein,Qty,Share
+Chicken tinga,27,24%
+Carne asada,24,21%
+Mushroom tofu mojo,24,21%
+Pork carnitas,24,21%
+Chicken a la diabla,4,4%
+Pork chili colorado,4,4%
+Cactus asado,3,3%
+Vegetarian (no meat),3,3%
+
+Station: Picante - build your own: toppings
+Topping,Qty,Share
+Cheese,78,26%
+Lettuce,64,22%
+Pico de gallo,53,18%
+Sour cream,42,14%
+Hot salsa (salsa picante),30,10%
+Salsa verde,28,9%
+
+Station: Picante - build your own: add-ons
+Add-on,Qty,Share
+Guacamole,40,100%
+
+Station: Pizza
+Item,Qty,Share
+Cheese focaccia pizza,20,23%
+"Caramelized onion, spinach, mushroom and cheese pizza",12,14%
+Roast mushroom & truffle ricotta pizza,12,14%
+Chicken bacon ranch pizza,9,10%
+"Feta cheese, basil pesto, and spinach pizza",9,10%
+Italian napa valley rustic sandwich,8,9%
+Meatball and garlic herb ricotta pizza,7,8%
+Pepperoni pizza on foccacia,7,8%
+Southwestern chorizo pizza,4,5%
+
+Station: Pastries
+Item,Qty,Share
+International pastry blueberry muffin,7,11%
+International pastry bear claw,6,10%
+International pastry cheese croissant,6,10%
+San francisco fine bakery gluten free danish,6,10%
+Bakery 350 banana walnut bread,5,8%
+International pastry cranberry orange scone with nuts,4,6%
+Bakery 350 chocolate chunk cookie,3,5%
+International pastry maple raised donut,3,5%
+International pastry sugar raised donut,3,5%
+San francisco fine bakery vegan danish,3,5%
+International pastry almond croissant,2,3%
+International pastry blackberry scone,2,3%
+International pastry chocolate raised donut,2,3%
+International pastry cranberry muffin,2,3%
+International pastry cheese danish,1,2%
+International pastry glazed raised donut,1,2%
+International pastry ham & cheese croissant,1,2%
+International pastry poppy muffin,1,2%
+International pastry raspberry danish,1,2%
+International pastry raspberry peach scone,1,2%
+International pastry spinach mushroom croissant,1,2%
+International pastry turkey & cheese croissant,1,2%
+
+Station: Grill specials
+Item,Qty,Share
+Avocado,8,15%
+Grilled chicken cuban sandwich,7,13%
+Chicken tenders,6,11%
+Tuna melt,6,11%
+All-beef hot dog,5,9%
+Impossible burger,4,8%
+Side of bacon,4,8%
+Mindful Meats Beef Burger*,3,6%
+Roasted vegetables,3,6%
+French/Curly fries,2,4%
+Halal chicken breast sandwich,2,4%
+Turkey Burger,2,4%
+Grilled cheese,1,2%
+
+Station: Hand fruit
+Item,Qty,Share
+Mandarin oranges,10,23%
+Apple,8,19%
+Banana,8,19%
+Oranges,5,12%
+Peaches,5,12%
+Pears,4,9%
+Plums,3,7%
+
+Station: Beverage
+Item,Qty,Share
+Fruit | vegetable | herb spa water,39,100%
+
+Station: Kettles
+Item,Qty,Share
+African-inspired lentil & chicken soup,12,43%
+Old Fashion Oats,10,36%
+Tomato kale and lentil soup,6,21%
+
+Station: Griddle
+Item,Qty,Share
+Tofu curry scramble,4,17%
+Chicken apple sausage,3,13%
+French toast,3,13%
+Steamed rice,3,13%
+Buttermilk pancakes,2,8%
+Plain scrambled eggs,2,8%
+Vegetarian Breakfast Sausage,2,8%
+Bacon,1,4%
+Cheesy eggs,1,4%
+Hard-boiled eggs,1,4%
+Pancakes,1,4%
+Steamed broccoli,1,4%
+
+Station: Sambal after dark
+Item,Qty,Share
+Thai style yellow coconut tofu curry,13,65%
+Thai-inspired yellow curry chicken,7,35%
+
+Station: Classics dinner
+Item,Qty,Share
+"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",7,50%
+Tofu stir fry pancit bihon,7,50%
+
+Station: Sambal
+Item,Qty,Share
+Vegan style pho with tofu,7,58%
+Vietnamese style pho gai - chicken and rice noodle soup,5,42%
+
+Station: Griddle scramble special
+Item,Qty,Share
+Market Grand Slam,11,100%
+
+Station: Don's deli sandwiches
+Item,Qty,Share
+Cranberry chicken salad crunch sandwich,5,50%
+Caesar salad,3,30%
+Don's sandbox salad,2,20%
+
+Station: Sunrise kettle
+Item,Qty,Share
+Steel cut oats,3,60%
+Arroz Con Leche (Rice with Milk),2,40%
+
+By pickup hour
+Hour,Orders,Items
+7 AM,6,8
+8 AM,26,34
+9 AM,24,28
+10 AM,4,7
+11 AM,65,83
+12 PM,70,98
+1 PM,44,59
+2 PM,3,5
+3 PM,5,8
+4 PM,5,5
+5 PM,22,28
+6 PM,59,83
+7 PM,48,63
+8 PM,9,13
+9 PM,0,0
+
+By day
+Day,Orders,Items
+"Wed, Nov 4",74,98
+"Thu, Nov 5",83,113
+"Fri, Nov 6",58,75
+"Sat, Nov 7",38,55
+"Sun, Nov 8",36,50
+"Mon, Nov 9",69,90
+"Tue, Nov 10",32,41
+
+Orders per pickup slot
+Slot,Orders,Items
+7:05 AM,1,2
+7:25 AM,1,1
+7:35 AM,1,1
+7:40 AM,1,1
+7:55 AM,2,3
+8:00 AM,2,3
+8:05 AM,3,3
+8:10 AM,2,2
+8:15 AM,3,3
+8:20 AM,2,4
+8:25 AM,1,1
+8:30 AM,3,4
+8:35 AM,3,4
+8:40 AM,1,1
+8:45 AM,3,5
+8:50 AM,1,1
+8:55 AM,2,3
+9:00 AM,2,3
+9:05 AM,2,2
+9:10 AM,4,4
+9:15 AM,2,3
+9:20 AM,6,7
+9:25 AM,1,1
+9:30 AM,1,2
+9:35 AM,3,3
+9:40 AM,1,1
+9:45 AM,1,1
+9:50 AM,1,1
+10:00 AM,1,2
+10:05 AM,2,3
+10:20 AM,1,2
+11:00 AM,5,5
+11:05 AM,4,6
+11:10 AM,7,10
+11:15 AM,5,8
+11:20 AM,2,4
+11:25 AM,1,1
+11:30 AM,9,9
+11:35 AM,8,10
+11:40 AM,6,7
+11:45 AM,7,9
+11:50 AM,4,4
+11:55 AM,7,10
+12:00 PM,4,5
+12:05 PM,5,6
+12:10 PM,7,11
+12:15 PM,9,13
+12:20 PM,9,12
+12:25 PM,5,6
+12:30 PM,4,4
+12:35 PM,8,13
+12:40 PM,3,4
+12:45 PM,8,13
+12:50 PM,2,3
+12:55 PM,6,8
+1:00 PM,2,3
+1:05 PM,3,4
+1:10 PM,4,6
+1:15 PM,4,5
+1:20 PM,3,6
+1:25 PM,4,4
+1:30 PM,4,6
+1:35 PM,3,4
+1:40 PM,5,7
+1:45 PM,5,6
+1:50 PM,2,3
+1:55 PM,5,5
+2:15 PM,1,2
+2:25 PM,1,2
+2:40 PM,1,1
+3:05 PM,2,3
+3:35 PM,2,4
+3:40 PM,1,1
+4:40 PM,1,1
+4:45 PM,2,2
+4:55 PM,2,2
+5:00 PM,3,3
+5:05 PM,3,4
+5:10 PM,2,2
+5:15 PM,2,2
+5:20 PM,3,5
+5:25 PM,3,3
+5:30 PM,3,6
+5:35 PM,1,1
+5:50 PM,1,1
+5:55 PM,1,1
+6:00 PM,1,2
+6:05 PM,5,6
+6:10 PM,3,3
+6:15 PM,4,8
+6:20 PM,4,4
+6:25 PM,5,8
+6:30 PM,7,10
+6:35 PM,4,5
+6:40 PM,4,6
+6:45 PM,7,10
+6:50 PM,8,13
+6:55 PM,7,8
+7:00 PM,2,3
+7:05 PM,4,6
+7:10 PM,4,6
+7:15 PM,4,5
+7:20 PM,9,11
+7:25 PM,5,7
+7:30 PM,3,4
+7:35 PM,4,5
+7:40 PM,2,2
+7:45 PM,4,4
+7:50 PM,5,8
+7:55 PM,2,2
+8:10 PM,3,4
+8:15 PM,2,2
+8:25 PM,2,4
+8:45 PM,1,2
+8:55 PM,1,1

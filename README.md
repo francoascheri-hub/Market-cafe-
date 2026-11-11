@@ -16,7 +16,7 @@ Pilot web app for **USF BENI-349** (Franco Ascheri & Alejandro).
 |---|---|---|
 | Student app | `/#/` | Maya / Diego on their phone |
 | Staff view | `/#/staff` | Market Café staff behind the counter |
-| Metrics | `/#/staff/metrics` | Staff / manager |
+| Dashboard | `/#/staff/metrics` | Staff / manager: sales and operations analytics |
 | Ready board | `/#/board` | TV next to the cubby shelf |
 | Class demo | `/#/demo` | Projector: QR code for classmates to scan and order |
 
@@ -74,7 +74,7 @@ Other commands:
 3. **Students** (their own phones): sign in with any name and an 8-digit ID (mock), add food or **build a burrito or bowl**, tap **Checkout**, pick a pickup slot, and pay with **Dons Dollars** or **Flexi** (mock). Each gets an order number (e.g. **#204**) and a **cubby number**.
 4. **Staff view:** orders appear within about 2 seconds, grouped by pickup slot. Tap **Start preparing**, then **Mark ready**. Each student's phone switches to **READY — grab it from cubby N**, and the number appears on the **ready board**.
 5. Tap **Picked up** to free the cubby.
-6. **Metrics** (`/#/staff/metrics`): orders today, orders per pickup slot, average prep time, and the estimated line time saved. All of these are computed from the orders placed in class.
+6. **Dashboard** (`/#/staff/metrics`): first show **Today**, which has only the orders placed in class. Then tap **Seed realistic demo day** and switch to **Last 7 days** for a full dashboard. Export **Orders CSV** / **Summary CSV** to open in Excel. Finish with **Clear sample orders**.
 7. Tip: **Add sample order** on the staff view adds labelled sample orders if you need more on screen.
 
 ## Screenshots
@@ -87,9 +87,44 @@ Other commands:
 |---|---|
 | ![](docs/screenshots/5-staff.png) | ![](docs/screenshots/6-ready-board.png) |
 
-| Metrics | Class demo QR |
+| Dashboard (class orders only) | Class demo QR |
 |---|---|
 | ![](docs/screenshots/7-metrics.png) | ![](docs/screenshots/8-demo-qr.png) |
+
+| Dashboard (seeded, last 7 days) | Top items by station (expanded) |
+|---|---|
+| ![](docs/screenshots/9b-dashboard-7-days.png) | ![](docs/screenshots/9d-dashboard-by-station.png) |
+
+## Staff dashboard
+
+`/#/staff/metrics` computes everything from the stored orders. There are no hardcoded numbers.
+
+- **Filters:** date range (Today / Last 7 days / All) and **Include sample orders** (orders created by the demo tools are flagged `sample`).
+- **Operational, not financial:** it counts orders and items and shows no $ figures.
+- **KPIs:** orders, items, average and p90 prep time (started → ready), ready on time (food ready by the chosen pickup time), wait in cubby (ready → picked up, average and p90), no-show rate (ready orders not picked up within 30 min of the slot), and **line time saved**. The last one is labelled an *estimate*: picked-up orders × the 15–25 min peak line the team observed.
+- **Charts** (Recharts, with hover tooltips and legends): demand by pickup hour (order bars with the busiest hour in gold, plus an items-to-prepare line). **Last 7 days**: orders per day stacked by main station, with a gold daily-total trend line. A **day × hour heatmap** of orders. **Donuts** for pickup punctuality and payment mix.
+- **Top items by quantity:** one ranking of everything, with Burrito and Bowl listed like any other item. **By station** switches it to a collapsible section per station. The build-your-own station (picante) also shows protein, topping and add-on (guacamole) counts.
+- **Orders per pickup slot**, with order and item counts.
+- **Pickup punctuality:** when students picked up compared with their slot: early, on time (within ±5 min) or late. **Payment mix:** Dons Dollars vs Flexi as a share of orders, with no amounts.
+- **Prep time by station:** average and p90. An order with items from several stations counts toward each of them (an approximation).
+- Seeded demo days include realistic early and late pickups and about 4% no-shows. No-show orders stay with the other sample orders and never reach the live queue or board.
+- **Export:** **Orders CSV** (one row per item ordered, quantities only) and **Summary CSV** (KPIs, the full ranking, per-station tables with the build breakdown, hours, days and slots, all as quantities). Examples: [`docs/exports/`](docs/exports/).
+- **Demo tools:**
+  - **Seed realistic demo day** creates sample orders for today and the 6 days before, using real menu items, prices and builder options. Seeding replaces any existing sample orders.
+  - Seeded orders are already picked up, numbered from #1001, and kept in a separate Redis hash, so they never appear on the staff queue or ready board, take a cubby, or use up real order numbers.
+  - **Clear sample orders** removes only sample orders.
+
+### API (`api/orders.ts`)
+
+| Request | What it does |
+|---|---|
+| `GET /api/orders?since=<version>` | Live orders only (not picked up, or created in the last 12 h), used by the phones, staff view and board every 2 s. Returns `unchanged` if nothing changed. |
+| `GET /api/orders?scope=all&since=<version>` | Full history including samples (dashboard only) |
+| `POST /api/orders` | New order: server assigns the next # and a free cubby |
+| `POST /api/orders?bulk=1` | Store seeded sample orders |
+| `PATCH /api/orders?id=<id>` | Change status / cubby (status changes are time-stamped) |
+| `DELETE /api/orders` | Reset demo (all orders, numbering back to #201) |
+| `DELETE /api/orders?sample=1` | Remove sample orders only |
 
 ## Menu data (real, scraped)
 
@@ -117,7 +152,7 @@ Items whose price is marked `"priceSource": "example"` are labelled **"example p
 
 ## Tech
 
-Vite + React + TypeScript. Vercel Functions (`/api`) use `@upstash/redis`, and `qrcode` draws the demo QR code. Orders go through `src/store.ts` to a backend in `src/backend/`: `api.ts` (shared, polling) or `local.ts` (localStorage). Routes are hash-based: `#/`, `#/staff`, `#/staff/metrics`, `#/board`, `#/demo`.
+Vite + React + TypeScript. Vercel Functions (`/api`) use `@upstash/redis`, and `qrcode` draws the demo QR code. Orders go through `src/store.ts` to a backend in `src/backend/`: `api.ts` (shared, polling) or `local.ts` (localStorage). Routes are hash-based: `#/`, `#/staff`, `#/staff/metrics` (dashboard), `#/board`, `#/demo`. Dashboard code lives in `src/dashboard/` (analytics, Recharts charts, CSV export, demo-day seeding).
 
 ```
 scripts/scrape-menu.mjs   menu scraper

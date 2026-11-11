@@ -1,11 +1,16 @@
 // Vercel Function: shared orders for every device, stored in Upstash Redis (free tier).
 //
-//   GET    /api/orders?since=<version>  -> { version, orders } or { version, unchanged: true }
-//   POST   /api/orders                  -> new order with the next order number + a free cubby
-//   PATCH  /api/orders?id=<id>          -> { status?, cubby? }; status changes are time-stamped here
-//   DELETE /api/orders                  -> reset the demo (all orders, numbering back to #201)
+//   GET    /api/orders?since=<version>            -> live orders: { version, orders } or { version, unchanged: true }
+//   GET    /api/orders?scope=all&since=<version>  -> every order incl. history + seeded samples (dashboard only)
+//   POST   /api/orders                            -> new order with the next order number + a free cubby
+//   POST   /api/orders?bulk=1                     -> { orders: NewOrder[] } seeded demo orders (dashboard demo tool)
+//   PATCH  /api/orders?id=<id>                    -> { status?, cubby? }; status changes are time-stamped here
+//   DELETE /api/orders                            -> reset the demo (all orders, numbering back to #201)
+//   DELETE /api/orders?sample=1                   -> delete every sample order, keep real ones
 //
 // Clients poll GET every ~2 s. `version` goes up on every write, so an unchanged poll costs one Redis read.
+// The live list leaves out old picked-up orders, and seeded samples live in their own hash, so phones
+// never download the dashboard's history.
 import { Redis } from '@upstash/redis'
 import type { NewOrder, Order, OrderStatus } from '../src/types.js'
 
@@ -13,7 +18,13 @@ const ORDERS = 'mc:orders' // hash: order id -> order
 const SEQ = 'mc:seq' // order number counter
 const VERSION = 'mc:version' // bumped on every write
 const LOCK = 'mc:lock' // serialises order creation so two phones never get the same cubby
+const SAMPLES = 'mc:samples' // hash: seeded demo orders (dashboard "Seed realistic demo day"), never live
+const SAMPLE_SEQ = 'mc:sample-seq' // their own number counter (#1001...), so real orders keep #201...
+const SAMPLES_VERSION = 'mc:samples-version' // bumped when SAMPLES changes
 const FIRST_ORDER_NUMBER = 201
+const FIRST_SAMPLE_NUMBER = 1001
+const MAX_BULK = 2000
+const LIVE_WINDOW_MS = 12 * 60 * 60 * 1000 // picked-up orders stay in the live list this long
 const CUBBY_COUNT = 24
 const STATUSES: OrderStatus[] = ['received', 'preparing', 'ready', 'picked-up']
 const STATUS_TIMESTAMP: Partial<Record<OrderStatus, 'startedAt' | 'readyAt' | 'pickedUpAt'>> = {
@@ -26,12 +37,21 @@ const STATUS_TIMESTAMP: Partial<Record<OrderStatus, 'startedAt' | 'readyAt' | 'p
 export interface Kv {
   get<T>(key: string): Promise<T | null>
   incr(key: string): Promise<number>
+  incrby(key: string, by: number): Promise<number>
   set(key: string, value: string, opts: { nx: true; px: number }): Promise<unknown>
   del(...keys: string[]): Promise<number>
   hgetall<T extends Record<string, unknown>>(key: string): Promise<T | null>
   hget<T>(key: string, field: string): Promise<T | null>
   hset(key: string, values: Record<string, unknown>): Promise<number>
+  hdel(key: string, ...fields: string[]): Promise<number>
 }
+
+/** Orders the live screens (student, staff, board) need: anything not picked up, plus the last 12 h. */
+const isLive = (o: Order, now: number) => o.status !== 'picked-up' || now - Date.parse(o.createdAt) < LIVE_WINDOW_MS
+
+const iso = (v: unknown) => (typeof v === 'string' && !Number.isNaN(Date.parse(v)) ? new Date(v).toISOString() : undefined)
+const validDraft = (d: NewOrder | undefined) => !!d?.id && Array.isArray(d.lines) && d.lines.length > 0 && !!d.student?.usfId
+const linesTotal = (lines: Order['lines']) => Math.round(lines.reduce((s, l) => s + l.price * l.qty, 0) * 100) / 100
 
 // Server-side only: reads UPSTASH_REDIS_REST_URL / UPSTASH_REDIS_REST_TOKEN (set on the Vercel project).
 // The token never reaches the browser.
@@ -60,24 +80,63 @@ export function createHandlers(getKv: () => Kv | null = redisFromEnv) {
     }
   }
 
-  const allOrders = async (kv: Kv) =>
-    Object.values((await kv.hgetall<Record<string, Order>>(ORDERS)) ?? {}).sort((a, b) => a.number - b.number)
+  const allOrders = async (kv: Kv, key = ORDERS) =>
+    Object.values((await kv.hgetall<Record<string, Order>>(key)) ?? {}).sort((a, b) => a.number - b.number)
 
   const bump = (kv: Kv) => kv.incr(VERSION)
 
   return {
     GET: withKv(async (kv, req) => {
-      const version = Number((await kv.get<number>(VERSION)) ?? 0)
-      const since = new URL(req.url).searchParams.get('since')
+      const params = new URL(req.url).searchParams
+      const all = params.get('scope') === 'all'
+      let version = Number((await kv.get<number>(VERSION)) ?? 0)
+      // Both counters only go up, so their sum changes whenever either list does.
+      if (all) version += Number((await kv.get<number>(SAMPLES_VERSION)) ?? 0)
+      const since = params.get('since')
       if (since !== null && Number(since) === version) return json({ version, unchanged: true })
-      return json({ version, orders: await allOrders(kv) })
+      if (all) return json({ version, orders: [...(await allOrders(kv)), ...(await allOrders(kv, SAMPLES))] })
+      const now = Date.now()
+      return json({ version, orders: (await allOrders(kv)).filter((o) => isLive(o, now)) })
     }),
 
     POST: withKv(async (kv, req) => {
-      const draft = (await req.json()) as NewOrder
-      if (!draft?.id || !Array.isArray(draft.lines) || draft.lines.length === 0 || !draft.student?.usfId) {
-        return json({ error: 'Invalid order' }, 400)
+      if (new URL(req.url).searchParams.get('bulk') === '1') {
+        // Seeded demo orders: always sample + picked up (never on the queue, board or a cubby),
+        // numbered #1001... from their own counter, written with one HSET into their own hash.
+        const drafts = ((await req.json()) as { orders?: NewOrder[] })?.orders
+        if (!Array.isArray(drafts) || drafts.length === 0 || drafts.length > MAX_BULK || !drafts.every(validDraft)) {
+          return json({ error: 'Invalid sample orders' }, 400)
+        }
+        const first = FIRST_SAMPLE_NUMBER - drafts.length + (await kv.incrby(SAMPLE_SEQ, drafts.length))
+        const fields: Record<string, Order> = {}
+        drafts.forEach((d, i) => {
+          const createdAt = iso(d.createdAt) ?? new Date().toISOString()
+          const pickupAt = iso(d.pickupAt) ?? createdAt
+          const readyAt = iso(d.readyAt)
+          fields[d.id] = {
+            id: String(d.id),
+            number: first + i,
+            student: { name: String(d.student.name).slice(0, 40), usfId: String(d.student.usfId).slice(0, 12) },
+            lines: d.lines,
+            total: linesTotal(d.lines),
+            pickupAt,
+            payment: d.payment === 'flexi' ? 'flexi' : 'dons-dollars',
+            status: d.status === 'ready' ? 'ready' : 'picked-up', // seeded no-shows stay "ready"
+            cubby: Number.isInteger(d.cubby) && d.cubby >= 1 && d.cubby <= CUBBY_COUNT ? d.cubby : 1,
+            createdAt,
+            startedAt: iso(d.startedAt),
+            readyAt,
+            pickedUpAt: d.status === 'ready' ? undefined : (iso(d.pickedUpAt) ?? readyAt ?? pickupAt),
+            sample: true,
+          }
+        })
+        await kv.hset(SAMPLES, fields)
+        await kv.incr(SAMPLES_VERSION)
+        return json({ count: drafts.length }, 201)
       }
+
+      const draft = (await req.json()) as NewOrder
+      if (!validDraft(draft)) return json({ error: 'Invalid order' }, 400)
       // Short lock so concurrent orders get different cubbies.
       const token = crypto.randomUUID()
       for (let i = 0; i < 40 && !(await kv.set(LOCK, token, { nx: true, px: 5000 })); i++) await sleep(100)
@@ -91,7 +150,7 @@ export function createHandlers(getKv: () => Kv | null = redisFromEnv) {
           number: FIRST_ORDER_NUMBER - 1 + (await kv.incr(SEQ)),
           student: { name: String(draft.student.name).slice(0, 40), usfId: String(draft.student.usfId).slice(0, 12) },
           lines: draft.lines,
-          total: Math.round(draft.lines.reduce((s, l) => s + l.price * l.qty, 0) * 100) / 100,
+          total: linesTotal(draft.lines),
           pickupAt: draft.pickupAt,
           payment: draft.payment,
           status: 'received',
@@ -128,9 +187,21 @@ export function createHandlers(getKv: () => Kv | null = redisFromEnv) {
       return json(next)
     }),
 
-    DELETE: withKv(async (kv) => {
-      await kv.del(ORDERS, SEQ)
+    DELETE: withKv(async (kv, req) => {
+      if (new URL(req.url).searchParams.get('sample') === '1') {
+        // Staff "Add sample order" ones sit with the real orders; seeded ones have their own hash.
+        const ids = (await allOrders(kv)).filter((o) => o.sample).map((o) => o.id)
+        if (ids.length) {
+          await kv.hdel(ORDERS, ...ids)
+          await bump(kv)
+        }
+        await kv.del(SAMPLES, SAMPLE_SEQ)
+        await kv.incr(SAMPLES_VERSION)
+        return json({ ok: true })
+      }
+      await kv.del(ORDERS, SEQ, SAMPLES, SAMPLE_SEQ)
       await bump(kv)
+      await kv.incr(SAMPLES_VERSION)
       return json({ ok: true })
     }),
   }

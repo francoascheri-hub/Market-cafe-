@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { formatPrice, menu } from '../menu'
 import type { OrderLine } from '../types'
+import { Icon } from './icons'
 
 const B = menu.burritoBuilder
 export const BUILDER_ITEM_ID = 'build-your-own'
@@ -25,9 +26,9 @@ export default function Builder({ onBack, onAdd }: Props) {
     : !protein
       ? 'Choose a protein'
       : beans === null
-        ? 'Beans?'
+        ? 'Beans or no beans?'
         : rice === null
-          ? 'Rice?'
+          ? 'Rice or no rice?'
           : null
   const price = B.basePrice + (protein?.price ?? 0) + (guac ? B.guacamole.price : 0)
 
@@ -56,7 +57,7 @@ export default function Builder({ onBack, onAdd }: Props) {
   const choice = (selected: boolean) => `choice${selected ? ' selected' : ''}`
   const yesNo = (label: string, value: boolean | null, set: (v: boolean) => void) => (
     <section className="stack">
-      <span className="label">{label}</span>
+      <h3 className="label">{label}</h3>
       <div className="st-grid two">
         <button className={choice(value === true)} aria-pressed={value === true} aria-label={`${label}: Yes`} onClick={() => set(true)}>
           Yes
@@ -70,17 +71,18 @@ export default function Builder({ onBack, onAdd }: Props) {
 
   return (
     <>
-      <main className="page stack">
-        <button className="st-link" onClick={onBack}>
-          ← Back to menu
-        </button>
+      <main className="page stack-lg">
         <div>
-          <h2>Build your own burrito or bowl</h2>
+          <button className="st-link" onClick={onBack}>
+            <Icon name="back" />
+            Back to menu
+          </button>
+          <h2 className="st-title">Build your own burrito or bowl</h2>
           <div className="accent-bar" />
         </div>
 
         <section className="stack">
-          <span className="label">Burrito or bowl</span>
+          <h3 className="label">Burrito or bowl</h3>
           <div className="st-grid two">
             {B.types.map((t) => (
               <button key={t} className={choice(type === t)} aria-pressed={type === t} onClick={() => setType(t)}>
@@ -91,7 +93,7 @@ export default function Builder({ onBack, onAdd }: Props) {
         </section>
 
         <section className="stack">
-          <span className="label">Protein</span>
+          <h3 className="label">Protein</h3>
           {B.proteins.map((p) => (
             <button
               key={p.id}
@@ -101,11 +103,11 @@ export default function Builder({ onBack, onAdd }: Props) {
             >
               <span>
                 {p.name}
-                {p.kind === 'special' && <span className="st-small"> daily special</span>}
+                {p.kind === 'special' && <span className="st-small">Daily special</span>}
               </span>
               <span>
                 +{formatPrice(p.price)}
-                {p.priceSource === 'example' && <span className="example-price"> example price</span>}
+                {p.priceSource === 'example' && <span className="example-price">example price</span>}
               </span>
             </button>
           ))}
@@ -115,7 +117,7 @@ export default function Builder({ onBack, onAdd }: Props) {
         {yesNo('Rice', rice, setRice)}
 
         <section className="stack">
-          <span className="label">Extra</span>
+          <h3 className="label">Extra</h3>
           <button className={`${choice(guac)} st-option`} aria-pressed={guac} onClick={() => setGuac((g) => !g)}>
             <span>Guacamole</span>
             <span>+{formatPrice(B.guacamole.price)}</span>
@@ -123,7 +125,9 @@ export default function Builder({ onBack, onAdd }: Props) {
         </section>
 
         <section className="stack">
-          <span className="label">Toppings (free)</span>
+          <h3 className="label">
+            Toppings{' '}<span className="label-note">free</span>
+          </h3>
           <div className="st-grid two">
             {B.toppings.map((t) => {
               const on = toppings.includes(t)

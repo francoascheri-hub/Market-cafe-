@@ -1,0 +1,508 @@
+﻿Order #,Created,Pickup,Status,Payment,Sample,Item,Station,Details,Qty
+1003,2026-11-04 07:48,2026-11-04 08:15,picked-up,Flexi,yes,Steamed rice,Griddle,,1
+1001,2026-11-04 07:41,2026-11-04 08:45,picked-up,Dons Dollars,yes,Buttermilk pancakes,Griddle,,1
+1001,2026-11-04 07:41,2026-11-04 08:45,picked-up,Dons Dollars,yes,International pastry cranberry muffin,Pastries,,1
+1006,2026-11-04 08:44,2026-11-04 09:00,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1004,2026-11-04 07:50,2026-11-04 09:10,picked-up,Dons Dollars,yes,French toast,Griddle,,1
+1002,2026-11-04 07:45,2026-11-04 09:20,picked-up,Flexi,yes,Old Fashion Oats,Kettles,,1
+1005,2026-11-04 07:53,2026-11-04 09:30,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1005,2026-11-04 07:53,2026-11-04 09:30,picked-up,Dons Dollars,yes,International pastry glazed raised donut,Pastries,,1
+1007,2026-11-04 09:00,2026-11-04 09:35,picked-up,Flexi,yes,Chicken apple sausage,Griddle,,1
+1013,2026-11-04 10:34,2026-11-04 11:00,picked-up,Flexi,yes,Chicken tenders,Grill specials,,1
+1015,2026-11-04 10:40,2026-11-04 11:05,picked-up,Flexi,yes,Tomato kale and lentil soup,Kettles,,1
+1015,2026-11-04 10:40,2026-11-04 11:05,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1009,2026-11-04 10:22,2026-11-04 11:35,picked-up,Dons Dollars,yes,Vegan style pho with tofu,Sambal,,1
+1018,2026-11-04 11:07,2026-11-04 11:35,picked-up,Flexi,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,2
+1020,2026-11-04 11:17,2026-11-04 11:35,picked-up,Flexi,yes,Cranberry chicken salad crunch sandwich,Don's deli sandwiches,,1
+1020,2026-11-04 11:17,2026-11-04 11:35,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1008,2026-11-04 10:05,2026-11-04 11:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · No beans · No rice · Cheese, Hot salsa (salsa picante), Pico de gallo",1
+1008,2026-11-04 10:05,2026-11-04 11:40,picked-up,Dons Dollars,yes,International pastry cranberry orange scone with nuts,Pastries,,1
+1010,2026-11-04 10:24,2026-11-04 11:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Lettuce, Cheese, Sour cream",1
+1011,2026-11-04 10:28,2026-11-04 11:50,picked-up,Dons Dollars,yes,Vegan style pho with tofu,Sambal,,1
+1014,2026-11-04 10:35,2026-11-04 11:50,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · No beans · No rice · Cheese, Sour cream, Hot salsa (salsa picante)",1
+1021,2026-11-04 11:26,2026-11-04 11:55,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1021,2026-11-04 11:26,2026-11-04 11:55,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1023,2026-11-04 11:35,2026-11-04 11:55,picked-up,Flexi,yes,Bowl,Picante,Carne asada · Beans · No rice · Guacamole · Cheese,1
+1024,2026-11-04 11:36,2026-11-04 11:55,picked-up,Dons Dollars,yes,Vietnamese style pho gai - chicken and rice noodle soup,Sambal,,1
+1022,2026-11-04 11:28,2026-11-04 12:00,picked-up,Flexi,yes,Tomato kale and lentil soup,Kettles,,1
+1012,2026-11-04 10:32,2026-11-04 12:10,picked-up,Dons Dollars,yes,Italian napa valley rustic sandwich,Pizza,,2
+1026,2026-11-04 11:45,2026-11-04 12:10,picked-up,Dons Dollars,yes,International pastry maple raised donut,Pastries,,1
+1019,2026-11-04 11:13,2026-11-04 12:15,picked-up,Flexi,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Guacamole · Cheese, Pico de gallo",1
+1029,2026-11-04 11:54,2026-11-04 12:15,picked-up,Dons Dollars,yes,Mindful Meats Beef Burger*,Grill specials,,1
+1025,2026-11-04 11:43,2026-11-04 12:20,picked-up,Dons Dollars,yes,Vegan style pho with tofu,Sambal,,1
+1017,2026-11-04 10:58,2026-11-04 12:25,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Lettuce, Cheese, Sour cream",1
+1017,2026-11-04 10:58,2026-11-04 12:25,picked-up,Dons Dollars,yes,Mandarin oranges,Hand fruit,,1
+1016,2026-11-04 10:47,2026-11-04 12:30,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1027,2026-11-04 11:51,2026-11-04 12:35,picked-up,Flexi,yes,Tomato kale and lentil soup,Kettles,,1
+1032,2026-11-04 12:18,2026-11-04 12:45,picked-up,Dons Dollars,yes,Southwestern chorizo pizza,Pizza,,1
+1035,2026-11-04 12:28,2026-11-04 12:45,ready,Dons Dollars,yes,Tuna melt,Grill specials,,1
+1033,2026-11-04 12:24,2026-11-04 13:10,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,1
+1034,2026-11-04 12:26,2026-11-04 13:10,picked-up,Flexi,yes,Vietnamese style pho gai - chicken and rice noodle soup,Sambal,,1
+1030,2026-11-04 12:05,2026-11-04 13:15,picked-up,Dons Dollars,yes,Burrito,Picante,"Pork carnitas · Beans · Rice · Guacamole · Pico de gallo, Salsa verde",1
+1037,2026-11-04 12:52,2026-11-04 13:15,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1036,2026-11-04 12:44,2026-11-04 13:20,picked-up,Dons Dollars,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1036,2026-11-04 12:44,2026-11-04 13:20,picked-up,Dons Dollars,yes,Banana,Hand fruit,,1
+1040,2026-11-04 13:14,2026-11-04 13:30,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Guacamole · Cheese, Sour cream",1
+1028,2026-11-04 11:54,2026-11-04 13:40,picked-up,Flexi,yes,Grilled cheese,Grill specials,,1
+1031,2026-11-04 12:10,2026-11-04 13:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese, Sour cream, Hot salsa (salsa picante), Salsa verde",1
+1039,2026-11-04 13:03,2026-11-04 13:40,picked-up,Dons Dollars,yes,Meatball and garlic herb ricotta pizza,Pizza,,1
+1039,2026-11-04 13:03,2026-11-04 13:40,picked-up,Dons Dollars,yes,Mandarin oranges,Hand fruit,,1
+1038,2026-11-04 12:53,2026-11-04 13:45,picked-up,Flexi,yes,San francisco fine bakery gluten free danish,Pastries,,1
+1042,2026-11-04 13:14,2026-11-04 13:45,picked-up,Dons Dollars,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1043,2026-11-04 13:32,2026-11-04 13:50,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Sour cream, Pico de gallo",1
+1041,2026-11-04 13:14,2026-11-04 13:55,picked-up,Dons Dollars,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1044,2026-11-04 13:37,2026-11-04 13:55,picked-up,Flexi,yes,Burrito,Picante,"Pork carnitas · Beans · Rice · Guacamole · Lettuce, Cheese",1
+1046,2026-11-04 16:09,2026-11-04 17:00,picked-up,Dons Dollars,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1045,2026-11-04 16:07,2026-11-04 17:10,picked-up,Dons Dollars,yes,Burrito,Picante,"Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese, Sour cream, Hot salsa (salsa picante)",1
+1050,2026-11-04 17:11,2026-11-04 17:30,picked-up,Flexi,yes,Burrito,Picante,"Carne asada · Beans · Rice · Cheese, Salsa verde",1
+1050,2026-11-04 17:11,2026-11-04 17:30,picked-up,Flexi,yes,Peaches,Hand fruit,,1
+1049,2026-11-04 17:07,2026-11-04 17:55,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Lettuce, Cheese, Pico de gallo",1
+1051,2026-11-04 17:43,2026-11-04 18:05,picked-up,Dons Dollars,yes,Burrito,Picante,Pork carnitas · Beans · No rice · Pico de gallo,1
+1053,2026-11-04 17:56,2026-11-04 18:20,picked-up,Dons Dollars,yes,Chicken tenders,Grill specials,,1
+1047,2026-11-04 16:36,2026-11-04 18:30,picked-up,Dons Dollars,yes,Chicken bacon ranch pizza,Pizza,,2
+1056,2026-11-04 18:08,2026-11-04 18:30,picked-up,Dons Dollars,yes,Side of bacon,Grill specials,,1
+1056,2026-11-04 18:08,2026-11-04 18:30,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1048,2026-11-04 16:53,2026-11-04 18:40,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Sour cream",1
+1048,2026-11-04 16:53,2026-11-04 18:40,picked-up,Dons Dollars,yes,Peaches,Hand fruit,,1
+1059,2026-11-04 18:12,2026-11-04 18:45,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Sour cream, Hot salsa (salsa picante), Pico de gallo",1
+1059,2026-11-04 18:12,2026-11-04 18:45,picked-up,Dons Dollars,yes,Mandarin oranges,Hand fruit,,1
+1054,2026-11-04 17:56,2026-11-04 18:50,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · No beans · Rice · Lettuce, Cheese, Pico de gallo",1
+1054,2026-11-04 17:56,2026-11-04 18:50,picked-up,Dons Dollars,yes,Plums,Hand fruit,,1
+1055,2026-11-04 18:01,2026-11-04 18:50,picked-up,Dons Dollars,yes,Burrito,Picante,Carne asada · No beans · Rice · Cheese,1
+1055,2026-11-04 18:01,2026-11-04 18:50,picked-up,Dons Dollars,yes,Apple,Hand fruit,,1
+1065,2026-11-04 18:27,2026-11-04 18:50,picked-up,Dons Dollars,yes,Chicken tenders,Grill specials,,1
+1064,2026-11-04 18:27,2026-11-04 18:55,picked-up,Flexi,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1067,2026-11-04 18:43,2026-11-04 19:00,picked-up,Dons Dollars,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,2
+1060,2026-11-04 18:17,2026-11-04 19:05,picked-up,Dons Dollars,yes,All-beef hot dog,Grill specials,,1
+1060,2026-11-04 18:17,2026-11-04 19:05,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1052,2026-11-04 17:47,2026-11-04 19:15,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1052,2026-11-04 17:47,2026-11-04 19:15,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1061,2026-11-04 18:18,2026-11-04 19:15,picked-up,Flexi,yes,Bowl,Picante,"Carne asada · No beans · No rice · Hot salsa (salsa picante), Pico de gallo",1
+1063,2026-11-04 18:26,2026-11-04 19:20,picked-up,Dons Dollars,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1063,2026-11-04 18:26,2026-11-04 19:20,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1066,2026-11-04 18:36,2026-11-04 19:20,picked-up,Dons Dollars,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1070,2026-11-04 19:02,2026-11-04 19:20,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Cheese, Sour cream, Salsa verde",1
+1071,2026-11-04 19:04,2026-11-04 19:20,picked-up,Flexi,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Cheese",1
+1058,2026-11-04 18:11,2026-11-04 19:25,picked-up,Dons Dollars,yes,Avocado,Grill specials,,1
+1062,2026-11-04 18:23,2026-11-04 19:25,picked-up,Dons Dollars,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1062,2026-11-04 18:23,2026-11-04 19:25,picked-up,Dons Dollars,yes,Oranges,Hand fruit,,1
+1069,2026-11-04 18:58,2026-11-04 19:25,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1068,2026-11-04 18:58,2026-11-04 19:35,picked-up,Dons Dollars,yes,Italian napa valley rustic sandwich,Pizza,,1
+1057,2026-11-04 18:09,2026-11-04 19:50,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1072,2026-11-04 19:09,2026-11-04 19:55,picked-up,Dons Dollars,yes,Burrito,Picante,Mushroom tofu mojo · Beans · Rice · Guacamole · Salsa verde,1
+1073,2026-11-04 19:39,2026-11-04 20:10,picked-up,Flexi,yes,Burrito,Picante,"Chicken a la diabla · Beans · Rice · Lettuce, Sour cream, Salsa verde",1
+1073,2026-11-04 19:39,2026-11-04 20:10,picked-up,Flexi,yes,Apple,Hand fruit,,1
+1074,2026-11-04 19:47,2026-11-04 20:55,picked-up,Dons Dollars,yes,Burrito,Picante,Carne asada · No beans · Rice · Guacamole · Sour cream,1
+1076,2026-11-05 06:38,2026-11-05 07:40,picked-up,Flexi,yes,Old Fashion Oats,Kettles,,1
+1075,2026-11-05 06:30,2026-11-05 08:00,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1075,2026-11-05 06:30,2026-11-05 08:00,picked-up,Dons Dollars,yes,International pastry cheese croissant,Pastries,,1
+1079,2026-11-05 07:43,2026-11-05 08:00,picked-up,Flexi,yes,Market Grand Slam,Griddle scramble special,,1
+1077,2026-11-05 06:40,2026-11-05 08:20,picked-up,Flexi,yes,Arroz Con Leche (Rice with Milk),Sunrise kettle,,1
+1077,2026-11-05 06:40,2026-11-05 08:20,picked-up,Flexi,yes,Bakery 350 banana walnut bread,Pastries,,1
+1078,2026-11-05 07:22,2026-11-05 08:35,picked-up,Dons Dollars,yes,Steel cut oats,Sunrise kettle,,1
+1078,2026-11-05 07:22,2026-11-05 08:35,picked-up,Dons Dollars,yes,International pastry cranberry orange scone with nuts,Pastries,,1
+1080,2026-11-05 08:36,2026-11-05 09:25,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1083,2026-11-05 10:03,2026-11-05 10:20,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1083,2026-11-05 10:03,2026-11-05 10:20,picked-up,Dons Dollars,yes,International pastry bear claw,Pastries,,1
+1088,2026-11-05 10:44,2026-11-05 11:00,picked-up,Flexi,yes,Bowl,Picante,Vegetarian (no meat) · Beans · Rice · Lettuce,1
+1081,2026-11-05 09:32,2026-11-05 11:05,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · No rice · Lettuce, Cheese, Sour cream, Salsa verde",1
+1086,2026-11-05 10:37,2026-11-05 11:15,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,2
+1086,2026-11-05 10:37,2026-11-05 11:15,picked-up,Dons Dollars,yes,International pastry cheese croissant,Pastries,,1
+1091,2026-11-05 10:51,2026-11-05 11:15,picked-up,Dons Dollars,yes,Vegan style pho with tofu,Sambal,,1
+1089,2026-11-05 10:45,2026-11-05 11:20,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Lettuce, Cheese",1
+1082,2026-11-05 10:02,2026-11-05 11:30,picked-up,Flexi,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Guacamole · Cheese, Sour cream, Hot salsa (salsa picante), Pico de gallo",1
+1085,2026-11-05 10:35,2026-11-05 11:30,picked-up,Dons Dollars,yes,Bowl,Picante,"Cactus asado · Beans · Rice · Lettuce, Cheese, Hot salsa (salsa picante)",1
+1094,2026-11-05 11:05,2026-11-05 11:30,picked-up,Dons Dollars,yes,Tomato kale and lentil soup,Kettles,,1
+1097,2026-11-05 11:16,2026-11-05 11:35,picked-up,Flexi,yes,Burrito,Picante,"Pork carnitas · Beans · Rice · Sour cream, Hot salsa (salsa picante), Pico de gallo",1
+1087,2026-11-05 10:42,2026-11-05 11:40,picked-up,Flexi,yes,African-inspired lentil & chicken soup,Kettles,,1
+1095,2026-11-05 11:06,2026-11-05 11:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese, Pico de gallo",1
+1098,2026-11-05 11:23,2026-11-05 11:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Cactus asado · Beans · No rice · Guacamole · Sour cream, Pico de gallo",1
+1102,2026-11-05 11:29,2026-11-05 11:45,ready,Flexi,yes,Tuna melt,Grill specials,,1
+1084,2026-11-05 10:10,2026-11-05 11:55,picked-up,Dons Dollars,yes,International pastry cheese danish,Pastries,,1
+1084,2026-11-05 10:10,2026-11-05 11:55,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1107,2026-11-05 11:44,2026-11-05 12:05,picked-up,Dons Dollars,yes,Bowl,Picante,Carne asada · Beans · Rice · Guacamole · Lettuce,1
+1107,2026-11-05 11:44,2026-11-05 12:05,picked-up,Dons Dollars,yes,Bakery 350 chocolate chunk cookie,Pastries,,1
+1093,2026-11-05 10:59,2026-11-05 12:15,picked-up,Dons Dollars,yes,Southwestern chorizo pizza,Pizza,,1
+1093,2026-11-05 10:59,2026-11-05 12:15,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1101,2026-11-05 11:28,2026-11-05 12:15,picked-up,Flexi,yes,San francisco fine bakery vegan danish,Pastries,,1
+1101,2026-11-05 11:28,2026-11-05 12:15,picked-up,Flexi,yes,Pears,Hand fruit,,1
+1105,2026-11-05 11:37,2026-11-05 12:15,picked-up,Dons Dollars,yes,Pepperoni pizza on foccacia,Pizza,,1
+1105,2026-11-05 11:37,2026-11-05 12:15,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1100,2026-11-05 11:27,2026-11-05 12:20,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,1
+1109,2026-11-05 11:58,2026-11-05 12:30,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · No rice · Lettuce, Cheese, Pico de gallo",1
+1090,2026-11-05 10:50,2026-11-05 12:35,picked-up,Dons Dollars,yes,Pepperoni pizza on foccacia,Pizza,,2
+1104,2026-11-05 11:34,2026-11-05 12:35,picked-up,Dons Dollars,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1092,2026-11-05 10:59,2026-11-05 12:45,picked-up,Dons Dollars,yes,Burrito,Picante,Mushroom tofu mojo · Beans · Rice · Sour cream,1
+1096,2026-11-05 11:16,2026-11-05 12:45,picked-up,Flexi,yes,Burrito,Picante,"Mushroom tofu mojo · No beans · Rice · Guacamole · Lettuce, Cheese, Pico de gallo",1
+1096,2026-11-05 11:16,2026-11-05 12:45,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1103,2026-11-05 11:33,2026-11-05 12:45,picked-up,Dons Dollars,yes,Bowl,Picante,Pork carnitas · Beans · Rice · Pico de gallo,1
+1108,2026-11-05 11:57,2026-11-05 12:45,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,2
+1108,2026-11-05 11:57,2026-11-05 12:45,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1113,2026-11-05 12:31,2026-11-05 12:50,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Cheese, Salsa verde",1
+1099,2026-11-05 11:24,2026-11-05 12:55,picked-up,Dons Dollars,yes,International pastry blueberry muffin,Pastries,,1
+1110,2026-11-05 12:11,2026-11-05 12:55,picked-up,Flexi,yes,Cranberry chicken salad crunch sandwich,Don's deli sandwiches,,1
+1112,2026-11-05 12:23,2026-11-05 12:55,picked-up,Flexi,yes,Vegan style pho with tofu,Sambal,,1
+1116,2026-11-05 12:43,2026-11-05 13:00,picked-up,Dons Dollars,yes,All-beef hot dog,Grill specials,,1
+1116,2026-11-05 12:43,2026-11-05 13:00,picked-up,Dons Dollars,yes,Pears,Hand fruit,,1
+1106,2026-11-05 11:43,2026-11-05 13:05,picked-up,Flexi,yes,Bowl,Picante,"Pork carnitas · Beans · No rice · Cheese, Sour cream, Hot salsa (salsa picante), Salsa verde",1
+1114,2026-11-05 12:37,2026-11-05 13:05,picked-up,Flexi,yes,Tuna melt,Grill specials,,1
+1115,2026-11-05 12:38,2026-11-05 13:15,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · No beans · No rice · Cheese, Sour cream",1
+1115,2026-11-05 12:38,2026-11-05 13:15,picked-up,Dons Dollars,yes,International pastry blueberry muffin,Pastries,,1
+1111,2026-11-05 12:13,2026-11-05 13:35,ready,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Lettuce, Pico de gallo",1
+1117,2026-11-05 13:19,2026-11-05 13:35,picked-up,Dons Dollars,yes,Burrito,Picante,"Pork carnitas · No beans · Rice · Guacamole · Lettuce, Cheese, Hot salsa (salsa picante)",1
+1118,2026-11-05 13:56,2026-11-05 14:15,picked-up,Flexi,yes,Cheese focaccia pizza,Pizza,,1
+1118,2026-11-05 13:56,2026-11-05 14:15,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1120,2026-11-05 14:18,2026-11-05 14:40,picked-up,Dons Dollars,yes,Cranberry chicken salad crunch sandwich,Don's deli sandwiches,,1
+1119,2026-11-05 14:07,2026-11-05 15:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Pico de gallo, Salsa verde",1
+1121,2026-11-05 14:52,2026-11-05 16:45,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · Beans · Rice · Lettuce, Cheese, Pico de gallo",1
+1123,2026-11-05 15:58,2026-11-05 16:55,picked-up,Dons Dollars,yes,Avocado,Grill specials,,1
+1125,2026-11-05 16:47,2026-11-05 17:05,picked-up,Dons Dollars,yes,Turkey Burger,Grill specials,,1
+1122,2026-11-05 15:43,2026-11-05 17:10,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · Rice · Guacamole · Lettuce, Hot salsa (salsa picante), Pico de gallo",1
+1126,2026-11-05 17:00,2026-11-05 17:20,picked-up,Dons Dollars,yes,Italian napa valley rustic sandwich,Pizza,,1
+1124,2026-11-05 16:16,2026-11-05 17:30,picked-up,Dons Dollars,yes,Roasted vegetables,Grill specials,,1
+1124,2026-11-05 16:16,2026-11-05 17:30,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1132,2026-11-05 17:38,2026-11-05 18:05,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1135,2026-11-05 17:47,2026-11-05 18:05,picked-up,Dons Dollars,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1139,2026-11-05 17:58,2026-11-05 18:15,picked-up,Flexi,yes,African-inspired lentil & chicken soup,Kettles,,1
+1139,2026-11-05 17:58,2026-11-05 18:15,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1138,2026-11-05 17:56,2026-11-05 18:25,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1138,2026-11-05 17:56,2026-11-05 18:25,picked-up,Dons Dollars,yes,Apple,Hand fruit,,1
+1134,2026-11-05 17:42,2026-11-05 18:30,picked-up,Dons Dollars,yes,Avocado,Grill specials,,1
+1143,2026-11-05 18:14,2026-11-05 18:30,picked-up,Flexi,yes,Italian napa valley rustic sandwich,Pizza,,2
+1137,2026-11-05 17:54,2026-11-05 18:35,ready,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1137,2026-11-05 17:54,2026-11-05 18:35,ready,Dons Dollars,yes,Banana,Hand fruit,,1
+1144,2026-11-05 18:18,2026-11-05 18:35,ready,Flexi,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1127,2026-11-05 17:12,2026-11-05 18:40,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1133,2026-11-05 17:40,2026-11-05 18:45,picked-up,Flexi,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1130,2026-11-05 17:36,2026-11-05 18:50,picked-up,Dons Dollars,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1136,2026-11-05 17:50,2026-11-05 18:50,ready,Flexi,yes,Bowl,Picante,"Chicken tinga · No beans · Rice · Guacamole · Lettuce, Sour cream, Pico de gallo",1
+1136,2026-11-05 17:50,2026-11-05 18:50,ready,Flexi,yes,Banana,Hand fruit,,1
+1147,2026-11-05 18:46,2026-11-05 19:05,picked-up,Flexi,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1128,2026-11-05 17:30,2026-11-05 19:10,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Cheese, Sour cream, Hot salsa (salsa picante), Salsa verde",1
+1128,2026-11-05 17:30,2026-11-05 19:10,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1140,2026-11-05 17:58,2026-11-05 19:10,picked-up,Dons Dollars,yes,Meatball and garlic herb ricotta pizza,Pizza,,1
+1146,2026-11-05 18:42,2026-11-05 19:10,picked-up,Flexi,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Lettuce, Cheese, Salsa verde",1
+1129,2026-11-05 17:36,2026-11-05 19:15,picked-up,Flexi,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Cheese, Sour cream, Salsa verde",1
+1150,2026-11-05 19:00,2026-11-05 19:20,picked-up,Flexi,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1151,2026-11-05 19:03,2026-11-05 19:20,picked-up,Dons Dollars,yes,Avocado,Grill specials,,1
+1152,2026-11-05 19:04,2026-11-05 19:20,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1152,2026-11-05 19:04,2026-11-05 19:20,picked-up,Dons Dollars,yes,Apple,Hand fruit,,1
+1149,2026-11-05 19:00,2026-11-05 19:25,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1149,2026-11-05 19:00,2026-11-05 19:25,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1131,2026-11-05 17:36,2026-11-05 19:30,picked-up,Dons Dollars,yes,Bowl,Picante,Chicken tinga · Beans · Rice · Guacamole,1
+1153,2026-11-05 19:07,2026-11-05 19:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · No beans · Rice · Guacamole · Lettuce, Cheese",1
+1141,2026-11-05 18:04,2026-11-05 19:45,picked-up,Dons Dollars,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1142,2026-11-05 18:08,2026-11-05 19:50,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Lettuce, Pico de gallo, Salsa verde",1
+1142,2026-11-05 18:08,2026-11-05 19:50,picked-up,Dons Dollars,yes,Mandarin oranges,Hand fruit,,1
+1145,2026-11-05 18:31,2026-11-05 19:50,picked-up,Flexi,yes,Bowl,Picante,Cactus asado · Beans · Rice · Pico de gallo,1
+1145,2026-11-05 18:31,2026-11-05 19:50,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1154,2026-11-05 19:12,2026-11-05 19:55,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1155,2026-11-05 19:12,2026-11-05 20:10,picked-up,Flexi,yes,Avocado,Grill specials,,1
+1148,2026-11-05 18:59,2026-11-05 20:15,picked-up,Dons Dollars,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1156,2026-11-05 19:59,2026-11-05 20:15,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1157,2026-11-05 20:16,2026-11-05 20:45,picked-up,Dons Dollars,yes,Side of bacon,Grill specials,,1
+1157,2026-11-05 20:16,2026-11-05 20:45,picked-up,Dons Dollars,yes,Oranges,Hand fruit,,1
+1159,2026-11-06 06:43,2026-11-06 07:55,picked-up,Flexi,yes,Bakery 350 banana walnut bread,Pastries,,1
+1158,2026-11-06 06:19,2026-11-06 08:05,picked-up,Dons Dollars,yes,Old Fashion Oats,Kettles,,1
+1160,2026-11-06 07:48,2026-11-06 08:05,picked-up,Flexi,yes,Old Fashion Oats,Kettles,,1
+1161,2026-11-06 08:05,2026-11-06 08:30,picked-up,Flexi,yes,Old Fashion Oats,Kettles,,1
+1162,2026-11-06 08:13,2026-11-06 08:30,picked-up,Flexi,yes,Vegetarian Breakfast Sausage,Griddle,,1
+1163,2026-11-06 08:29,2026-11-06 09:10,picked-up,Flexi,yes,Hard-boiled eggs,Griddle,,1
+1164,2026-11-06 09:32,2026-11-06 10:00,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1164,2026-11-06 09:32,2026-11-06 10:00,picked-up,Dons Dollars,yes,International pastry sugar raised donut,Pastries,,1
+1165,2026-11-06 09:33,2026-11-06 10:05,picked-up,Flexi,yes,Steel cut oats,Sunrise kettle,,1
+1165,2026-11-06 09:33,2026-11-06 10:05,picked-up,Flexi,yes,San francisco fine bakery gluten free danish,Pastries,,1
+1169,2026-11-06 10:56,2026-11-06 11:15,picked-up,Flexi,yes,Bowl,Picante,"Pork carnitas · Beans · No rice · Guacamole · Cheese, Hot salsa (salsa picante), Pico de gallo",1
+1175,2026-11-06 11:13,2026-11-06 11:30,picked-up,Dons Dollars,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1171,2026-11-06 10:58,2026-11-06 11:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork chili colorado · No beans · Rice · Cheese, Pico de gallo",1
+1167,2026-11-06 10:30,2026-11-06 11:45,picked-up,Dons Dollars,yes,Meatball and garlic herb ricotta pizza,Pizza,,1
+1170,2026-11-06 10:57,2026-11-06 11:45,picked-up,Dons Dollars,yes,Meatball and garlic herb ricotta pizza,Pizza,,1
+1176,2026-11-06 11:22,2026-11-06 11:45,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,1
+1166,2026-11-06 10:14,2026-11-06 12:00,picked-up,Dons Dollars,yes,Southwestern chorizo pizza,Pizza,,1
+1177,2026-11-06 11:30,2026-11-06 12:05,picked-up,Flexi,yes,Caesar salad,Don's deli sandwiches,,1
+1172,2026-11-06 11:00,2026-11-06 12:20,picked-up,Flexi,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1172,2026-11-06 11:00,2026-11-06 12:20,picked-up,Flexi,yes,Plums,Hand fruit,,1
+1179,2026-11-06 11:47,2026-11-06 12:20,picked-up,Dons Dollars,yes,Impossible burger,Grill specials,,1
+1180,2026-11-06 11:49,2026-11-06 12:20,picked-up,Dons Dollars,yes,Chicken bacon ranch pizza,Pizza,,1
+1181,2026-11-06 12:01,2026-11-06 12:20,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Lettuce, Cheese",1
+1181,2026-11-06 12:01,2026-11-06 12:20,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1178,2026-11-06 11:42,2026-11-06 12:25,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Guacamole · Lettuce, Cheese, Pico de gallo, Salsa verde",1
+1168,2026-11-06 10:40,2026-11-06 12:30,picked-up,Flexi,yes,Don's sandbox salad,Don's deli sandwiches,,1
+1173,2026-11-06 11:02,2026-11-06 12:30,picked-up,Dons Dollars,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1184,2026-11-06 12:12,2026-11-06 12:35,picked-up,Dons Dollars,yes,International pastry spinach mushroom croissant,Pastries,,1
+1184,2026-11-06 12:12,2026-11-06 12:35,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1174,2026-11-06 11:07,2026-11-06 12:40,picked-up,Flexi,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1174,2026-11-06 11:07,2026-11-06 12:40,picked-up,Flexi,yes,International pastry cheese croissant,Pastries,,1
+1183,2026-11-06 12:08,2026-11-06 12:40,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Cheese, Pico de gallo",1
+1189,2026-11-06 12:44,2026-11-06 13:00,picked-up,Dons Dollars,yes,Cranberry chicken salad crunch sandwich,Don's deli sandwiches,,1
+1182,2026-11-06 12:01,2026-11-06 13:25,picked-up,Dons Dollars,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1187,2026-11-06 12:29,2026-11-06 13:25,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1192,2026-11-06 13:12,2026-11-06 13:30,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese",1
+1192,2026-11-06 13:12,2026-11-06 13:30,picked-up,Dons Dollars,yes,Bakery 350 chocolate chunk cookie,Pastries,,1
+1193,2026-11-06 13:14,2026-11-06 13:30,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Lettuce, Cheese, Sour cream, Pico de gallo",1
+1185,2026-11-06 12:18,2026-11-06 13:45,picked-up,Dons Dollars,yes,International pastry blueberry muffin,Pastries,,1
+1190,2026-11-06 12:52,2026-11-06 13:45,picked-up,Dons Dollars,yes,Vietnamese style pho gai - chicken and rice noodle soup,Sambal,,1
+1191,2026-11-06 12:55,2026-11-06 13:50,picked-up,Flexi,yes,Pepperoni pizza on foccacia,Pizza,,2
+1186,2026-11-06 12:29,2026-11-06 13:55,picked-up,Flexi,yes,Bowl,Picante,"Chicken tinga · Beans · No rice · Guacamole · Cheese, Sour cream, Hot salsa (salsa picante), Salsa verde",1
+1188,2026-11-06 12:31,2026-11-06 13:55,picked-up,Flexi,yes,Burrito,Picante,"Carne asada · Beans · Rice · Lettuce, Sour cream",1
+1194,2026-11-06 14:48,2026-11-06 15:05,picked-up,Flexi,yes,Burrito,Picante,"Pork chili colorado · Beans · Rice · Cheese, Sour cream, Hot salsa (salsa picante), Salsa verde",1
+1194,2026-11-06 14:48,2026-11-06 15:05,picked-up,Flexi,yes,Apple,Hand fruit,,1
+1195,2026-11-06 15:09,2026-11-06 16:55,picked-up,Flexi,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Cheese, Sour cream, Pico de gallo",1
+1198,2026-11-06 16:03,2026-11-06 17:00,ready,Flexi,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1197,2026-11-06 15:58,2026-11-06 17:15,picked-up,Dons Dollars,yes,Bowl,Picante,Mushroom tofu mojo · Beans · Rice · Pico de gallo,1
+1201,2026-11-06 16:48,2026-11-06 17:15,picked-up,Flexi,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1196,2026-11-06 15:30,2026-11-06 17:20,picked-up,Flexi,yes,Halal chicken breast sandwich,Grill specials,,1
+1196,2026-11-06 15:30,2026-11-06 17:20,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1203,2026-11-06 16:57,2026-11-06 17:25,picked-up,Flexi,yes,Avocado,Grill specials,,1
+1200,2026-11-06 16:45,2026-11-06 17:35,picked-up,Flexi,yes,Burrito,Picante,"Pork chili colorado · No beans · No rice · Guacamole · Lettuce, Pico de gallo",1
+1204,2026-11-06 17:10,2026-11-06 17:50,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · No beans · Rice · Lettuce, Cheese",1
+1202,2026-11-06 16:51,2026-11-06 18:00,picked-up,Flexi,yes,Avocado,Grill specials,,1
+1202,2026-11-06 16:51,2026-11-06 18:00,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1199,2026-11-06 16:15,2026-11-06 18:05,picked-up,Flexi,yes,Bowl,Picante,"Pork chili colorado · Beans · Rice · Lettuce, Pico de gallo",1
+1199,2026-11-06 16:15,2026-11-06 18:05,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1205,2026-11-06 17:26,2026-11-06 18:10,picked-up,Flexi,yes,Southwestern chorizo pizza,Pizza,,1
+1210,2026-11-06 18:03,2026-11-06 18:25,picked-up,Flexi,yes,Bowl,Picante,"Carne asada · No beans · Rice · Lettuce, Cheese, Sour cream",1
+1210,2026-11-06 18:03,2026-11-06 18:25,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1212,2026-11-06 18:07,2026-11-06 18:25,picked-up,Flexi,yes,Meatball and garlic herb ricotta pizza,Pizza,,2
+1211,2026-11-06 18:04,2026-11-06 18:30,picked-up,Dons Dollars,yes,Burrito,Picante,"Mushroom tofu mojo · Beans · Rice · Guacamole · Cheese, Sour cream",1
+1207,2026-11-06 17:36,2026-11-06 18:45,picked-up,Dons Dollars,yes,Burrito,Picante,"Vegetarian (no meat) · Beans · No rice · Lettuce, Cheese, Pico de gallo",1
+1207,2026-11-06 17:36,2026-11-06 18:45,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1208,2026-11-06 17:38,2026-11-06 18:50,picked-up,Dons Dollars,yes,Tuna melt,Grill specials,,1
+1208,2026-11-06 17:38,2026-11-06 18:50,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1213,2026-11-06 18:15,2026-11-06 18:50,picked-up,Dons Dollars,yes,Chicken tenders,Grill specials,,1
+1213,2026-11-06 18:15,2026-11-06 18:50,picked-up,Dons Dollars,yes,Banana,Hand fruit,,1
+1206,2026-11-06 17:34,2026-11-06 18:55,picked-up,Flexi,yes,Mindful Meats Beef Burger*,Grill specials,,1
+1214,2026-11-06 18:38,2026-11-06 18:55,picked-up,Flexi,yes,Chicken bacon ranch pizza,Pizza,,1
+1209,2026-11-06 17:48,2026-11-06 19:20,picked-up,Dons Dollars,yes,Roasted vegetables,Grill specials,,1
+1215,2026-11-06 19:18,2026-11-06 19:35,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1217,2026-11-07 07:58,2026-11-07 08:15,picked-up,Dons Dollars,yes,San francisco fine bakery gluten free danish,Pastries,,1
+1216,2026-11-07 06:30,2026-11-07 08:20,picked-up,Dons Dollars,yes,Pancakes,Griddle,,1
+1216,2026-11-07 06:30,2026-11-07 08:20,picked-up,Dons Dollars,yes,International pastry turkey & cheese croissant,Pastries,,1
+1218,2026-11-07 08:13,2026-11-07 08:45,picked-up,Dons Dollars,yes,International pastry raspberry danish,Pastries,,1
+1218,2026-11-07 08:13,2026-11-07 08:45,picked-up,Dons Dollars,yes,International pastry cranberry orange scone with nuts,Pastries,,1
+1220,2026-11-07 08:39,2026-11-07 09:00,picked-up,Flexi,yes,French toast,Griddle,,1
+1220,2026-11-07 08:39,2026-11-07 09:00,picked-up,Flexi,yes,International pastry sugar raised donut,Pastries,,1
+1219,2026-11-07 08:31,2026-11-07 09:20,picked-up,Dons Dollars,yes,Old Fashion Oats,Kettles,,1
+1221,2026-11-07 09:00,2026-11-07 09:20,picked-up,Dons Dollars,yes,Arroz Con Leche (Rice with Milk),Sunrise kettle,,1
+1224,2026-11-07 10:34,2026-11-07 11:05,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1224,2026-11-07 10:34,2026-11-07 11:05,picked-up,Dons Dollars,yes,International pastry raspberry peach scone,Pastries,,1
+1222,2026-11-07 09:51,2026-11-07 11:10,picked-up,Flexi,yes,Burrito,Picante,Pork carnitas · Beans · No rice · Guacamole · Lettuce,1
+1222,2026-11-07 09:51,2026-11-07 11:10,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1223,2026-11-07 10:10,2026-11-07 11:45,picked-up,Flexi,yes,Burrito,Picante,Pork carnitas · Beans · Rice · Guacamole · Cheese,1
+1227,2026-11-07 10:56,2026-11-07 11:45,picked-up,Dons Dollars,yes,International pastry chocolate raised donut,Pastries,,1
+1227,2026-11-07 10:56,2026-11-07 11:45,picked-up,Dons Dollars,yes,Peaches,Hand fruit,,1
+1226,2026-11-07 10:47,2026-11-07 12:20,ready,Dons Dollars,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1226,2026-11-07 10:47,2026-11-07 12:20,ready,Dons Dollars,yes,Banana,Hand fruit,,1
+1225,2026-11-07 10:44,2026-11-07 12:35,picked-up,Dons Dollars,yes,Burrito,Picante,"Carne asada · Beans · Rice · Cheese, Pico de gallo, Salsa verde",1
+1225,2026-11-07 10:44,2026-11-07 12:35,picked-up,Dons Dollars,yes,Plums,Hand fruit,,1
+1229,2026-11-07 11:38,2026-11-07 12:35,picked-up,Dons Dollars,yes,Caesar salad,Don's deli sandwiches,,1
+1231,2026-11-07 12:18,2026-11-07 12:35,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Guacamole · Lettuce, Sour cream, Hot salsa (salsa picante), Salsa verde",1
+1231,2026-11-07 12:18,2026-11-07 12:35,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1230,2026-11-07 12:17,2026-11-07 12:55,picked-up,Dons Dollars,yes,Don's sandbox salad,Don's deli sandwiches,,1
+1230,2026-11-07 12:17,2026-11-07 12:55,picked-up,Dons Dollars,yes,Oranges,Hand fruit,,1
+1233,2026-11-07 12:31,2026-11-07 13:05,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,2
+1228,2026-11-07 11:29,2026-11-07 13:15,picked-up,Dons Dollars,yes,Pepperoni pizza on foccacia,Pizza,,1
+1232,2026-11-07 12:18,2026-11-07 13:20,picked-up,Dons Dollars,yes,Bakery 350 banana walnut bread,Pastries,,1
+1232,2026-11-07 12:18,2026-11-07 13:20,picked-up,Dons Dollars,yes,Peaches,Hand fruit,,1
+1235,2026-11-07 15:10,2026-11-07 16:40,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1234,2026-11-07 15:06,2026-11-07 16:45,picked-up,Dons Dollars,yes,Burrito,Picante,"Carne asada · Beans · Rice · Lettuce, Cheese, Sour cream",1
+1236,2026-11-07 16:43,2026-11-07 17:05,picked-up,Dons Dollars,yes,Turkey Burger,Grill specials,,1
+1237,2026-11-07 16:56,2026-11-07 17:25,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · Beans · No rice · Lettuce, Cheese, Pico de gallo, Salsa verde",1
+1240,2026-11-07 17:06,2026-11-07 18:10,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · No rice · Cheese, Sour cream, Hot salsa (salsa picante)",1
+1242,2026-11-07 17:15,2026-11-07 18:10,ready,Flexi,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1239,2026-11-07 17:03,2026-11-07 18:15,picked-up,Flexi,yes,Chicken bacon ranch pizza,Pizza,,1
+1239,2026-11-07 17:03,2026-11-07 18:15,picked-up,Flexi,yes,Mandarin oranges,Hand fruit,,1
+1244,2026-11-07 18:00,2026-11-07 18:25,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1238,2026-11-07 16:57,2026-11-07 18:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Guacamole · Cheese, Sour cream, Salsa verde",1
+1238,2026-11-07 16:57,2026-11-07 18:40,picked-up,Dons Dollars,yes,Apple,Hand fruit,,1
+1245,2026-11-07 18:07,2026-11-07 18:40,ready,Dons Dollars,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1241,2026-11-07 17:11,2026-11-07 18:45,picked-up,Dons Dollars,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1243,2026-11-07 17:42,2026-11-07 18:45,picked-up,Flexi,yes,Italian napa valley rustic sandwich,Pizza,,1
+1248,2026-11-07 18:34,2026-11-07 18:55,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1246,2026-11-07 18:28,2026-11-07 19:05,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · No beans · Rice · Guacamole · Cheese, Sour cream, Pico de gallo",1
+1246,2026-11-07 18:28,2026-11-07 19:05,picked-up,Dons Dollars,yes,Banana,Hand fruit,,1
+1249,2026-11-07 18:46,2026-11-07 19:15,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1247,2026-11-07 18:31,2026-11-07 19:35,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1247,2026-11-07 18:31,2026-11-07 19:35,picked-up,Dons Dollars,yes,Oranges,Hand fruit,,1
+1250,2026-11-07 18:58,2026-11-07 19:40,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · Rice · Guacamole · Lettuce, Cheese, Salsa verde",1
+1251,2026-11-07 19:25,2026-11-07 19:45,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Cheese, Sour cream, Hot salsa (salsa picante), Pico de gallo, Salsa verde",1
+1252,2026-11-07 19:30,2026-11-07 19:50,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,2
+1253,2026-11-07 19:50,2026-11-07 20:10,picked-up,Flexi,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1254,2026-11-08 05:31,2026-11-08 07:25,picked-up,Dons Dollars,yes,Chicken apple sausage,Griddle,,1
+1256,2026-11-08 07:19,2026-11-08 07:35,ready,Dons Dollars,yes,Old Fashion Oats,Kettles,,1
+1255,2026-11-08 06:43,2026-11-08 08:10,picked-up,Dons Dollars,yes,San francisco fine bakery gluten free danish,Pastries,,1
+1257,2026-11-08 07:43,2026-11-08 09:10,picked-up,Dons Dollars,yes,Plain scrambled eggs,Griddle,,1
+1260,2026-11-08 08:37,2026-11-08 09:20,picked-up,Flexi,yes,Bacon,Griddle,,1
+1260,2026-11-08 08:37,2026-11-08 09:20,picked-up,Flexi,yes,International pastry poppy muffin,Pastries,,1
+1259,2026-11-08 08:14,2026-11-08 09:35,picked-up,Dons Dollars,yes,San francisco fine bakery vegan danish,Pastries,,1
+1262,2026-11-08 09:19,2026-11-08 09:35,ready,Dons Dollars,yes,Plain scrambled eggs,Griddle,,1
+1258,2026-11-08 07:57,2026-11-08 09:40,picked-up,Dons Dollars,yes,Tofu curry scramble,Griddle,,1
+1261,2026-11-08 09:17,2026-11-08 09:50,picked-up,Dons Dollars,yes,Steel cut oats,Sunrise kettle,,1
+1263,2026-11-08 09:20,2026-11-08 11:10,picked-up,Dons Dollars,yes,Pepperoni pizza on foccacia,Pizza,,1
+1265,2026-11-08 10:41,2026-11-08 11:10,picked-up,Dons Dollars,yes,All-beef hot dog,Grill specials,,1
+1265,2026-11-08 10:41,2026-11-08 11:10,picked-up,Dons Dollars,yes,Oranges,Hand fruit,,1
+1266,2026-11-08 10:53,2026-11-08 11:10,picked-up,Dons Dollars,yes,Halal chicken breast sandwich,Grill specials,,1
+1264,2026-11-08 10:33,2026-11-08 11:20,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,2
+1264,2026-11-08 10:33,2026-11-08 11:20,picked-up,Dons Dollars,yes,Bakery 350 banana walnut bread,Pastries,,1
+1269,2026-11-08 11:16,2026-11-08 11:35,picked-up,Dons Dollars,yes,Tuna melt,Grill specials,,1
+1270,2026-11-08 11:19,2026-11-08 11:35,picked-up,Dons Dollars,yes,Burrito,Picante,Carne asada · Beans · Rice · Guacamole · Lettuce,1
+1268,2026-11-08 11:06,2026-11-08 11:45,picked-up,Flexi,yes,International pastry blueberry muffin,Pastries,,1
+1268,2026-11-08 11:06,2026-11-08 11:45,picked-up,Flexi,yes,Banana,Hand fruit,,1
+1272,2026-11-08 11:31,2026-11-08 12:05,picked-up,Dons Dollars,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1267,2026-11-08 10:54,2026-11-08 12:10,picked-up,Flexi,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · Rice · Guacamole · Lettuce, Cheese, Pico de gallo",1
+1267,2026-11-08 10:54,2026-11-08 12:10,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1273,2026-11-08 11:41,2026-11-08 12:15,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1273,2026-11-08 11:41,2026-11-08 12:15,picked-up,Dons Dollars,yes,Mandarin oranges,Hand fruit,,1
+1271,2026-11-08 11:21,2026-11-08 12:35,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Hot salsa (salsa picante)",1
+1271,2026-11-08 11:21,2026-11-08 12:35,picked-up,Dons Dollars,yes,International pastry cheese croissant,Pastries,,1
+1274,2026-11-08 11:56,2026-11-08 13:25,picked-up,Flexi,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1275,2026-11-08 13:19,2026-11-08 13:40,picked-up,Dons Dollars,yes,International pastry bear claw,Pastries,,1
+1276,2026-11-08 13:43,2026-11-08 14:25,picked-up,Flexi,yes,International pastry ham & cheese croissant,Pastries,,1
+1276,2026-11-08 13:43,2026-11-08 14:25,picked-up,Flexi,yes,International pastry cranberry orange scone with nuts,Pastries,,1
+1277,2026-11-08 15:19,2026-11-08 15:35,picked-up,Flexi,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,2
+1278,2026-11-08 16:20,2026-11-08 18:15,ready,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1278,2026-11-08 16:20,2026-11-08 18:15,ready,Dons Dollars,yes,Pears,Hand fruit,,1
+1279,2026-11-08 17:30,2026-11-08 18:30,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Guacamole · Lettuce, Cheese, Hot salsa (salsa picante), Pico de gallo",1
+1281,2026-11-08 18:02,2026-11-08 18:35,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Lettuce, Cheese, Sour cream, Pico de gallo",1
+1283,2026-11-08 18:05,2026-11-08 18:35,picked-up,Dons Dollars,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · Rice · Lettuce, Cheese",1
+1284,2026-11-08 18:31,2026-11-08 18:50,ready,Flexi,yes,Bowl,Picante,"Carne asada · Beans · No rice · Lettuce, Hot salsa (salsa picante), Salsa verde",1
+1282,2026-11-08 18:02,2026-11-08 19:10,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1282,2026-11-08 18:02,2026-11-08 19:10,picked-up,Dons Dollars,yes,Peaches,Hand fruit,,1
+1280,2026-11-08 17:53,2026-11-08 19:20,picked-up,Flexi,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1287,2026-11-08 19:07,2026-11-08 19:25,picked-up,Flexi,yes,African-inspired lentil & chicken soup,Kettles,,1
+1286,2026-11-08 19:03,2026-11-08 19:35,picked-up,Flexi,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Lettuce, Cheese, Hot salsa (salsa picante), Salsa verde",1
+1288,2026-11-08 19:15,2026-11-08 19:45,picked-up,Flexi,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1285,2026-11-08 18:41,2026-11-08 19:50,picked-up,Dons Dollars,yes,Side of bacon,Grill specials,,1
+1289,2026-11-08 19:29,2026-11-08 20:25,picked-up,Flexi,yes,Cheese focaccia pizza,Pizza,,2
+1289,2026-11-08 19:29,2026-11-08 20:25,picked-up,Flexi,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1293,2026-11-09 07:59,2026-11-09 08:15,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1291,2026-11-09 07:17,2026-11-09 08:40,picked-up,Flexi,yes,Steamed rice,Griddle,,1
+1290,2026-11-09 07:11,2026-11-09 08:45,picked-up,Dons Dollars,yes,International pastry blueberry muffin,Pastries,,1
+1296,2026-11-09 08:49,2026-11-09 09:05,picked-up,Dons Dollars,yes,International pastry blueberry muffin,Pastries,,1
+1294,2026-11-09 08:39,2026-11-09 09:10,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1295,2026-11-09 08:47,2026-11-09 09:15,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1292,2026-11-09 07:51,2026-11-09 09:20,picked-up,Dons Dollars,yes,Vegetarian Breakfast Sausage,Griddle,,1
+1297,2026-11-09 09:02,2026-11-09 09:20,picked-up,Dons Dollars,yes,Market Grand Slam,Griddle scramble special,,1
+1298,2026-11-09 09:20,2026-11-09 10:05,picked-up,Flexi,yes,International pastry sugar raised donut,Pastries,,1
+1301,2026-11-09 09:59,2026-11-09 11:00,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken a la diabla · No beans · Rice · Lettuce, Cheese, Sour cream, Hot salsa (salsa picante), Pico de gallo",1
+1305,2026-11-09 10:40,2026-11-09 11:00,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1300,2026-11-09 09:47,2026-11-09 11:05,picked-up,Dons Dollars,yes,Bowl,Picante,"Chicken tinga · Beans · Rice · Guacamole · Cheese, Pico de gallo",1
+1302,2026-11-09 10:05,2026-11-09 11:10,picked-up,Dons Dollars,yes,Burrito,Picante,Chicken tinga · Beans · Rice · Cheese,1
+1306,2026-11-09 10:41,2026-11-09 11:10,picked-up,Dons Dollars,yes,Tomato kale and lentil soup,Kettles,,1
+1309,2026-11-09 10:50,2026-11-09 11:10,picked-up,Dons Dollars,yes,Chicken tenders,Grill specials,,1
+1309,2026-11-09 10:50,2026-11-09 11:10,picked-up,Dons Dollars,yes,Banana,Hand fruit,,1
+1299,2026-11-09 09:22,2026-11-09 11:15,picked-up,Dons Dollars,yes,Vietnamese style pho gai - chicken and rice noodle soup,Sambal,,1
+1311,2026-11-09 10:57,2026-11-09 11:15,picked-up,Dons Dollars,yes,Burrito,Picante,Carne asada · Beans · No rice · Guacamole · Cheese,1
+1311,2026-11-09 10:57,2026-11-09 11:15,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1304,2026-11-09 10:28,2026-11-09 11:30,picked-up,Flexi,yes,Tuna melt,Grill specials,,1
+1313,2026-11-09 11:03,2026-11-09 11:30,picked-up,Flexi,yes,Bowl,Picante,"Mushroom tofu mojo · No beans · No rice · Guacamole · Lettuce, Cheese, Sour cream",1
+1315,2026-11-09 11:14,2026-11-09 11:30,ready,Dons Dollars,yes,All-beef hot dog,Grill specials,,1
+1303,2026-11-09 10:08,2026-11-09 11:55,picked-up,Flexi,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Cheese, Pico de gallo",1
+1318,2026-11-09 11:36,2026-11-09 11:55,picked-up,Dons Dollars,yes,International pastry bear claw,Pastries,,1
+1310,2026-11-09 10:54,2026-11-09 12:05,picked-up,Dons Dollars,yes,Vegan style pho with tofu,Sambal,,1
+1308,2026-11-09 10:45,2026-11-09 12:10,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · Beans · Rice · Lettuce, Cheese, Sour cream",1
+1308,2026-11-09 10:45,2026-11-09 12:10,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1322,2026-11-09 11:51,2026-11-09 12:10,picked-up,Flexi,yes,Bowl,Picante,"Vegetarian (no meat) · Beans · No rice · Lettuce, Cheese, Hot salsa (salsa picante), Pico de gallo",1
+1323,2026-11-09 11:58,2026-11-09 12:15,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1320,2026-11-09 11:42,2026-11-09 12:20,picked-up,Dons Dollars,yes,Bakery 350 chocolate chunk cookie,Pastries,,1
+1307,2026-11-09 10:42,2026-11-09 12:25,picked-up,Flexi,yes,Cheese focaccia pizza,Pizza,,1
+1316,2026-11-09 11:15,2026-11-09 12:25,ready,Flexi,yes,Bowl,Picante,Chicken tinga · Beans · Rice · Cheese,1
+1317,2026-11-09 11:30,2026-11-09 12:25,picked-up,Dons Dollars,yes,African-inspired lentil & chicken soup,Kettles,,1
+1326,2026-11-09 12:22,2026-11-09 12:40,picked-up,Dons Dollars,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1327,2026-11-09 12:28,2026-11-09 12:45,picked-up,Dons Dollars,yes,Bowl,Picante,"Pork carnitas · No beans · Rice · Lettuce, Cheese, Pico de gallo",1
+1327,2026-11-09 12:28,2026-11-09 12:45,picked-up,Dons Dollars,yes,International pastry maple raised donut,Pastries,,1
+1312,2026-11-09 11:03,2026-11-09 12:50,picked-up,Dons Dollars,yes,Impossible burger,Grill specials,,1
+1312,2026-11-09 11:03,2026-11-09 12:50,picked-up,Dons Dollars,yes,International pastry bear claw,Pastries,,1
+1314,2026-11-09 11:12,2026-11-09 12:55,picked-up,Flexi,yes,Roasted vegetables,Grill specials,,1
+1321,2026-11-09 11:46,2026-11-09 12:55,picked-up,Dons Dollars,yes,Impossible burger,Grill specials,,1
+1321,2026-11-09 11:46,2026-11-09 12:55,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1328,2026-11-09 12:43,2026-11-09 13:10,picked-up,Dons Dollars,yes,Burrito,Picante,"Pork carnitas · Beans · Rice · Lettuce, Cheese, Sour cream, Pico de gallo",1
+1328,2026-11-09 12:43,2026-11-09 13:10,picked-up,Dons Dollars,yes,International pastry chocolate raised donut,Pastries,,1
+1329,2026-11-09 12:45,2026-11-09 13:10,picked-up,Flexi,yes,Meatball and garlic herb ricotta pizza,Pizza,,1
+1329,2026-11-09 12:45,2026-11-09 13:10,picked-up,Flexi,yes,Mandarin oranges,Hand fruit,,1
+1330,2026-11-09 12:58,2026-11-09 13:20,picked-up,Dons Dollars,yes,Side of bacon,Grill specials,,1
+1330,2026-11-09 12:58,2026-11-09 13:20,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1324,2026-11-09 12:05,2026-11-09 13:25,picked-up,Flexi,yes,Bowl,Picante,"Mushroom tofu mojo · Beans · No rice · Lettuce, Cheese, Pico de gallo",1
+1319,2026-11-09 11:36,2026-11-09 13:30,picked-up,Dons Dollars,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1319,2026-11-09 11:36,2026-11-09 13:30,picked-up,Dons Dollars,yes,International pastry bear claw,Pastries,,1
+1332,2026-11-09 13:14,2026-11-09 13:35,picked-up,Dons Dollars,yes,Caesar salad,Don's deli sandwiches,,1
+1332,2026-11-09 13:14,2026-11-09 13:35,picked-up,Dons Dollars,yes,Pears,Hand fruit,,1
+1325,2026-11-09 12:12,2026-11-09 13:40,picked-up,Dons Dollars,yes,Burrito,Picante,Chicken a la diabla · No beans · Rice · Guacamole,1
+1325,2026-11-09 12:12,2026-11-09 13:40,picked-up,Dons Dollars,yes,Bakery 350 banana walnut bread,Pastries,,1
+1331,2026-11-09 13:07,2026-11-09 13:45,picked-up,Flexi,yes,Bowl,Picante,"Chicken tinga · No beans · Rice · Cheese, Hot salsa (salsa picante), Pico de gallo, Salsa verde",1
+1331,2026-11-09 13:07,2026-11-09 13:45,picked-up,Flexi,yes,International pastry cheese croissant,Pastries,,1
+1333,2026-11-09 13:26,2026-11-09 13:55,picked-up,Flexi,yes,Cranberry chicken salad crunch sandwich,Don's deli sandwiches,,1
+1334,2026-11-09 13:55,2026-11-09 15:05,picked-up,Dons Dollars,yes,International pastry maple raised donut,Pastries,,1
+1335,2026-11-09 14:33,2026-11-09 15:35,picked-up,Flexi,yes,Roast mushroom & truffle ricotta pizza,Pizza,,1
+1335,2026-11-09 14:33,2026-11-09 15:35,picked-up,Flexi,yes,Mandarin oranges,Hand fruit,,1
+1336,2026-11-09 16:18,2026-11-09 17:00,picked-up,Dons Dollars,yes,Roast mushroom & truffle ricotta pizza,Pizza,,1
+1339,2026-11-09 16:49,2026-11-09 17:05,picked-up,Dons Dollars,yes,Thai style yellow coconut tofu curry,Sambal after dark,,1
+1339,2026-11-09 16:49,2026-11-09 17:05,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1337,2026-11-09 16:19,2026-11-09 17:20,picked-up,Dons Dollars,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1337,2026-11-09 16:19,2026-11-09 17:20,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1338,2026-11-09 16:48,2026-11-09 17:25,picked-up,Flexi,yes,Italian napa valley rustic sandwich,Pizza,,1
+1340,2026-11-09 17:10,2026-11-09 17:30,picked-up,Dons Dollars,yes,"Filipino inspired chicken pancit, roasted cabbage, rainbow carrots, caramelized onions, snow peas",Classics dinner,,1
+1340,2026-11-09 17:10,2026-11-09 17:30,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1341,2026-11-09 17:11,2026-11-09 18:05,picked-up,Dons Dollars,yes,Chicken bacon ranch pizza,Pizza,,1
+1347,2026-11-09 17:59,2026-11-09 18:15,picked-up,Flexi,yes,Cheese focaccia pizza,Pizza,,1
+1347,2026-11-09 17:59,2026-11-09 18:15,picked-up,Flexi,yes,Apple,Hand fruit,,1
+1343,2026-11-09 17:31,2026-11-09 18:20,picked-up,Dons Dollars,yes,Burrito,Picante,"Pork carnitas · Beans · Rice · Cheese, Pico de gallo, Salsa verde",1
+1344,2026-11-09 17:49,2026-11-09 18:20,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · Beans · Rice · Lettuce, Sour cream, Pico de gallo",1
+1349,2026-11-09 18:02,2026-11-09 18:20,picked-up,Flexi,yes,Mindful Meats Beef Burger*,Grill specials,,1
+1351,2026-11-09 18:09,2026-11-09 18:25,picked-up,Flexi,yes,Burrito,Picante,"Carne asada · Beans · Rice · Lettuce, Cheese, Sour cream, Hot salsa (salsa picante), Pico de gallo",1
+1353,2026-11-09 18:14,2026-11-09 18:30,picked-up,Dons Dollars,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1348,2026-11-09 18:00,2026-11-09 18:45,picked-up,Flexi,yes,Thai-inspired yellow curry chicken,Sambal after dark,,1
+1348,2026-11-09 18:00,2026-11-09 18:45,picked-up,Flexi,yes,Apple,Hand fruit,,1
+1352,2026-11-09 18:11,2026-11-09 18:45,picked-up,Dons Dollars,yes,"Caramelized onion, spinach, mushroom and cheese pizza",Pizza,,1
+1345,2026-11-09 17:54,2026-11-09 18:55,picked-up,Dons Dollars,yes,Tofu stir fry pancit bihon,Classics dinner,,1
+1354,2026-11-09 18:25,2026-11-09 18:55,picked-up,Dons Dollars,yes,Bowl,Picante,"Carne asada · No beans · Rice · Lettuce, Hot salsa (salsa picante), Salsa verde",1
+1355,2026-11-09 18:38,2026-11-09 18:55,picked-up,Flexi,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1355,2026-11-09 18:38,2026-11-09 18:55,picked-up,Flexi,yes,Mandarin oranges,Hand fruit,,1
+1342,2026-11-09 17:25,2026-11-09 19:00,picked-up,Flexi,yes,Bowl,Picante,"Chicken a la diabla · Beans · Rice · Guacamole · Lettuce, Cheese, Hot salsa (salsa picante)",1
+1350,2026-11-09 18:04,2026-11-09 19:05,picked-up,Flexi,yes,Burrito,Picante,"Carne asada · No beans · Rice · Hot salsa (salsa picante), Pico de gallo",1
+1346,2026-11-09 17:57,2026-11-09 19:30,picked-up,Dons Dollars,yes,Chicken tenders,Grill specials,,1
+1356,2026-11-09 19:14,2026-11-09 19:30,picked-up,Dons Dollars,yes,Chicken bacon ranch pizza,Pizza,,1
+1356,2026-11-09 19:14,2026-11-09 19:30,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1357,2026-11-09 19:17,2026-11-09 19:45,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1358,2026-11-09 19:25,2026-11-09 20:25,ready,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1361,2026-11-10 06:48,2026-11-10 07:05,picked-up,Dons Dollars,yes,Buttermilk pancakes,Griddle,,1
+1361,2026-11-10 06:48,2026-11-10 07:05,picked-up,Dons Dollars,yes,International pastry blueberry muffin,Pastries,,1
+1366,2026-11-10 07:34,2026-11-10 07:55,picked-up,Flexi,yes,Old Fashion Oats,Kettles,,1
+1366,2026-11-10 07:34,2026-11-10 07:55,picked-up,Flexi,yes,International pastry blackberry scone,Pastries,,1
+1359,2026-11-10 06:12,2026-11-10 08:05,picked-up,Flexi,yes,Tofu curry scramble,Griddle,,1
+1360,2026-11-10 06:31,2026-11-10 08:10,picked-up,Dons Dollars,yes,Steamed rice,Griddle,,1
+1369,2026-11-10 08:03,2026-11-10 08:25,picked-up,Dons Dollars,yes,Tofu curry scramble,Griddle,,1
+1368,2026-11-10 08:02,2026-11-10 08:30,picked-up,Dons Dollars,yes,International pastry bear claw,Pastries,,1
+1368,2026-11-10 08:02,2026-11-10 08:30,picked-up,Dons Dollars,yes,International pastry almond croissant,Pastries,,1
+1363,2026-11-10 07:17,2026-11-10 08:35,picked-up,Flexi,yes,International pastry cranberry muffin,Pastries,,1
+1370,2026-11-10 08:10,2026-11-10 08:35,picked-up,Dons Dollars,yes,Chicken apple sausage,Griddle,,1
+1362,2026-11-10 07:17,2026-11-10 08:50,picked-up,Dons Dollars,yes,Old Fashion Oats,Kettles,,1
+1364,2026-11-10 07:23,2026-11-10 08:55,picked-up,Flexi,yes,Steamed broccoli,Griddle,,1
+1364,2026-11-10 07:23,2026-11-10 08:55,picked-up,Flexi,yes,San francisco fine bakery vegan danish,Pastries,,1
+1372,2026-11-10 08:39,2026-11-10 08:55,picked-up,Dons Dollars,yes,Old Fashion Oats,Kettles,,1
+1365,2026-11-10 07:33,2026-11-10 09:05,picked-up,Flexi,yes,Cheesy eggs,Griddle,,1
+1367,2026-11-10 07:49,2026-11-10 09:15,picked-up,Dons Dollars,yes,Tofu curry scramble,Griddle,,1
+1367,2026-11-10 07:49,2026-11-10 09:15,picked-up,Dons Dollars,yes,International pastry cheese croissant,Pastries,,1
+1371,2026-11-10 08:30,2026-11-10 09:45,picked-up,Flexi,yes,French toast,Griddle,,1
+1373,2026-11-10 09:09,2026-11-10 11:00,picked-up,Dons Dollars,yes,Burrito,Picante,"Chicken tinga · No beans · Rice · Cheese, Pico de gallo",1
+1378,2026-11-10 10:55,2026-11-10 11:25,picked-up,Flexi,yes,French/Curly fries,Grill specials,,1
+1377,2026-11-10 10:52,2026-11-10 11:30,picked-up,Flexi,yes,Roast mushroom & truffle ricotta pizza,Pizza,,1
+1381,2026-11-10 11:13,2026-11-10 11:30,picked-up,Flexi,yes,French/Curly fries,Grill specials,,1
+1380,2026-11-10 11:05,2026-11-10 11:35,picked-up,Dons Dollars,yes,All-beef hot dog,Grill specials,,1
+1382,2026-11-10 11:14,2026-11-10 11:35,picked-up,Dons Dollars,yes,Avocado,Grill specials,,1
+1384,2026-11-10 11:26,2026-11-10 11:50,picked-up,Flexi,yes,"Feta cheese, basil pesto, and spinach pizza",Pizza,,1
+1386,2026-11-10 11:34,2026-11-10 11:50,picked-up,Flexi,yes,Impossible burger,Grill specials,,1
+1374,2026-11-10 10:06,2026-11-10 11:55,picked-up,Dons Dollars,yes,San francisco fine bakery gluten free danish,Pastries,,1
+1374,2026-11-10 10:06,2026-11-10 11:55,picked-up,Dons Dollars,yes,Fruit | vegetable | herb spa water,Beverage,,1
+1379,2026-11-10 11:00,2026-11-10 12:00,picked-up,Dons Dollars,yes,Cheese focaccia pizza,Pizza,,1
+1383,2026-11-10 11:15,2026-11-10 12:00,picked-up,Dons Dollars,yes,Grilled chicken cuban sandwich,Grill specials,,1
+1383,2026-11-10 11:15,2026-11-10 12:00,picked-up,Dons Dollars,yes,Mandarin oranges,Hand fruit,,1
+1385,2026-11-10 11:30,2026-11-10 12:05,picked-up,Flexi,yes,San francisco fine bakery gluten free danish,Pastries,,1
+1375,2026-11-10 10:19,2026-11-10 12:10,picked-up,Dons Dollars,yes,Chicken bacon ranch pizza,Pizza,,1
+1375,2026-11-10 10:19,2026-11-10 12:10,picked-up,Dons Dollars,yes,International pastry blackberry scone,Pastries,,1
+1388,2026-11-10 11:54,2026-11-10 12:10,picked-up,Dons Dollars,yes,Tomato kale and lentil soup,Kettles,,1
+1387,2026-11-10 11:47,2026-11-10 12:15,picked-up,Dons Dollars,yes,Vietnamese style pho gai - chicken and rice noodle soup,Sambal,,1
+1389,2026-11-10 11:59,2026-11-10 12:15,picked-up,Dons Dollars,yes,Vegan style pho with tofu,Sambal,,1
+1376,2026-11-10 10:52,2026-11-10 12:20,picked-up,Flexi,yes,International pastry almond croissant,Pastries,,1
+201,2026-11-10 20:37,2026-11-10 12:45,picked-up,Dons Dollars,no,Chicken bacon ranch pizza,Pizza,,1
+201,2026-11-10 20:37,2026-11-10 12:45,picked-up,Dons Dollars,no,Bowl,Picante,"Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese",1

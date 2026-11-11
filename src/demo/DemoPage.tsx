@@ -13,7 +13,7 @@ function getTargetUrl(): string {
 const LINKS = [
   { label: 'Staff view', href: '#/staff' },
   { label: 'Ready board', href: '#/board' },
-  { label: 'Metrics', href: '#/staff/metrics' },
+  { label: 'Dashboard', href: '#/staff/metrics' },
   { label: 'Student app', href: '#/' },
 ]
 
@@ -42,7 +42,9 @@ export default function DemoPage() {
   return (
     <div className="demo">
       <header className="header">
-        <h1>Market Café Pre-Order</h1>
+        <h1>
+          Market Café{' '}<span className="brand-sub">Pre-order</span>
+        </h1>
         <span className="demo-tag">Class demo · USF BENI-349</span>
       </header>
 
@@ -57,18 +59,18 @@ export default function DemoPage() {
         </section>
 
         <section className="demo-info">
-          <span className="label">Pay with your USF ID, skip the line</span>
+          <p className="demo-kicker">Pay with your USF ID, skip the line</p>
           <h2 className="demo-title">Scan to order</h2>
           <div className="accent-bar" />
           <ol className="demo-steps">
             <li>Sign in with your USF ID (demo)</li>
-            <li>Pick food + a pickup time</li>
-            <li>Pay with Dons Dollars or Flexi — watch your number appear on the board</li>
+            <li>Pick your food and a pickup time</li>
+            <li>Pay with Dons Dollars or Flexi, then watch for your number on the ready board</li>
           </ol>
 
           <nav className="demo-links" aria-label="Demo views">
             {LINKS.map((link) => (
-              <a key={link.href} className="btn outline" href={link.href} target="_blank" rel="noreferrer">
+              <a key={link.href} className="demo-link" href={link.href} target="_blank" rel="noreferrer">
                 {link.label}
               </a>
             ))}

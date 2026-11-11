@@ -4,7 +4,7 @@
 import { useSyncExternalStore } from 'react'
 import { backend, backendKind as kindPromise } from './backend'
 import type { OrderPatch } from './backend/types'
-import type { Order, OrderLine, OrderStatus, PaymentMethod, Student } from './types'
+import type { NewOrder, Order, OrderLine, OrderStatus, PaymentMethod, Student } from './types'
 
 const STUDENT_KEY = 'mc-student-v1'
 export const CUBBY_COUNT = 24
@@ -102,3 +102,8 @@ export function updateOrder(id: string, patch: Pick<OrderPatch, 'status' | 'cubb
 export const setStatus = (id: string, status: OrderStatus) => updateOrder(id, { status })
 
 export const resetDemo = () => backend.clear()
+
+// --- Staff dashboard (full history; the live screens above only get recent orders) ---
+export const loadAllOrders = () => backend.loadAll()
+export const seedSampleOrders = (drafts: NewOrder[]) => backend.insertSamples(drafts)
+export const clearSampleOrders = () => backend.clearSamples()

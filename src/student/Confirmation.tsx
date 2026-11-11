@@ -9,33 +9,42 @@ export default function Confirmation({ order, onBack }: { order: Order; onBack: 
 
   return (
     <main className="page stack">
-      <section className="card stack">
-        <span className="label">Order</span>
+      <section className="card st-ticket">
+        <p className="muted">Order number</p>
         <div className="st-number">#{order.number}</div>
-        <div>
-          <div className="st-cubby">Cubby {order.cubby}</div>
-          <div className="accent-bar" />
-        </div>
-        <div>Pickup at <strong>{formatTime(order.pickupAt)}</strong></div>
+        <dl className="st-ticket-meta">
+          <div>
+            <dt>Cubby</dt>
+            <dd>{order.cubby}</dd>
+          </div>
+          <div>
+            <dt>Pickup</dt>
+            <dd>{formatTime(order.pickupAt)}</dd>
+          </div>
+        </dl>
       </section>
 
       {order.status === 'picked-up' ? (
-        <div className="card st-cubby">Picked up. Enjoy!</div>
+        <div className="card st-done">Picked up, enjoy your meal</div>
       ) : (
         <>
-          <div className="st-steps">
+          <ol className="st-steps" aria-label="Order status">
             {STEPS.map((s, i) => (
-              <div key={s} className={`st-step${i === current ? ' current' : i < current ? ' done' : ''}`}>
+              <li
+                key={s}
+                className={`st-step${i === current ? ' current' : i < current ? ' done' : ''}`}
+                aria-current={i === current ? 'step' : undefined}
+              >
                 {STATUS_LABEL[s]}
-              </div>
+              </li>
             ))}
-          </div>
-          {order.status === 'ready' && <div className="st-banner">READY — grab it from cubby {order.cubby}</div>}
+          </ol>
+          {order.status === 'ready' && <div className="st-banner">Ready — grab it from cubby {order.cubby}</div>}
         </>
       )}
 
       <section className="card stack">
-        <span className="label">Your order</span>
+        <h2 className="label">Your order</h2>
         {order.lines.map((l, i) => (
           <div key={i} className="st-line">
             <span className="st-name">
@@ -47,7 +56,7 @@ export default function Confirmation({ order, onBack }: { order: Order; onBack: 
         ))}
       </section>
 
-      <p>Walk in → grab from cubby {order.cubby} → go to class.</p>
+      <p className="st-howto">Walk in, grab your order from cubby {order.cubby}, go to class</p>
       <button className="btn outline" onClick={onBack}>
         Back to menu
       </button>

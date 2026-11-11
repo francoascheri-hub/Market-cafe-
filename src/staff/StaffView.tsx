@@ -13,7 +13,7 @@ const STATUS_TEXT: Record<OrderStatus, string> = {
 // One big button per step: received → preparing → ready → picked-up
 const NEXT: Partial<Record<OrderStatus, { status: OrderStatus; label: string; className: string }>> = {
   received: { status: 'preparing', label: 'Start preparing', className: 'btn' },
-  preparing: { status: 'ready', label: 'Mark ready', className: 'btn gold' },
+  preparing: { status: 'ready', label: 'Mark ready', className: 'btn' },
   ready: { status: 'picked-up', label: 'Picked up', className: 'btn outline' },
 }
 
@@ -56,7 +56,7 @@ function addSampleOrder() {
 function OrderCard({ order, usedCubbies }: { order: Order; usedCubbies: Set<number> }) {
   const next = NEXT[order.status]
   return (
-    <div className="card stack">
+    <div className="card stack staff-ticket">
       <div className="staff-order-top">
         <span className="staff-order-number heading">#{order.number}</span>
         <span className="staff-order-name">{order.student.name.split(' ')[0]}</span>
@@ -64,14 +64,17 @@ function OrderCard({ order, usedCubbies }: { order: Order; usedCubbies: Set<numb
       <ul className="staff-lines">
         {order.lines.map((l, i) => (
           <li key={i}>
-            {l.qty}× {l.name}
-            {l.details && <div className="staff-details">{l.details}</div>}
+            <span className="staff-qty">{l.qty}×</span>
+            <span>
+              {l.name}
+              {l.details && <span className="staff-details">{l.details}</span>}
+            </span>
           </li>
         ))}
       </ul>
       <div className="staff-meta">
-        <strong>{STATUS_TEXT[order.status]}</strong>
-        <label>
+        <span className={`staff-status is-${order.status}`}>{STATUS_TEXT[order.status]}</span>
+        <label className="staff-cubby">
           Cubby{' '}
           <select value={order.cubby} onChange={(e) => updateOrder(order.id, { cubby: Number(e.target.value) })}>
             {Array.from({ length: CUBBY_COUNT }, (_, i) => (
@@ -110,20 +113,25 @@ export default function StaffView() {
   return (
     <>
       <header className="header">
-        <h1>Market Café · Staff</h1>
+        <h1>
+          Market Café{' '}<span className="brand-sub">Staff</span>
+        </h1>
         <nav className="staff-links">
           <a href="#/board">Ready board</a>
-          <a href="#/staff/metrics">Metrics</a>
+          <a href="#/staff/metrics">Dashboard</a>
           <a href="#/">Student app</a>
         </nav>
       </header>
       <main className="staff-page">
-        {groups.length === 0 && <p className="muted">No orders yet. New pre-orders appear here instantly.</p>}
+        {groups.length === 0 && <p className="card staff-empty">No open orders. New pre-orders appear here as soon as they are placed.</p>}
         {groups.map((g) => (
           <section key={g.slot} className="staff-group">
-            <span className="label">
-              {g.slot} · {g.orders.length} {g.orders.length === 1 ? 'order' : 'orders'}
-            </span>
+            <h2 className="staff-slot">
+              Pickup {g.slot}
+              <span className="muted">
+                {g.orders.length} {g.orders.length === 1 ? 'order' : 'orders'}
+              </span>
+            </h2>
             <div className="staff-grid">
               {g.orders.map((o) => (
                 <OrderCard key={o.id} order={o} usedCubbies={usedCubbies} />
@@ -133,7 +141,10 @@ export default function StaffView() {
         ))}
         <footer className="staff-footer muted">
           <span>Picked up: {pickedUp}</span>
-          <span>{kind === 'api' ? '● Live: shared across devices' : kind === 'local' ? 'Local mode: this browser only' : ''}</span>
+          <span className="staff-mode">
+            {kind === 'api' && <span className="staff-live-dot" aria-hidden="true" />}
+            {kind === 'api' ? 'Live: shared across devices' : kind === 'local' ? 'Local mode: this browser only' : ''}
+          </span>
           <button className="text-btn" onClick={addSampleOrder}>
             Add sample order
           </button>

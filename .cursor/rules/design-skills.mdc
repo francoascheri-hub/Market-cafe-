@@ -1,0 +1,14 @@
+---
+description: Read the project design skills before any UI change
+alwaysApply: true
+---
+
+# Design skills
+
+For ANY UI change, first read these files, in order, and follow them:
+
+1. `.claude/skills/design-taste-frontend/SKILL.md`
+2. `.claude/skills/unslop/SKILL.md`
+3. `.claude/skills/ui-ux-pro-max/SKILL.md`
+
+UI change means layout, styling, copy on screen, components, motion, or anything a person sees in the app.

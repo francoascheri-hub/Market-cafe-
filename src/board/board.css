@@ -1,35 +1,95 @@
-/* TV display: everything scales with the viewport so it reads across the room. */
-.board { min-height: 100vh; display: flex; flex-direction: column; }
+/* TV display (#/board): scales with the viewport so it reads across the room.
+   Two rows of 4 tiles fit a 1280×720 TV without scrolling. */
+.board { height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
 .board-header { justify-content: center; padding: 1.6vh 2vw; }
-.board-header h1 { font-size: clamp(28px, 4vw, 72px); letter-spacing: 0.1em; }
-.board-main { flex: 1; padding: 2.5vh 2.5vw; }
+.board-header h1 { font-size: clamp(28px, 3.6vw, 64px); }
+.board-main { flex: 1; min-height: 0; padding: 3vh 2.5vw 2vh; }
 .board-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 21vw, 400px), 1fr));
-  gap: 1.5vw;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2vh 1.5vw;
 }
+/* Order ticket: gold top edge, same as the student's confirmation ticket */
 .board-tile {
   background: var(--card);
   border: 1px solid var(--line);
   border-top: 0.8vh solid var(--gold);
-  border-radius: var(--radius);
-  padding: 1.5vh 1vw 2vh;
+  border-radius: var(--radius-card);
+  padding: 1.6vh 1vw 2vh;
   text-align: center;
 }
-.board-number { font-size: clamp(48px, 8vw, 160px); line-height: 1.05; }
-.board-cubby { font-size: clamp(18px, 2.4vw, 44px); font-weight: 600; }
+.board-number { font-size: clamp(48px, 7.6vw, 150px); line-height: 0.95; letter-spacing: -0.03em; color: var(--green); font-weight: 500; }
+.board-cubby { font-size: clamp(18px, 2.2vw, 40px); font-weight: 600; line-height: 1.3; }
+/* Chosen burrito/bowl build: max 2 lines so tiles stay about the same size */
+.board-build {
+  font-size: clamp(12px, 1.1vw, 20px);
+  line-height: 1.4;
+  color: var(--muted);
+  margin-top: 0.6vh;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .board-empty { font-size: clamp(20px, 3vw, 52px); color: var(--muted); text-align: center; margin: 12vh 0; }
-.board-preparing { font-size: clamp(16px, 2vw, 36px); color: var(--muted); margin: 3vh 0 0; }
+
+/* Overflow and in-progress numbers: one quiet line under the tiles */
+.board-preparing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8vh 3vw;
+  margin: 2.4vh 0 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(16px, 2vw, 36px);
+  line-height: 1.3;
+  color: var(--text-2);
+}
+.board-key { font-family: 'Open Sans', sans-serif; font-size: 0.7em; font-weight: 600; color: var(--muted); margin-right: 0.6em; }
+
 .board-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5vh 2.5vw;
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(16px, 2vw, 36px);
+  gap: 16px;
+  padding: 1.6vh 2.5vw;
   border-top: 1px solid var(--line);
-  background: #fff;
+  background: var(--card);
 }
-.board-staff-link { font-family: 'Open Sans', sans-serif; font-size: 12px; color: var(--muted); }
-/* Chosen burrito/bowl build: max 2 lines so tiles stay about the same size */
-.board-build { font-size: clamp(11px, 1.1vw, 20px); color: var(--muted); margin-top: 0.4vh; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.board-steps {
+  display: flex;
+  gap: 3vw;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(16px, 1.9vw, 34px);
+  line-height: 1.2;
+}
+.board-steps li { counter-increment: step; display: flex; align-items: center; gap: 0.5em; }
+.board-steps li::before {
+  content: counter(step);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--text);
+  font-size: 0.8em;
+}
+.board-staff-link {
+  font-size: 14px;
+  color: var(--muted);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+}
+
+@media (max-width: 800px) {
+  .board { height: auto; min-height: 100vh; overflow: visible; }
+  .board-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .board-steps { flex-direction: column; gap: 8px; }
+}

@@ -28,3 +28,8 @@ dist-ssr
 .env.*
 !.env.example
 .vercel
+
+# Python bytecode caches (not part of the skills)
+__pycache__/
+*.pyc
+
