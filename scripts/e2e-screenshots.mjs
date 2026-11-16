@@ -8,6 +8,10 @@ import { chromium } from 'playwright-core'
 import { mkdirSync, readFileSync } from 'node:fs'
 import { memoryApiPlugin } from './memory-api-plugin.mjs'
 
+// Test-only staff PIN, set before the server loads api/orders.ts. Exists only in this process.
+const STAFF_PIN = '246810'
+process.env.STAFF_PIN = STAFF_PIN
+
 const OUT = 'docs/screenshots'
 mkdirSync(OUT, { recursive: true })
 
@@ -36,6 +40,18 @@ const check = (cond, msg) => {
 }
 const shot = (page, name, fullPage = false) =>
   page.screenshot({ path: `${OUT}/${name}.png`, animations: 'disabled', fullPage })
+// Staff screens sit behind the PIN gate. A tab that already unlocked keeps the PIN for the session,
+// so the gate may let it straight through; otherwise fill the PIN. onGate runs while the form is up.
+// screen: '.staff-page' (queue) or '.dash-page' (dashboard).
+const unlockStaff = async (page, screen, onGate) => {
+  await page.locator(`form.staff-gate, ${screen}`).first().waitFor()
+  const field = page.getByLabel('Staff PIN')
+  if (!(await field.isVisible())) return
+  if (onGate) await onGate()
+  await field.fill(STAFF_PIN)
+  await page.getByRole('button', { name: 'Continue' }).click()
+  await field.waitFor({ state: 'detached' })
+}
 
 try {
   // --- Student phone ---
@@ -72,6 +88,7 @@ try {
   // --- Staff tablet (another device) ---
   const staff = await device(1280, 800)
   await staff.goto(base + '#/staff')
+  await unlockStaff(staff, '.staff-page')
   const card = (n) => staff.locator('.card', { hasText: `#${n}` })
   await card(201).waitFor()
   check(true, 'staff device sees #201')
@@ -115,6 +132,7 @@ try {
 
   // --- Metrics + class-demo QR page ---
   await staff.goto(base + '#/staff/metrics')
+  await unlockStaff(staff, '.dash-page')
   await staff.getByText('Orders today').waitFor()
   check((await staff.locator('body').textContent()).includes('Estimate'), 'metrics page shows the line-time estimate label')
   await shot(staff, '7-metrics')
@@ -178,6 +196,53 @@ try {
   await demo.locator('img[alt^="QR code"]').waitFor()
   check(true, 'demo page shows the QR code')
   await shot(demo, '8-demo-qr')
+
+  // Fresh desktop + phone shots of every screen, after the checks above.
+  for (const [label, width, height] of [
+    ['mobile', 375, 812],
+    ['desktop', 1280, 800],
+  ]) {
+    const context = await browser.newContext({ viewport: { width, height } })
+    await context.clock.setFixedTime(at1224)
+    const page = await context.newPage()
+    await page.goto(base + '#/')
+    await page.getByRole('button', { name: 'Sign in with USF ID' }).waitFor()
+    await shot(page, `${label}-sign-in`)
+    await page.getByRole('button', { name: 'Sign in with USF ID' }).click()
+    await page.getByRole('button', { name: 'Build your own burrito or bowl', exact: true }).waitFor()
+    await shot(page, `${label}-menu`)
+    await page.getByRole('button', { name: 'Build your own burrito or bowl', exact: true }).click()
+    await page.getByRole('button', { name: 'Choose burrito or bowl' }).waitFor()
+    await shot(page, `${label}-builder`)
+    await page.getByRole('button', { name: 'Back to menu' }).click()
+    await page.getByRole('button', { name: 'Add Chicken bacon ranch pizza', exact: true }).click()
+    await page.getByRole('button', { name: /^Checkout/ }).click()
+    await page.getByRole('heading', { name: 'Checkout' }).waitFor()
+    await shot(page, `${label}-checkout`)
+    await page.getByRole('button', { name: /^Pay / }).click()
+    await page.locator('.st-number').waitFor()
+    await shot(page, `${label}-confirmation`)
+    await page.goto(base + '#/staff')
+    let gated = false
+    await unlockStaff(page, '.staff-page', async () => {
+      gated = true
+      await shot(page, `${label}-staff-pin`)
+    })
+    check(gated, `${label}: staff view asks for the PIN first`)
+    await page.getByRole('button', { name: 'Add sample order' }).waitFor()
+    await shot(page, `${label}-staff`)
+    await page.goto(base + '#/board')
+    await page.locator('.board-footer').waitFor()
+    await shot(page, `${label}-board`)
+    await page.goto(base + '#/demo')
+    await page.locator('img[alt^="QR code"]').waitFor()
+    await shot(page, `${label}-demo`)
+    await page.goto(base + '#/staff/metrics')
+    await unlockStaff(page, '.dash-page')
+    await page.getByText('Orders today').waitFor()
+    await shot(page, `${label}-metrics`, true)
+    await context.close()
+  }
 
   console.log(`\nAll checks passed. Screenshots in ${OUT}/`)
 } finally {

@@ -49,6 +49,8 @@
 .dash-actions .btn { width: auto; flex: 1 1 160px; min-height: 48px; font-size: 17px; }
 .dash-demo { border-top: 4px solid var(--gold); }
 .dash-message { margin-top: 8px; font-size: 14px; font-weight: 600; color: var(--green); }
+.dash-message.is-alert { color: var(--danger); }
+.dash-empty .btn { width: auto; margin-top: 12px; }
 
 @media (min-width: 900px) {
   .dash-chart-value { display: block; }
@@ -102,7 +104,7 @@
 
 /* Recharts: tooltip card, heatmap, donuts */
 .dash-charts .recharts-wrapper { margin-top: 8px; }
-.dash-charts .recharts-surface:focus, .recharts-wrapper:focus { outline: none; }
+.recharts-wrapper:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
 .dash-chart-empty { padding: 48px 0; text-align: center; }
 .chart-tip { background: #fff; border: 1px solid var(--line-control); border-radius: 0; padding: 8px 12px; font-size: 14px; min-width: 150px; }
 .chart-tip-title { font-weight: 600; margin-bottom: 4px; }
@@ -117,8 +119,8 @@
 .heatmap-hour { font-size: 12px; color: var(--muted); text-align: center; padding-bottom: 2px; }
 .heatmap-day { font-size: 13px; color: var(--text-2); display: flex; align-items: center; }
 .heatmap-cell { position: relative; height: 32px; border-radius: 0; background: #f1f3f2; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; font-variant-numeric: tabular-nums; }
-.heatmap-cell:hover { outline: 2px solid var(--green); outline-offset: -1px; z-index: 2; }
-.heatmap-cell:hover::after {
+.heatmap-cell:hover, .heatmap-cell:focus-visible { outline: 2px solid var(--green); outline-offset: -1px; z-index: 2; }
+.heatmap-cell:hover::after, .heatmap-cell:focus-visible::after {
   content: attr(data-tip); position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
   white-space: nowrap; background: #fff; color: var(--text); border: 1px solid var(--line-control); border-radius: 0;
   padding: 4px 8px; font-size: 12px; font-weight: 600; pointer-events: none;

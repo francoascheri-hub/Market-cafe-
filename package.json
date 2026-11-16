@@ -9,7 +9,8 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "scrape": "node scripts/scrape-menu.mjs",
-    "e2e": "node scripts/e2e-screenshots.mjs"
+    "e2e": "node scripts/e2e-screenshots.mjs",
+    "test:security": "node --test scripts/security/pin.test.mjs scripts/security/rate-limit.test.mjs scripts/security/validate.test.mjs"
   },
   "dependencies": {
     "@upstash/redis": "^1.41.0",

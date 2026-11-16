@@ -28,7 +28,7 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
 
   return (
     <>
-      <main className="page stack-lg">
+      <main id="main" className="page stack-lg">
         <div>
           <button className="st-link" onClick={onBack}>
             <Icon name="back" />
@@ -62,6 +62,11 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
         <section className="stack">
           <h3 className="label">Pickup time</h3>
           {slots[0] && isTomorrow(slots[0]) && <p className="muted">The café is closed now, so this is a pre-order for tomorrow</p>}
+          {slots.length === 0 && (
+            <p className="field-error" role="alert">
+              No pickup times left in this service
+            </p>
+          )}
           <div className="st-grid">
             {slots.map((d, i) => (
               <button
@@ -94,24 +99,35 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
         </section>
       </main>
       <div className="bottom-bar">
+        {error && (
+          <p id="pay-error" className="field-error" role="alert">
+            {error}
+          </p>
+        )}
         <button
           className="btn"
-          disabled={lines.length === 0 || paying}
+          disabled={lines.length === 0 || paying || !slots[slot]}
+          aria-busy={paying}
+          aria-describedby={error ? 'pay-error' : undefined}
           onClick={async () => {
+            const when = slots[slot]
+            if (!when) return
             setPaying(true)
             setError('')
             try {
-              const order = await placeOrder({ student, lines, pickupAt: slots[slot].toISOString(), payment })
+              const order = await placeOrder({ student, lines, pickupAt: when.toISOString(), payment })
               onPlaced(order.id)
-            } catch {
-              setError('Could not send your order. Check your connection and try again.')
+            } catch (err) {
+              const msg = err instanceof Error ? err.message : ''
+              setError(
+                /^(Too many|The café)/.test(msg) ? msg : "Couldn't send your order. Check your connection and try again.",
+              )
               setPaying(false)
             }
           }}
         >
           {paying ? 'Sending order…' : `Pay ${total} with USF ID`}
         </button>
-        {error && <p className="st-error">{error}</p>}
       </div>
     </>
   )

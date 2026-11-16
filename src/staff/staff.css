@@ -5,6 +5,7 @@
 .staff-slot { display: flex; align-items: baseline; gap: 12px; font-size: 22px; }
 .staff-slot .muted { font-family: 'Open Sans', sans-serif; }
 .staff-empty { color: var(--text-2); }
+.staff-alert { margin: 0 0 16px; color: var(--danger); font-weight: 600; }
 .staff-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -45,3 +46,25 @@
 .staff-live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
 .text-btn { min-height: 44px; background: none; border: 0; border-radius: var(--radius); padding: 0; color: var(--green); font-size: 14px; font-weight: 600; }
 .text-btn:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Staff PIN gate: one field, same input look as the student sign-in */
+.staff-gate { max-width: 420px; padding-bottom: 48px; }
+.staff-gate-title { font-size: 28px; letter-spacing: -0.01em; }
+.staff-gate-lede { margin-top: 12px; color: var(--text-2); }
+.staff-gate-field { display: block; font-weight: 600; font-size: 14px; color: var(--text-2); }
+.staff-gate-input {
+  display: block;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 8px;
+  padding: 0 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+.staff-gate-input:focus-visible { outline: none; border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
+.staff-gate-input[aria-invalid] { border-color: var(--danger); }

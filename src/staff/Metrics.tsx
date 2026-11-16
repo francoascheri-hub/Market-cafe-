@@ -23,6 +23,7 @@ import {
 import { download, ordersCsv, summaryCsv } from '../dashboard/csv'
 import { demoOrders } from '../dashboard/seed'
 import { useAllOrders } from '../dashboard/useAllOrders'
+import SyncBanner from '../SyncBanner'
 import { clearSampleOrders, seedSampleOrders } from '../store'
 import './metrics.css'
 
@@ -133,11 +134,12 @@ function TopItems({ ranking, stations, itemsSold }: { ranking: Row[]; stations: 
 }
 
 export default function Metrics() {
-  const { orders: all, loaded, refresh } = useAllOrders()
+  const { orders: all, loaded, error, refresh } = useAllOrders()
   const [range, setRange] = useState<Range>('today')
   const [includeSample, setIncludeSample] = useState(true)
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState('')
+  const [messageAlert, setMessageAlert] = useState(false)
 
   // "Today" moves on by itself: re-check the clock once a minute (data changes re-render anyway).
   const [now, setNow] = useState(() => new Date())
@@ -164,11 +166,17 @@ export default function Metrics() {
   async function run(action: () => Promise<string>) {
     setBusy(true)
     setMessage('')
+    setMessageAlert(false)
     try {
       setMessage(await action())
       await refresh()
-    } catch {
-      setMessage('That didn’t work. Check the connection and try again.')
+    } catch (err) {
+      setMessageAlert(true)
+      setMessage(
+        err instanceof Error && /^(Too many|Staff PIN)/.test(err.message)
+          ? err.message
+          : "That didn't work. Check the connection and try again.",
+      )
     } finally {
       setBusy(false)
     }
@@ -194,7 +202,8 @@ export default function Metrics() {
           <a href="#/board">Ready board</a>
         </nav>
       </header>
-      <main className="dash-page">
+      <SyncBanner loading={false} />
+      <main id="main" className="dash-page">
         <div className="dash-toolbar">
           <div className="dash-range" role="group" aria-label="Date range">
             {RANGES.map((r) => (
@@ -217,10 +226,24 @@ export default function Metrics() {
           Dates and hours are by pickup time.
         </p>
 
-        {!loaded ? (
-          <p className="muted">Loading orders…</p>
+        {!loaded && error ? (
+          <div className="card dash-empty" role="alert">
+            <p>We couldn't load orders. Check the connection and try again.</p>
+            <button type="button" className="btn outline" onClick={() => refresh()}>
+              Try again
+            </button>
+          </div>
+        ) : !loaded ? (
+          <p className="muted" role="status">
+            Loading orders
+          </p>
         ) : (
           <>
+            {error && (
+              <p className="field-error" role="alert">
+                Couldn't refresh. Showing the last orders we loaded.
+              </p>
+            )}
             <div className="dash-kpis">
               <Kpi name={range === 'today' ? 'Orders today' : 'Orders'} value={String(s.orders)} note={`${plural(s.pickedUp, 'order')} picked up`} />
               <Kpi
@@ -406,7 +429,7 @@ export default function Metrics() {
                 </div>
                 <p className="muted">Seeding replaces existing sample orders. {plural(totalSamples, 'sample order')} stored now.</p>
                 {message && (
-                  <p className="dash-message" role="status">
+                  <p className={`dash-message${messageAlert ? ' is-alert' : ''}`} role={messageAlert ? 'alert' : 'status'}>
                     {message}
                   </p>
                 )}

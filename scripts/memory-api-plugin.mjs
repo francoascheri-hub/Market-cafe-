@@ -16,6 +16,11 @@ export function memoryKv() {
       setTimeout(() => data.get(k) === JSON.stringify(v) && data.delete(k), px)
       return 'OK'
     },
+    async pexpire(k, ms) {
+      if (!data.has(k)) return 0
+      setTimeout(() => data.delete(k), ms).unref?.()
+      return 1
+    },
     async del(...ks) { return ks.filter((k) => data.delete(k)).length },
     async hgetall(k) {
       const h = data.get(k)

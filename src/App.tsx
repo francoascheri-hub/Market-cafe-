@@ -1,8 +1,10 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState, type ReactNode } from 'react'
 import StudentApp from './student/StudentApp'
-import StaffView from './staff/StaffView'
-import ReadyBoard from './board/ReadyBoard'
-import DemoPage from './demo/DemoPage'
+
+const StaffView = lazy(() => import('./staff/StaffView'))
+const StaffGate = lazy(() => import('./staff/StaffGate'))
+const ReadyBoard = lazy(() => import('./board/ReadyBoard'))
+const DemoPage = lazy(() => import('./demo/DemoPage'))
 
 // The dashboard (with its chart library) loads only when opened, so phones get a small student app.
 const Metrics = lazy(() => import('./staff/Metrics'))
@@ -18,16 +20,57 @@ const useHash = () => {
   return hash
 }
 
+function Boot({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <Suspense
+      fallback={
+        <main id="main" className="page" role="status">
+          {label}
+        </main>
+      }
+    >
+      {children}
+    </Suspense>
+  )
+}
+
 export default function App() {
   const hash = useHash()
+  let screen = <StudentApp />
   if (hash.startsWith('#/staff/metrics'))
-    return (
-      <Suspense fallback={<p className="page muted">Loading dashboard…</p>}>
-        <Metrics />
-      </Suspense>
+    screen = (
+      <Boot label="Loading dashboard">
+        <StaffGate>
+          <Metrics />
+        </StaffGate>
+      </Boot>
     )
-  if (hash.startsWith('#/staff')) return <StaffView />
-  if (hash.startsWith('#/demo')) return <DemoPage />
-  if (hash.startsWith('#/board')) return <ReadyBoard />
-  return <StudentApp />
+  else if (hash.startsWith('#/staff'))
+    screen = (
+      <Boot label="Loading staff view">
+        <StaffGate>
+          <StaffView />
+        </StaffGate>
+      </Boot>
+    )
+  else if (hash.startsWith('#/demo'))
+    screen = (
+      <Boot label="Loading class demo">
+        <DemoPage />
+      </Boot>
+    )
+  else if (hash.startsWith('#/board'))
+    screen = (
+      <Boot label="Loading ready board">
+        <ReadyBoard />
+      </Boot>
+    )
+  return (
+    <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+      {screen}
+    </>
+  )
 }
