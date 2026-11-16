@@ -67,6 +67,15 @@ Other commands:
 - `npm run build` makes a production build.
 - `npm run scrape` refreshes the menu (see below).
 
+
+## Browser tab icon
+
+The tab icon is the Bon Appétit "B" in a black circle with the company's light green (`#AADA7B`), the same look as the favicon on `bamco.com`.
+
+- **Official source:** the "B" is the first letter of the vector wordmark in the header of `https://www.bamco.com/` (the inline SVG with `aria-label="Bon Appetit - Home"`). Its colours come from the company's own 32 px favicon, `https://www.bamco.com/wp-content/themes/edesign/webroot/images/favicon.png`.
+- **Why it is built, not downloaded:** Bon Appétit publishes no square mark larger than that 32×32 favicon (the USF café site only has a 16×16 fork-and-knife icon, `https://images.media.cafebonappetit.com/uploads/sites/228/2016/03/favicon-fork-knife-v2.ico`). So the letterform is taken unchanged from the official vector and set in the official favicon's colours. Nothing was redrawn.
+- **Files:** `public/favicon.svg` (the master, vector), `public/favicon.ico` (16, 32 and 48 px), `public/favicon-32.png`, and `public/apple-touch-icon.png` (180 px, a full black square because iOS rounds the corners itself). Each size is rendered straight from the SVG, so none is scaled up from a small bitmap. A preview is in `docs/screenshots/favicon-preview.png`.
+
 ## Class demo script (Monday)
 
 1. **Before class:** open `/#/staff` and tap **Reset demo** so numbering starts at #201. Open `/#/board` on a second screen or tab and `/#/staff` on a laptop.
