@@ -9,7 +9,7 @@ export interface OrdersBackend {
    * Start syncing the live orders (not picked up, or created in the last 12 h; no seeded samples).
    * Calls onChange with that list now and on every change. Returns a stop function.
    */
-  connect(onChange: (orders: Order[]) => void): () => void
+  connect(onChange: (orders: Order[]) => void, onStatus?: (ok: boolean) => void): () => void
   /** Every order incl. history and seeded samples (staff dashboard only; heavier than connect). */
   loadAll(): Promise<Order[]>
   /** Stores seeded demo orders as given (timestamps kept), always as picked-up samples numbered #1001+. */

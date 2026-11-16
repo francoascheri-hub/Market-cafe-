@@ -20,6 +20,7 @@ const LINKS = [
 export default function DemoPage() {
   const [url] = useState(getTargetUrl)
   const [qrSrc, setQrSrc] = useState<string | null>(null)
+  const [qrError, setQrError] = useState(false)
 
   useEffect(() => {
     let cancelled = false
@@ -28,9 +29,13 @@ export default function DemoPage() {
       margin: 2,
       width: 800,
       color: { dark: '#00543C', light: '#FFFFFF' },
-    }).then((src) => {
-      if (!cancelled) setQrSrc(src)
     })
+      .then((src) => {
+        if (!cancelled) setQrSrc(src)
+      })
+      .catch(() => {
+        if (!cancelled) setQrError(true)
+      })
     return () => {
       cancelled = true
     }
@@ -48,12 +53,14 @@ export default function DemoPage() {
         <span className="demo-tag">Class demo · USF BENI-349</span>
       </header>
 
-      <main className="demo-main">
+      <main id="main" className="demo-main">
         <section className="card demo-qr-card">
           {qrSrc ? (
-            <img className="demo-qr" src={qrSrc} alt="QR code to open the Market Café Pre-Order app" />
+            <img className="demo-qr" src={qrSrc} width={800} height={800} alt="QR code to open the Market Café Pre-Order app" />
           ) : (
-            <div className="demo-qr" aria-hidden="true" />
+            <div className="demo-qr demo-qr-pending" role="status">
+              {qrError ? "The code didn't draw. Use a link below." : 'Drawing the code'}
+            </div>
           )}
           <p className="demo-url">{displayUrl}</p>
         </section>

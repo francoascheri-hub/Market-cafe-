@@ -16,11 +16,11 @@ const chosen: Promise<OrdersBackend> = (forced ? Promise.resolve(forced === 'api
 export const backendKind = chosen.then((b) => b.kind)
 
 export const backend: Omit<OrdersBackend, 'kind'> = {
-  connect(onChange) {
+  connect(onChange, onStatus) {
     let stop: (() => void) | undefined
     let stopped = false
     chosen.then((b) => {
-      if (!stopped) stop = b.connect(onChange)
+      if (!stopped) stop = b.connect(onChange, onStatus)
     })
     return () => {
       stopped = true

@@ -8,7 +8,7 @@ export default function Confirmation({ order, onBack }: { order: Order; onBack: 
   const current = STEPS.indexOf(order.status) // -1 when picked up
 
   return (
-    <main className="page stack">
+    <main id="main" className="page stack">
       <section className="card st-ticket">
         <p className="muted">Order number</p>
         <div className="st-number">#{order.number}</div>
@@ -24,6 +24,9 @@ export default function Confirmation({ order, onBack }: { order: Order; onBack: 
         </dl>
       </section>
 
+      <p className="sr-only" aria-live="polite">
+        Order {order.number}, cubby {order.cubby}, {STATUS_LABEL[order.status]}
+      </p>
       {order.status === 'picked-up' ? (
         <div className="card st-done">Picked up, enjoy your meal</div>
       ) : (

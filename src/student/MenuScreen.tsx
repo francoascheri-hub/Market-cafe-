@@ -44,7 +44,7 @@ export default function MenuScreen({ daypart, cart, setCart, activeOrder, onOpen
 
   return (
     <>
-      <main className="page stack">
+      <main id="main" className="page stack">
         {activeOrder && (
           <button className="card st-active" onClick={() => onOpenOrder(activeOrder.id)}>
             <span className="st-row-main">

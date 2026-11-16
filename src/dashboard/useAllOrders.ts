@@ -9,13 +9,15 @@ const REFRESH_MS = 10_000
 export function useAllOrders() {
   const live = useOrders()
   const [history, setHistory] = useState<Order[] | null>(null)
+  const [error, setError] = useState(false)
 
   const refresh = useCallback(async () => {
     if (document.visibilityState !== 'visible') return
     try {
       setHistory(await loadAllOrders())
+      setError(false)
     } catch {
-      // offline for a moment: keep the last list
+      setError(true)
     }
   }, [])
 
@@ -35,5 +37,5 @@ export function useAllOrders() {
     return [...byId.values()]
   }, [history, live])
 
-  return { orders, loaded: history !== null, refresh }
+  return { orders, loaded: history !== null, error, refresh }
 }

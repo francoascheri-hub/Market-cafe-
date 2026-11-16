@@ -30,9 +30,10 @@ export function localBackend(): OrdersBackend {
 
   return {
     kind: 'local',
-    connect(onChange) {
+    connect(onChange, onStatus) {
       listeners.add(onChange)
       onChange(live(read()))
+      onStatus?.(true)
       return () => listeners.delete(onChange)
     },
     async insert(draft: NewOrder) {

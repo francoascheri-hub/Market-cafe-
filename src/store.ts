@@ -19,11 +19,27 @@ const subscribe = (l: () => void) => {
 // --- Orders (from the backend) ---
 let orders: Order[] = []
 let loaded = false
-backend.connect((next) => {
-  orders = next
-  loaded = true
+// null while the list is healthy. 'offline' = no network. 'down' = the service didn't answer.
+export type SyncProblem = 'offline' | 'down' | null
+let problem: SyncProblem = null
+const setProblem = (next: SyncProblem) => {
+  if (problem === next) return
+  problem = next
   emit()
-})
+}
+backend.connect(
+  (next) => {
+    orders = next
+    loaded = true
+    if (navigator.onLine) setProblem(null)
+    emit()
+  },
+  (ok) => {
+    if (ok) {
+      if (navigator.onLine) setProblem(null)
+    } else setProblem(navigator.onLine ? 'down' : 'offline')
+  },
+)
 // Which backend is in use: 'api' (shared, live) or 'local' (this browser only); null while deciding.
 let kind: 'local' | 'api' | null = null
 kindPromise.then((k) => {
@@ -36,6 +52,12 @@ export const getOrders = () => orders
 export const useOrders = () => useSyncExternalStore(subscribe, getOrders)
 /** False until the backend has delivered the first order list. */
 export const useOrdersLoaded = () => useSyncExternalStore(subscribe, () => loaded)
+export const useSyncProblem = () => useSyncExternalStore(subscribe, () => problem)
+
+window.addEventListener('offline', () => setProblem('offline'))
+window.addEventListener('online', () => {
+  if (problem === 'offline') setProblem(null)
+})
 
 // --- Signed-in student (this device only) ---
 let cachedStudentRaw: string | null = null

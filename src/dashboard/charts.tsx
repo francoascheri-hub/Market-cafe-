@@ -192,7 +192,7 @@ export function Heatmap({ days, hours }: { days: WeekDay[]; hours: number[] }) {
                   role="cell"
                   className="heatmap-cell"
                   data-tip={`${d.label}, ${hourLabel(h)}: ${n} ${n === 1 ? 'order' : 'orders'}`}
-                  style={{ background: n ? `rgba(0, 84, 60, ${0.1 + 0.9 * t})` : undefined, color: t > 0.45 ? '#fff' : COLORS.ink }}
+                  style={{ background: n ? `rgba(0, 84, 60, ${0.1 + 0.9 * t})` : undefined, color: t > 0.72 ? '#fff' : COLORS.ink }}
                 >
                   {n || ''}
                 </span>

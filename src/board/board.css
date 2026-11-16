@@ -32,6 +32,7 @@
   overflow: hidden;
 }
 .board-empty { font-size: clamp(20px, 3vw, 52px); color: var(--muted); text-align: center; margin: 12vh 0; }
+.board-sync { margin: 0 0 2vh; text-align: center; font-size: clamp(16px, 2vw, 28px); font-weight: 600; color: var(--danger); }
 
 /* Overflow and in-progress numbers: one quiet line under the tiles */
 .board-preparing {

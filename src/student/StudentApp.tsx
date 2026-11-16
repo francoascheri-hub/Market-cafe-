@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { daypartFor } from '../menu'
+import SyncBanner from '../SyncBanner'
 import { signOut, useOrders, useStudent } from '../store'
 import { type Cart, EMPTY_CART, cartLines } from './cart'
 import SignIn from './SignIn'
@@ -22,6 +23,14 @@ export default function StudentApp() {
     setStep(s)
     window.scrollTo(0, 0)
   }
+
+  useEffect(() => {
+    if (step === 'menu') return
+    const target = document.querySelector<HTMLElement>(step === 'confirm' ? '.st-number' : 'h2.st-title')
+    if (!target) return
+    target.tabIndex = -1
+    target.focus()
+  }, [step])
 
   const activeOrder = student
     ? orders.filter((o) => o.student.usfId === student.usfId && o.status !== 'picked-up').at(-1)
@@ -95,6 +104,7 @@ export default function StudentApp() {
           </button>
         )}
       </header>
+      <SyncBanner showLocal narrow />
       {screen}
     </>
   )

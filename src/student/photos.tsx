@@ -6,9 +6,11 @@ export function MenuStrip() {
     <div className="st-strip">
       <figure>
         <img
-          src="/photos/photo-m187311853-1200.webp"
-          width="1200"
-          height="800"
+          src="/photos/photo-m187311853-800.webp"
+          srcSet="/photos/photo-m187311853-480.webp 480w, /photos/photo-m187311853-800.webp 800w, /photos/photo-m187311853-1200.webp 1200w"
+          sizes="(max-width: 600px) 46vw, 250px"
+          width="800"
+          height="533"
           alt="A barista's hands tamping ground coffee in a portafilter beside an espresso machine"
           loading="lazy"
           decoding="async"
@@ -21,7 +23,7 @@ export function MenuStrip() {
         <img
           src="/photos/photo-m201752739-960.webp"
           srcSet="/photos/photo-m201752739-500.webp 500w, /photos/photo-m201752739-960.webp 960w"
-          sizes="240px"
+          sizes="(max-width: 600px) 46vw, 250px"
           width="960"
           height="1434"
           alt="Milk steamed into a red pitcher at the machine, hands only"

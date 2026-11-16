@@ -110,6 +110,7 @@
   transition: background-color 140ms var(--ease), border-color 140ms var(--ease);
 }
 .st-qty button:hover { background: var(--green-tint); border-color: var(--green); }
+.st-qty button:active { transform: scale(0.96); }
 .st-qty button.st-add,
 .st-build-btn { background: var(--green); border-color: var(--green); color: #fff; }
 .st-qty button.st-add:hover,
@@ -172,9 +173,10 @@
   text-align: center;
   font-weight: 600;
   font-size: 14px;
+  transition: border-color 180ms var(--ease), color 180ms var(--ease);
 }
 .st-step.done { border-color: var(--green); color: var(--text-2); }
 .st-step.current { border-color: var(--green); color: var(--green); }
-.st-banner { background: var(--gold); border-radius: var(--radius-card); padding: 16px; font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.3; }
+.st-banner { background: var(--gold); border-radius: var(--radius-card); padding: 16px; font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 22px; line-height: 1.3; animation: enter 280ms var(--ease) both; }
 .st-howto { color: var(--text-2); }
 .st-error { color: var(--danger); font-size: 14px; margin: 8px 0 0; text-align: center; }

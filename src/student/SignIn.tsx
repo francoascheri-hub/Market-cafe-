@@ -7,9 +7,12 @@ export default function SignIn() {
   const [name, setName] = useState('Maya')
   const [usfId, setUsfId] = useState('20481234')
   const valid = name.trim() !== '' && /^\d{8}$/.test(usfId)
+  const nameError = name.trim() === '' ? 'Enter a name' : ''
+  const idError = /^\d{8}$/.test(usfId) ? '' : 'USF ID is 8 digits'
 
   return (
     <form
+      id="main"
       className="page stack-lg"
       onSubmit={(e) => {
         e.preventDefault()
@@ -42,8 +45,20 @@ export default function SignIn() {
       <div className="stack">
         <label className="st-field">
           Name
-          <input className="st-input" value={name} onChange={(e) => setName(e.target.value)} autoComplete="given-name" />
+          <input
+            className="st-input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            autoComplete="given-name"
+            aria-invalid={nameError ? true : undefined}
+            aria-describedby={nameError ? 'name-error' : undefined}
+          />
         </label>
+        {nameError && (
+          <p id="name-error" className="field-error" role="alert">
+            {nameError}
+          </p>
+        )}
         <label className="st-field">
           USF ID
           <input
@@ -51,10 +66,19 @@ export default function SignIn() {
             value={usfId}
             onChange={(e) => setUsfId(e.target.value.replace(/\D/g, '').slice(0, 8))}
             inputMode="numeric"
-            aria-describedby="usf-id-hint"
+            autoComplete="off"
+            aria-invalid={idError ? true : undefined}
+            aria-describedby={idError ? 'usf-id-hint usf-id-error' : 'usf-id-hint'}
           />
         </label>
-        <p id="usf-id-hint" className="muted st-hint">8 digits</p>
+        <p id="usf-id-hint" className="muted st-hint">
+          8 digits
+        </p>
+        {idError && (
+          <p id="usf-id-error" className="field-error" role="alert">
+            {idError}
+          </p>
+        )}
       </div>
       <div className="stack">
         <button className="btn" type="submit" disabled={!valid}>

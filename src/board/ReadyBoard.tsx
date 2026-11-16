@@ -1,9 +1,11 @@
-import { useOrders } from '../store'
+import { useOrders, useOrdersLoaded, useSyncProblem } from '../store'
 import './board.css'
 
 const MAX_TILES = 8 // two rows on a 1280×720 TV; the rest are listed in the "Also ready" line
 
 export default function ReadyBoard() {
+  const loaded = useOrdersLoaded()
+  const problem = useSyncProblem()
   const orders = [...useOrders()].sort((a, b) => a.number - b.number)
   const ready = orders.filter((o) => o.status === 'ready')
   const preparing = orders.filter((o) => o.status === 'received' || o.status === 'preparing')
@@ -13,10 +15,24 @@ export default function ReadyBoard() {
       <header className="header board-header">
         <h1>Ready for pickup</h1>
       </header>
-      <main className="board-main">
-        {ready.length === 0 ? (
-          <p className="board-empty">No orders ready yet</p>
-        ) : (
+      <main id="main" className="board-main">
+        {problem === 'offline' && (
+          <p className="board-sync" role="alert">
+            You're offline. The queue will catch up when you're back.
+          </p>
+        )}
+        {problem === 'down' && (
+          <p className="board-sync" role="alert">
+            The order service isn't answering. We'll keep trying.
+          </p>
+        )}
+        {!loaded && !problem && (
+          <p className="board-empty" role="status">
+            Checking the queue
+          </p>
+        )}
+        {loaded && ready.length === 0 && <p className="board-empty">No orders ready yet</p>}
+        {loaded && ready.length > 0 && (
           <div className="board-grid">
             {ready.slice(0, MAX_TILES).map((o) => (
               <div key={o.id} className="board-tile">

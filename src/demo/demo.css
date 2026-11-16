@@ -15,7 +15,18 @@
 .demo-qr {
   display: block;
   width: clamp(280px, min(calc(100vh - 200px), 44vw), 640px);
+  height: auto;
   aspect-ratio: 1;
+}
+.demo-qr-pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  background: var(--raised);
+  color: var(--text-2);
+  font-weight: 600;
 }
 .demo-url {
   margin: 8px 0 0;

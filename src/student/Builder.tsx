@@ -71,7 +71,7 @@ export default function Builder({ onBack, onAdd }: Props) {
 
   return (
     <>
-      <main className="page stack-lg">
+      <main id="main" className="page stack-lg">
         <div>
           <button className="st-link" onClick={onBack}>
             <Icon name="back" />
