@@ -95,6 +95,7 @@ export function placeOrder(input: {
   lines: OrderLine[]
   pickupAt: string
   payment: PaymentMethod
+  note?: string
   sample?: boolean
 }): Promise<Order> {
   return backend.insert({

@@ -30,6 +30,7 @@ export interface OrderDraft {
   pickupAt: string
   payment: PaymentMethod
   total: number
+  note?: string // optional allergy / special request, plain text
 }
 
 export interface SampleDraft extends OrderDraft {
@@ -175,7 +176,23 @@ function parseStudent(raw: unknown): Student | null {
   return { name, usfId: raw.usfId }
 }
 
-/** id, student, lines, pickupAt (any valid date), payment. */
+export const MAX_NOTE = 140
+
+/**
+ * Optional allergy / special request. Plain text only: control characters (newlines, tabs, escapes)
+ * become spaces, the result is trimmed, and anything over 140 characters or not a string is rejected.
+ * Returns undefined for "no note" and null for an invalid one.
+ */
+function parseNote(raw: unknown): string | undefined | null {
+  if (raw === undefined) return undefined
+  if (typeof raw !== 'string') return null
+  // eslint-disable-next-line no-control-regex -- stripping control characters is the point
+  const note = raw.replace(/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/g, ' ').trim()
+  if (note.length > MAX_NOTE) return null
+  return note || undefined
+}
+
+/** id, student, lines, pickupAt (any valid date), payment, optional note. */
 function parseCore(o: Record<string, unknown>): OrderDraft | null {
   if (typeof o.id !== 'string' || o.id.length < 1 || o.id.length > 80) return null
   const student = parseStudent(o.student)
@@ -183,12 +200,14 @@ function parseCore(o: Record<string, unknown>): OrderDraft | null {
   const pickupAt = isoOf(o.pickupAt)
   if (!student || !lines || !pickupAt) return null
   if (o.payment !== 'dons-dollars' && o.payment !== 'flexi') return null
-  return { id: o.id, student, lines, pickupAt, payment: o.payment, total: linesTotal(lines) }
+  const note = parseNote(o.note)
+  if (note === null) return null
+  return { id: o.id, student, lines, pickupAt, payment: o.payment, total: linesTotal(lines), ...(note ? { note } : {}) }
 }
 
 // --- Student / staff-sample POST ---
 
-const STUDENT_KEYS_TOP = new Set(['id', 'student', 'lines', 'pickupAt', 'payment'])
+const STUDENT_KEYS_TOP = new Set(['id', 'student', 'lines', 'pickupAt', 'payment', 'note'])
 // Staff "Add sample order" sends the whole draft; these extra keys are ignored (sample must be true).
 const SAMPLE_KEYS_TOP = new Set([...STUDENT_KEYS_TOP, 'sample', 'status', 'cubby', 'total', 'createdAt'])
 
@@ -230,7 +249,7 @@ export function parseStaffPatch(value: unknown): { ok: true; patch: { status?: O
 
 const BULK_ORDER_KEYS = new Set([
   'id', 'student', 'lines', 'pickupAt', 'payment', 'total', 'status',
-  'createdAt', 'startedAt', 'readyAt', 'pickedUpAt', 'sample', 'cubby',
+  'createdAt', 'startedAt', 'readyAt', 'pickedUpAt', 'sample', 'cubby', 'note',
 ])
 const TIMESTAMPS = ['createdAt', 'startedAt', 'readyAt', 'pickedUpAt'] as const
 

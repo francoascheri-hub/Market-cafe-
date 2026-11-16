@@ -147,6 +147,7 @@ export function createHandlers(getKv: () => Kv | null = redisFromEnv) {
             total: d.total,
             pickupAt: d.pickupAt,
             payment: d.payment,
+            ...(d.note ? { note: d.note } : {}),
             status: d.status, // seeded no-shows stay "ready"
             cubby: 1,
             createdAt: d.createdAt ?? new Date().toISOString(),
@@ -189,6 +190,7 @@ export function createHandlers(getKv: () => Kv | null = redisFromEnv) {
           total: draft.total,
           pickupAt: draft.pickupAt,
           payment: draft.payment,
+          ...(draft.note ? { note: draft.note } : {}),
           status: 'received',
           cubby,
           createdAt: new Date().toISOString(),

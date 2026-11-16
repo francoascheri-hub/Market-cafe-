@@ -49,6 +49,18 @@ const LAST = 'ABCDEFGHJKLMNPRSTVW'
 const toMin = (hhmm: string) => Number(hhmm.slice(0, 2)) * 60 + Number(hhmm.slice(3))
 const daypartAt = (m: number): Daypart | undefined => menu.dayparts.find((d) => toMin(d.start) <= m && m <= toMin(d.end))
 
+// A few realistic special requests (about 1 in 12 sample orders carries one).
+const NOTES = [
+  'No cheese, please',
+  'Peanut allergy',
+  'Gluten free if possible',
+  'Dairy-free, no sour cream',
+  'Sauce on the side',
+  'No onions',
+  'Vegetarian: please use clean utensils',
+  'Extra napkins, running to class!',
+]
+
 const pick = <T,>(list: T[]) => list[Math.floor(Math.random() * list.length)]
 // Earlier items on a station list sell a bit more.
 const pickItem = <T,>(list: T[]) => weighted(list.map((x, i) => [x, 1 / (1 + 0.15 * i)] as const))
@@ -130,6 +142,7 @@ function orderAt(day: Date, special: string): NewOrder | null {
     total: Math.round(lines.reduce((sum, l) => sum + l.price * l.qty, 0) * 100) / 100,
     pickupAt: pickup.toISOString(),
     payment,
+    ...(chance(0.08) ? { note: pick(NOTES) } : {}),
     status: noShow ? 'ready' : 'picked-up',
     cubby: 1 + Math.floor(Math.random() * 24),
     createdAt: created.toISOString(),

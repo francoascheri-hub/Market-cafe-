@@ -59,6 +59,13 @@ export default function Confirmation({ order, onBack }: { order: Order; onBack: 
         ))}
       </section>
 
+      {order.note && (
+        <section className="card stack st-note-card">
+          <h2 className="label">Your note to the kitchen</h2>
+          <p className="st-note-text">{order.note}</p>
+        </section>
+      )}
+
       <p className="st-howto">Walk in, grab your order from cubby {order.cubby}, go to class</p>
       <button className="btn outline" onClick={onBack}>
         Back to menu

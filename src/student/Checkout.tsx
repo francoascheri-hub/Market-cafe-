@@ -10,6 +10,8 @@ const PAYMENTS: { id: PaymentMethod; label: string; balance: string }[] = [
   { id: 'flexi', label: 'Flexi', balance: 'Balance $86.25 (demo)' },
 ]
 
+const NOTE_MAX = 140
+
 interface Props {
   student: Student
   lines: OrderLine[]
@@ -21,6 +23,7 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
   const [slots] = useState(() => pickupSlots(6))
   const [slot, setSlot] = useState(0)
   const [payment, setPayment] = useState<PaymentMethod>('dons-dollars')
+  const [note, setNote] = useState('')
   const [paying, setPaying] = useState(false)
   const [error, setError] = useState('')
   const hasExample = lines.some((l) => l.priceSource === 'example')
@@ -97,6 +100,27 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
           </div>
           <div className="muted">{PAYMENTS.find((p) => p.id === payment)?.balance}</div>
         </section>
+
+        <section className="st-note-field">
+          <label className="label" htmlFor="order-note">
+            Allergies or special request? <span className="label-note">Optional</span>
+          </label>
+          <textarea
+            id="order-note"
+            className="st-input st-textarea"
+            rows={3}
+            maxLength={NOTE_MAX}
+            value={note}
+            placeholder="e.g. no cheese, peanut allergy"
+            aria-describedby="order-note-count"
+            onChange={(e) => setNote(e.target.value)}
+            // Browsers don't scroll a half-visible field; centre it so the sticky pay bar never covers it.
+            onFocus={(e) => e.currentTarget.scrollIntoView({ block: 'center' })}
+          />
+          <p id="order-note-count" className={`st-note-count${note.length >= NOTE_MAX ? ' is-full' : ''}`}>
+            {note.length}/{NOTE_MAX}
+          </p>
+        </section>
       </main>
       <div className="bottom-bar">
         {error && (
@@ -115,7 +139,7 @@ export default function Checkout({ student, lines, onBack, onPlaced }: Props) {
             setPaying(true)
             setError('')
             try {
-              const order = await placeOrder({ student, lines, pickupAt: when.toISOString(), payment })
+              const order = await placeOrder({ student, lines, pickupAt: when.toISOString(), payment, note: note.trim() || undefined })
               onPlaced(order.id)
             } catch (err) {
               const msg = err instanceof Error ? err.message : ''

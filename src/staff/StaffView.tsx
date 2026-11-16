@@ -3,6 +3,7 @@ import SyncBanner from '../SyncBanner'
 import { CUBBY_COUNT, placeOrder, resetDemo, updateOrder, useBackendKind, useOrders, useOrdersLoaded, useSyncProblem } from '../store'
 import { daypartFor, formatTime, menu, pickupSlots } from '../menu'
 import type { Order, OrderLine, OrderStatus } from '../types'
+import { Icon } from '../student/icons'
 import './staff.css'
 
 /** Rate-limit and PIN errors are worth showing as-is; anything else gets the generic sentence. */
@@ -79,6 +80,15 @@ function OrderCard({ order, usedCubbies, onFail }: { order: Order; usedCubbies: 
           </li>
         ))}
       </ul>
+      {order.note && (
+        <div className="staff-note" role="note">
+          <Icon name="alert" />
+          <div>
+            <strong>Special request</strong>
+            <p>{order.note}</p>
+          </div>
+        </div>
+      )}
       <div className="staff-meta">
         <span className={`staff-status is-${order.status}`}>{STATUS_TEXT[order.status]}</span>
         <label className="staff-cubby">

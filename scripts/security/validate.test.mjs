@@ -156,3 +156,38 @@ test('oversized body gets 413 with no stack', async () => {
   assert.equal(JSON.parse(text).error, 'That request is too large.')
   assert.ok(!/stack|at \w+ \(|\.ts:\d/.test(text))
 })
+
+// --- Optional allergy / special request note ---
+
+test('a note is stored trimmed, with control characters stripped, as plain text', async () => {
+  const note = '  no cheese,\nplease\u0000\u001b[31m <b>peanut</b> allergy\t '
+  const res = await post(studentOrder(PIZZA, { note }))
+  assert.equal(res.status, 201)
+  const order = await res.json()
+  // newlines/escapes become spaces; the HTML is kept as inert text (it is rendered as text, never as HTML)
+  assert.equal(order.note, 'no cheese, please  [31m <b>peanut</b> allergy')
+  assert.ok([...order.note].every((ch) => ch.charCodeAt(0) > 31))
+  const stored = (await liveOrders()).find((o) => o.id === order.id)
+  assert.equal(stored.note, order.note)
+})
+
+test('exactly 140 characters is accepted; 141 is rejected and never stored', async () => {
+  assert.equal((await post(studentOrder(PIZZA, { note: 'a'.repeat(140) }))).status, 201)
+  const body = studentOrder(PIZZA, { note: 'a'.repeat(141) })
+  const res = await post(body)
+  assert.equal(res.status, 400)
+  assert.ok(!(await liveOrders()).some((o) => o.id === body.id))
+})
+
+test('forged notes are rejected: wrong type, and a note on an unknown key', async () => {
+  for (const note of [42, { $gt: '' }, ['a'], null, true]) {
+    assert.equal((await post(studentOrder(PIZZA, { note }))).status, 400, JSON.stringify(note))
+  }
+  assert.equal((await post(studentOrder(PIZZA, { notes: 'x' }))).status, 400)
+})
+
+test('a blank note is simply not stored', async () => {
+  const res = await post(studentOrder(PIZZA, { note: '   \n\t ' }))
+  assert.equal(res.status, 201)
+  assert.equal('note' in (await res.json()), false)
+})

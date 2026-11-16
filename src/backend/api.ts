@@ -100,10 +100,10 @@ export function apiBackend(): OrdersBackend {
     },
     async insert(draft: NewOrder) {
       // Staff samples keep the full draft; a student order sends only what the server accepts.
-      const { id, student, lines, pickupAt, payment } = draft
+      const { id, student, lines, pickupAt, payment, note } = draft
       const order = draft.sample
         ? await call<Order>('POST', '', draft, true)
-        : await call<Order>('POST', '', { id, student, lines, pickupAt, payment })
+        : await call<Order>('POST', '', { id, student, lines, pickupAt, payment, ...(note ? { note } : {}) })
       publish([...orders.filter((o) => o.id !== order.id), order])
       poll()
       return order

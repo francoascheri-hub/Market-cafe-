@@ -71,8 +71,8 @@ Other commands:
 
 1. **Before class:** open `/#/staff` and tap **Reset demo** so numbering starts at #201. Open `/#/board` on a second screen or tab and `/#/staff` on a laptop.
 2. **Projector:** open `/#/demo`. Classmates scan the QR code with their phones.
-3. **Students** (their own phones): sign in with any name and an 8-digit ID (mock), add food or **build a burrito or bowl**, tap **Checkout**, pick a pickup slot, and pay with **Dons Dollars** or **Flexi** (mock). Each gets an order number (e.g. **#204**) and a **cubby number**.
-4. **Staff view:** orders appear within about 2 seconds, grouped by pickup slot. Tap **Start preparing**, then **Mark ready**. Each student's phone switches to **READY — grab it from cubby N**, and the number appears on the **ready board**.
+3. **Students** (their own phones): sign in with any name and an 8-digit ID (mock), add food or **build a burrito or bowl**, tap **Checkout**, pick a pickup slot, optionally add an **allergy or special request** (140 characters), and pay with **Dons Dollars** or **Flexi** (mock). Each gets an order number (e.g. **#204**) and a **cubby number**.
+4. **Staff view:** orders appear within about 2 seconds, grouped by pickup slot. Tap **Start preparing**, then **Mark ready**. Each student's phone switches to **READY — grab it from cubby N**, and the number appears on the **ready board**. An order with a note shows a gold **Special request** alert on its card, so the kitchen can't miss it. The public ready board never shows notes.
 5. Tap **Picked up** to free the cubby.
 6. **Dashboard** (`/#/staff/metrics`): first show **Today**, which has only the orders placed in class. Then tap **Seed realistic demo day** and switch to **Last 7 days** for a full dashboard. Export **Orders CSV** / **Summary CSV** to open in Excel. Finish with **Clear sample orders**.
 7. Tip: **Add sample order** on the staff view adds labelled sample orders if you need more on screen.

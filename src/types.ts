@@ -76,6 +76,7 @@ export interface Order {
   total: number
   pickupAt: string // ISO time of the pickup slot
   payment: PaymentMethod
+  note?: string // optional allergy / special request from the student (max 140 chars, plain text)
   status: OrderStatus
   cubby: number // numbered pickup shelf, assigned at order time, staff can change
   createdAt: string

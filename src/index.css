@@ -33,11 +33,11 @@
 html { scroll-padding-top: 12px; scroll-padding-bottom: 128px; }
 body { margin: 0; min-height: 100vh; overscroll-behavior-y: contain; }
 button, a, input, select, summary { touch-action: manipulation; }
-button, a, input, select, summary, .st-row { scroll-margin-bottom: 120px; scroll-margin-top: 12px; }
+button, a, input, select, textarea, summary, .st-row { scroll-margin-bottom: 120px; scroll-margin-top: 12px; }
 h1, h2, h3, .heading { font-family: 'Oswald', 'Arial Narrow', sans-serif; font-weight: 500; line-height: 1.15; margin: 0; }
 p { margin: 0; }
 button { font: inherit; color: inherit; cursor: pointer; }
-input, select { font: inherit; color: inherit; }
+input, select, textarea { font: inherit; color: inherit; }
 strong { font-weight: 600; }
 
 :focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }

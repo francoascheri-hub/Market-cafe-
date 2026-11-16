@@ -81,9 +81,32 @@ try {
   await checkout.click()
   await student.getByRole('button', { name: /^12:45/ }).click()
   await shot(student, '3-checkout')
+  const NOTE = 'No cheese, peanut allergy'
+  const noteField = student.getByLabel('Allergies or special request?')
+  check((await noteField.getAttribute('maxlength')) === '140', 'note field is capped at 140 characters')
+  await noteField.fill('x'.repeat(200))
+  check((await noteField.inputValue()).length === 140, 'typing past 140 characters is cut off')
+  check((await student.locator('#order-note-count').textContent()).trim() === '140/140', 'live counter shows 140/140')
+  await noteField.fill(NOTE)
+  check((await student.locator('#order-note-count').textContent()).trim() === `${NOTE.length}/140`, 'live counter follows the text')
+  await student.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
+  const above = async (page) => {
+    const bar = await page.locator('.bottom-bar').boundingBox()
+    const count = await page.locator('#order-note-count').boundingBox()
+    return count.y + count.height <= bar.y
+  }
+  check(await above(student), 'the sticky pay bar does not cover the note counter at the page bottom')
+  // A real tap focuses the field natively: the browser must scroll it fully clear of the sticky bar.
+  await student.evaluate(() => window.scrollTo(0, 0))
+  await noteField.evaluate((el) => { el.blur(); el.focus() })
+  await student.waitForTimeout(300)
+  const fieldBox = await noteField.boundingBox()
+  const barBox = await student.locator('.bottom-bar').boundingBox()
+  check(fieldBox.y + fieldBox.height <= barBox.y, 'focusing the note field scrolls it fully above the pay bar')
   await student.getByRole('button', { name: /^Pay \$17\.10 with USF ID/ }).click()
   await student.getByText('#201').waitFor()
   check(true, 'order #201 placed through /api and confirmation shown')
+  check((await student.locator('.st-note-card').textContent()).includes(NOTE), 'confirmation shows the student their note')
 
   // --- Staff tablet (another device) ---
   const staff = await device(1280, 800)
@@ -96,6 +119,8 @@ try {
     (await card(201).textContent()).includes('Carne asada · Beans · Rice · Guacamole · Lettuce, Cheese'),
     'staff sees the chosen build',
   )
+  check((await card(201).locator('.staff-note').textContent()).includes(NOTE), 'staff card highlights the special request')
+  check((await card(202).locator('.staff-note').count()) === 0, 'orders without a note show no alert')
   for (let i = 0; i < 3; i++) {
     await staff.getByRole('button', { name: 'Add sample order' }).click()
     await card(202 + i).waitFor()
@@ -123,6 +148,7 @@ try {
   const ready = await board.locator('.board-number').allTextContents()
   check(['201', '202', '203'].every((n) => ready.includes(n)), `board shows READY: ${ready.join(', ')}`)
   check((await board.locator('.board-tile', { hasText: '201' }).textContent()).includes('Bowl: Carne asada'), 'board shows the build')
+  check(!(await board.locator('body').textContent()).includes('peanut'), 'the public ready board never shows notes')
   await shot(board, '6-ready-board')
 
   // --- Pickup frees the cubby ---
@@ -219,9 +245,17 @@ try {
     await page.getByRole('button', { name: /^Checkout/ }).click()
     await page.getByRole('heading', { name: 'Checkout' }).waitFor()
     await shot(page, `${label}-checkout`)
+    const loopNote = 'Gluten free please, celiac'
+    await page.getByLabel('Allergies or special request?').fill(loopNote)
+    await page.evaluate(() => window.scrollTo(0, 0))
+    await page.getByLabel('Allergies or special request?').evaluate((el) => { el.blur(); el.focus() })
+    await page.waitForTimeout(300)
+    await shot(page, `${label}-checkout-note`)
     await page.getByRole('button', { name: /^Pay / }).click()
     await page.locator('.st-number').waitFor()
     await shot(page, `${label}-confirmation`)
+    await page.locator('.st-note-card').scrollIntoViewIfNeeded()
+    await shot(page, `${label}-confirmation-note`)
     await page.goto(base + '#/staff')
     let gated = false
     await unlockStaff(page, '.staff-page', async () => {
@@ -231,6 +265,9 @@ try {
     check(gated, `${label}: staff view asks for the PIN first`)
     await page.getByRole('button', { name: 'Add sample order' }).waitFor()
     await shot(page, `${label}-staff`)
+    const noteCard = page.locator('.staff-note', { hasText: loopNote }).first()
+    await noteCard.scrollIntoViewIfNeeded()
+    await shot(page, `${label}-staff-note`)
     await page.goto(base + '#/board')
     await page.locator('.board-footer').waitFor()
     await shot(page, `${label}-board`)
